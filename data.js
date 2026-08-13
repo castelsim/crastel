@@ -27,7 +27,7 @@ const STUDIO = {
     {
       name: "Simone Castellan",
       alias: null,
-      role: "Composizione, sound design, produzione e mix",
+      role: "Composizione, programmazione musicale, sound design e post produzione",
     },
   ],
   email: "info@crastelstudio.com", // [DA VERIFICARE] dominio scaduto: DNS non risolve più
