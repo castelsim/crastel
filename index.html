@@ -193,6 +193,11 @@ form.scheda{display:grid;gap:16px;align-content:start}
 .closebar{display:flex;justify-content:space-between;align-items:center;gap:12px;border-bottom:1px solid var(--line);padding-bottom:10px}
 .closebar button{border:1px solid var(--ink);border-radius:2px;padding:9px 15px;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;min-height:44px}
 .closebar button:hover{background:var(--red);color:var(--paper);border-color:var(--red)}
+.ascolta{margin-top:2px}
+.ascolta .dove{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px}
+.ascolta .dove a{border:1px solid var(--line);border-radius:2px;padding:9px 14px;font-size:12px;font-weight:500;
+ display:inline-flex;align-items:center;min-height:42px;transition:.2s}
+.ascolta .dove a:hover{border-color:var(--red);color:var(--red)}
 .nextup{margin-top:auto;border-top:1px solid var(--line);padding-top:12px}
 .nextup a{display:flex;justify-content:space-between;gap:12px;align-items:baseline;font-family:var(--serif);font-size:18px;font-weight:600}
 .nextup a:hover{color:var(--red)}
@@ -318,6 +323,7 @@ body.locked{overflow:hidden}
       <h3 id="lb-title"></h3>
       <dl id="lb-dl"></dl>
       <p class="desc" id="lb-desc" style="font-size:13.5px;line-height:1.6;color:var(--muted)"></p>
+      <div id="lb-ascolta" class="ascolta"></div>
       <div class="nextup"><span class="cat">Prossima scheda</span><a href="#" id="lb-next"></a></div>
     </div>
   </div>
@@ -424,6 +430,13 @@ function openLB(slug){
   document.getElementById('lb-desc').textContent = w.description;
   document.getElementById('lb-dl').innerHTML = w.credits.map(c=>`<dt>${c[0]}</dt><dd>${c[1]}</dd>`).join('')
     + `<dt>Video</dt><dd>${w.trailer.channel} — canale ufficiale</dd>`;
+  const st = w.soundtrack || {};
+  const ascolti = [];
+  if(st.spotify) ascolti.push(`<a href="${st.spotify}" target="_blank" rel="noopener">Spotify</a>`);
+  if(st.appleMusic) ascolti.push(`<a href="${st.appleMusic}" target="_blank" rel="noopener">Apple Music</a>`);
+  document.getElementById('lb-ascolta').innerHTML = ascolti.length
+    ? `<span class="cat">Ascolta la colonna sonora${st.tracks?` — ${st.tracks} brani`:''}</span><div class="dove">${ascolti.join('')}</div>`
+    : '';
   document.getElementById('lb-video').innerHTML =
     `<iframe src="${embedSrc(w)}" allow="autoplay; encrypted-media; fullscreen" allowfullscreen title="${w.title}"></iframe>`;
   const nx = document.getElementById('lb-next');

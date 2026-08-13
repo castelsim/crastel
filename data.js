@@ -33,6 +33,7 @@ const STUDIO = {
   email: "info@crastelstudio.com", // [DA VERIFICARE] dominio scaduto: DNS non risolve più
   links: {
     youtube: "https://www.youtube.com/@crastel3827",     // [CERTO]
+    spotifyMarco: "https://open.spotify.com/artist/6zOh1DcaVttzIVNSjVspeU", // [CERTO] verificato 13/08
     spotify: "https://open.spotify.com/artist/5VxcMXYiq5CqGUnfnWoj9B", // [CERTO]
     facebook: "https://www.facebook.com/crastel",        // [CERTO]
     linktree: "https://linktr.ee/crastel",               // [CERTO]
@@ -197,7 +198,7 @@ const WORKS = [
       // [CERTO] iTunes API: EP 6 tracce, 19/10/2021
       appleMusic:
         "https://music.apple.com/it/album/donnafugata-original-motion-picture-soundtrack-feat/1808211715",
-      spotify: null, // [DA VERIFICARE] id album
+      spotify: "https://open.spotify.com/artist/6zOh1DcaVttzIVNSjVspeU", // [CERTO] profilo di Marco: l'album è lì
       tracks: 6,
       released: "2021",
       cover: "assets/cover-donnafugata.jpg",
