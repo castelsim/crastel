@@ -33,10 +33,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 :focus-visible{outline:2px solid var(--red);outline-offset:2px}
 .cat{font-family:var(--grot);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
 
-/* ---------- masthead da pubblicazione ---------- */
-.masthead{display:flex;justify-content:space-between;gap:14px;padding:10px var(--gut);border-bottom:1px solid var(--line);
- flex-wrap:wrap}
-.masthead span{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+/* ---------- testata ---------- */
 .topnav{position:sticky;top:0;z-index:50;background:var(--paper);border-bottom:2px solid var(--ink);
  display:flex;justify-content:space-between;align-items:center;gap:18px;padding:12px var(--gut)}
 .topnav .logo{font-family:var(--serif);font-weight:700;font-size:20px;letter-spacing:-.01em;font-variation-settings:'opsz' 100}
@@ -47,7 +44,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 @media(max-width:700px){ .topnav nav{gap:14px} .topnav nav a{font-size:11.5px} .topnav .em{display:none} }
 @media(max-width:520px){ .topnav{flex-wrap:wrap;gap:6px;padding:10px var(--gut) 8px}
  .topnav nav{width:100%;justify-content:space-between;gap:8px} .topnav .logo{font-size:18px}
- .masthead{gap:2px} .masthead span:nth-child(3){display:none} }
+ }
 
 /* ---------- hero editoriale ---------- */
 .hero{padding:clamp(26px,5vw,56px) var(--gut) 0}
@@ -73,12 +70,12 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 
 .catalogo-wrap{position:relative}
 /* ---------- griglia catalogo ---------- */
-.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:clamp(18px,2.4vw,34px);padding:clamp(24px,4vw,52px) var(--gut)}
-.card{grid-column:span 4;display:flex;flex-direction:column;border-top:1px solid var(--ink);padding-top:12px}
-.card.wide{grid-column:span 6}
-.card.hero-card{grid-column:span 8}
-@media(max-width:980px){ .card,.card.wide,.card.hero-card{grid-column:span 6} }
-@media(max-width:640px){ .card,.card.wide,.card.hero-card{grid-column:span 12} }
+.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:clamp(16px,1.8vw,26px) clamp(14px,1.6vw,22px);padding:clamp(20px,3vw,40px) var(--gut)}
+.card{grid-column:span 3;display:flex;flex-direction:column;border-top:1px solid var(--ink);padding-top:10px}
+.card.wide,.card.hero-card{grid-column:span 3}
+@media(max-width:1180px){ .card,.card.wide,.card.hero-card{grid-column:span 4} }
+@media(max-width:820px){ .card,.card.wide,.card.hero-card{grid-column:span 6} }
+@media(max-width:430px){ .card,.card.wide,.card.hero-card{grid-column:span 12} }
 
 .card .head{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin-bottom:10px}
 .card .refno{font-size:10.5px;letter-spacing:.14em;color:var(--red);font-weight:600}
@@ -87,30 +84,27 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .card .thumb .lente{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
  background:rgba(23,23,21,.34);opacity:0;transition:opacity .3s}
 .card .thumb:hover .lente,.card .thumb:focus-visible .lente{opacity:1}
-.card .thumb .lente span{display:inline-flex;align-items:center;gap:10px;background:var(--paper);color:var(--red);
- padding:12px 20px;border-radius:2px;font-size:11.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase}
+.card .thumb .lente span{display:inline-flex;align-items:center;gap:8px;background:var(--paper);color:var(--red);
+ padding:9px 13px;border-radius:2px;font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase}
 .card .thumb .lente i{width:0;height:0;border-left:9px solid currentColor;border-top:6px solid transparent;border-bottom:6px solid transparent}
-.card.hero-card .thumb{aspect-ratio:16/8.2}
+
 .card .thumb img{width:100%;height:100%;object-fit:cover;filter:saturate(.8) contrast(1.02);mix-blend-mode:multiply;
  transform:scale(1.02);transition:transform .8s cubic-bezier(.16,1,.3,1), filter .5s, mix-blend-mode .5s}
 .card:hover .thumb img{transform:scale(1.06);filter:none;mix-blend-mode:normal}
-.card .thumb .stamp{position:absolute;top:10px;left:10px;border:1px solid var(--red);color:var(--red);
- background:rgba(232,228,218,.9);padding:4px 8px;font-size:9.5px;letter-spacing:.16em;text-transform:uppercase}
+.card .thumb .stamp{position:absolute;top:8px;left:8px;border:1px solid var(--red);color:var(--red);
+ background:rgba(232,228,218,.9);padding:4px 8px;font-size:9px;letter-spacing:.14em;text-transform:uppercase}
 
-.card h3{font-family:var(--serif);font-weight:600;font-variation-settings:'opsz' 60;
- font-size:clamp(19px,2.1vw,27px);line-height:1.08;margin:14px 0 8px;letter-spacing:-.012em}
-.card.hero-card h3{font-size:clamp(24px,3.4vw,42px)}
-.card dl{display:grid;grid-template-columns:auto 1fr;gap:4px 14px;margin:0 0 14px;font-size:12.5px}
-.card dt{color:var(--muted);font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;padding-top:2px}
-.card dd{margin:0}
-.card .desc{font-size:13.5px;line-height:1.55;color:var(--muted);margin:0 0 16px;max-width:44ch}
+.card h3{font-family:var(--serif);font-weight:600;font-variation-settings:'opsz' 40;
+ font-size:clamp(15.5px,1.25vw,19px);line-height:1.14;margin:11px 0 5px;letter-spacing:-.01em}
+.card .riga{font-size:11.5px;color:var(--muted);line-height:1.45;margin:0 0 11px}
+.card .riga b{font-weight:500;color:var(--ink)}
 
 /* ---------- WATCH: l'inchiostro rosso del catalogo ---------- */
-.watch{margin-top:auto;display:inline-flex;align-items:center;justify-content:center;gap:11px;
- border:1.5px solid var(--red);color:var(--red);padding:13px 20px;border-radius:2px;
- font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;transition:.25s;min-height:48px;width:100%}
+.watch{margin-top:auto;display:inline-flex;align-items:center;justify-content:center;gap:9px;
+ border:1px solid var(--red);color:var(--red);padding:10px 12px;border-radius:2px;
+ font-size:10.5px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;transition:.25s;min-height:44px;width:100%}
 .watch:hover{background:var(--red);color:var(--paper)}
-.watch .tri{width:0;height:0;border-left:9px solid currentColor;border-top:6px solid transparent;border-bottom:6px solid transparent}
+.watch .tri{width:0;height:0;border-left:7px solid currentColor;border-top:5px solid transparent;border-bottom:5px solid transparent}
 .listen{margin-top:auto;display:inline-flex;align-items:center;gap:10px;font-size:12px;font-weight:500;
  border-bottom:1px solid var(--line);padding:12px 0;min-height:46px}
 .listen:hover{color:var(--red);border-color:var(--red)}
@@ -202,12 +196,6 @@ body.locked{overflow:hidden}
 </style>
 </head>
 <body>
-
-<div class="masthead">
-  <span>CRASTEL — Archivio dei lavori</span>
-  <span>Bassano del Grappa (VI), Italia</span>
-  <span>Film · Documentario · Serie</span>
-</div>
 
 <div class="topnav">
   <a class="logo" href="#top">CRASTEL</a>
@@ -333,7 +321,6 @@ body.locked{overflow:hidden}
 <script src="data.js"></script>
 <script>
 const refNo = (w) => 'CR-' + String(w.order).padStart(3,'0');
-const sizes = ['hero-card','','wide','wide','','','','',''];
 
 
 /* filtri derivati dal dataset */
@@ -342,22 +329,65 @@ let active = 'Tutti';
 document.getElementById('filterbtns').innerHTML = TYPES.map(t=>
   `<button aria-pressed="${t===active}" onclick="setFilter('${t}')">${t}</button>`).join('');
 
+const MOTO = !matchMedia('(prefers-reduced-motion:reduce)').matches;
+
 function setFilter(t){
+  if(t === active) return;
   active = t;
   [...document.querySelectorAll('#filterbtns button')].forEach(b=>b.setAttribute('aria-pressed', String(b.textContent===t)));
-  render();
+  if(!MOTO){ render(); return; }
+  riordina();
+}
+
+/* Le schede che restano scivolano dalla vecchia posizione alla nuova:
+   si misura dove sono (First), si ridisegna (Last), si rimette tutto
+   dov'era (Invert) e si lascia andare (Play). */
+function riordina(){
+  const griglia = document.getElementById('catalogo');
+  const prima = new Map();
+  [...griglia.children].forEach(c => prima.set(c.dataset.slug, c.getBoundingClientRect()));
+
+  // chi esce, esce prima
+  const uscenti = [...griglia.children].filter(c => {
+    const w = bySlug(c.dataset.slug);
+    return !(active === 'Tutti' || w.type === active);
+  });
+  const attesa = uscenti.length ? 210 : 0;
+  uscenti.forEach((c,i) => c.animate(
+    [{opacity:1, transform:'scale(1)'},{opacity:0, transform:'scale(.965)'}],
+    {duration:210, delay:i*18, easing:'cubic-bezier(.4,0,1,1)', fill:'forwards'}));
+
+  setTimeout(() => {
+    render();
+    const dopo = [...griglia.children];
+    dopo.forEach((c,i) => {
+      const p = prima.get(c.dataset.slug);
+      const d = c.getBoundingClientRect();
+      if(p){
+        const dx = p.left - d.left, dy = p.top - d.top;
+        if(Math.abs(dx) > 1 || Math.abs(dy) > 1){
+          c.animate(
+            [{transform:`translate(${dx}px, ${dy}px)`},{transform:'none'}],
+            {duration:620, delay:i*22, easing:'cubic-bezier(.22,.9,.24,1)'});
+        }
+      } else {
+        c.animate(
+          [{opacity:0, transform:'translateY(14px) scale(.97)'},{opacity:1, transform:'none'}],
+          {duration:520, delay:120 + i*38, easing:'cubic-bezier(.22,.9,.24,1)', fill:'backwards'});
+      }
+    });
+  }, attesa);
 }
 
 function render(){
   const rows = WORKS.filter(w=> active==='Tutti' || w.type===active).sort((a,b)=>a.order-b.order);
   document.getElementById('count').textContent = rows.length + ' schede';
   document.getElementById('catalogo').innerHTML = rows.map((w,i)=>{
-    const size = active==='Tutti' ? (sizes[i]||'') : (i===0?'wide':'');
     const cta = w.trailer
       ? `<button class="watch" onclick="openLB('${w.slug}')"><span class="tri"></span>${w.trailer.label}</button>`
       : (w.soundtrack&&w.soundtrack.appleMusic
           ? `<a class="listen" href="${w.soundtrack.appleMusic}" target="_blank" rel="noopener">▸ Ascolta la colonna sonora (${w.soundtrack.tracks} brani)</a>`:'');
-    return `<article class="card ${size}">
+    return `<article class="card" data-slug="${w.slug}">
       <div class="head"><span class="refno">${refNo(w)}</span><span class="cat">${w.year}</span></div>
       ${w.trailer
         ? `<button class="thumb" onclick="openLB('${w.slug}')" aria-label="Apri la scheda di ${w.title}">
@@ -370,13 +400,7 @@ function render(){
              ${w.distributor?`<span class="stamp">${w.distributor}</span>`:''}
            </div>`}
       <h3>${w.title}</h3>
-      <dl>
-        <dt>Tipo</dt><dd>${w.type}</dd>
-        <dt>Ruolo</dt><dd>${w.role.join(', ')}</dd>
-        ${w.director?`<dt>Regia</dt><dd>${w.director}</dd>`:''}
-        ${w.production?`<dt>Produzione</dt><dd>${w.production}</dd>`:''}
-      </dl>
-      ${size?`<p class="desc">${w.description}</p>`:''}
+      <p class="riga"><b>${w.type}</b> · ${w.role.join(', ')}${w.director?`<br>Regia ${w.director}`:(w.production?`<br>${w.production}`:'')}</p>
       ${cta}
     </article>`;
   }).join('');
