@@ -81,6 +81,11 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .card .refno{font-size:10.5px;letter-spacing:.14em;color:var(--red);font-weight:600}
 .card .thumb{position:relative;overflow:hidden;background:var(--card);aspect-ratio:16/9;
  display:block;width:100%;padding:0;border:0;cursor:pointer}
+.card .thumb .segno{position:absolute;right:8px;bottom:8px;width:32px;height:32px;border-radius:50%;
+ background:rgba(232,228,218,.92);display:flex;align-items:center;justify-content:center;transition:.3s}
+.card .thumb .segno i{width:0;height:0;margin-left:2px;border-left:9px solid var(--red);
+ border-top:6px solid transparent;border-bottom:6px solid transparent}
+.card .thumb:hover .segno,.card .thumb:focus-visible .segno{opacity:0;transform:scale(.8)}
 .card .thumb .lente{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
  background:rgba(23,23,21,.34);opacity:0;transition:opacity .3s}
 .card .thumb:hover .lente,.card .thumb:focus-visible .lente{opacity:1}
@@ -96,7 +101,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 
 .card h3{font-family:var(--serif);font-weight:600;font-variation-settings:'opsz' 40;
  font-size:clamp(15.5px,1.25vw,19px);line-height:1.14;margin:11px 0 5px;letter-spacing:-.01em}
-.card .riga{font-size:11.5px;color:var(--muted);line-height:1.45;margin:0 0 11px}
+.card .riga{font-size:11.5px;color:var(--muted);line-height:1.45;margin:0}
 .card .riga b{font-weight:500;color:var(--ink)}
 
 /* ---------- WATCH: l'inchiostro rosso del catalogo ---------- */
@@ -383,16 +388,16 @@ function render(){
   const rows = WORKS.filter(w=> active==='Tutti' || w.type===active).sort((a,b)=>a.order-b.order);
   document.getElementById('count').textContent = rows.length + ' schede';
   document.getElementById('catalogo').innerHTML = rows.map((w,i)=>{
-    const cta = w.trailer
-      ? `<button class="watch" onclick="openLB('${w.slug}')"><span class="tri"></span>${w.trailer.label}</button>`
-      : (w.soundtrack&&w.soundtrack.appleMusic
-          ? `<a class="listen" href="${w.soundtrack.appleMusic}" target="_blank" rel="noopener">▸ Ascolta la colonna sonora (${w.soundtrack.tracks} brani)</a>`:'');
+    const cta = (!w.trailer && w.soundtrack && w.soundtrack.appleMusic)
+      ? `<a class="listen" href="${w.soundtrack.appleMusic}" target="_blank" rel="noopener">▸ Ascolta la colonna sonora (${w.soundtrack.tracks} brani)</a>`
+      : '';
     return `<article class="card" data-slug="${w.slug}">
       <div class="head"><span class="refno">${refNo(w)}</span><span class="cat">${w.year}</span></div>
       ${w.trailer
         ? `<button class="thumb" onclick="openLB('${w.slug}')" aria-label="Apri la scheda di ${w.title}">
              <img src="${w.cover}" alt="${w.title}" style="object-position:${w.focus||'center'}">
              ${w.distributor?`<span class="stamp">${w.distributor}</span>`:''}
+             <span class="segno"><i></i></span>
              <span class="lente"><span><i></i>${w.trailer.label}</span></span>
            </button>`
         : `<div class="thumb" style="cursor:default">
