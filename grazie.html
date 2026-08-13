@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Messaggio ricevuto — CRASTEL</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23E8E4DA'/%3E%3Ctext y='74' x='50' text-anchor='middle' font-family='Georgia,serif' font-weight='700' font-size='72' fill='%239F3029'%3EC%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..800;1,9..144,300..700&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#E8E4DA;--ink:#171715;--muted:#66625B;--red:#9F3029;--line:rgba(23,23,21,.22);
+ --serif:'Fraunces',Georgia,serif;--grot:'Instrument Sans',system-ui,sans-serif;--gut:clamp(16px,3.2vw,40px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--grot);
+ min-height:100vh;display:flex;flex-direction:column}
+a{color:inherit}
+.topnav{border-bottom:2px solid var(--ink);padding:12px var(--gut);display:flex;justify-content:space-between;align-items:center;gap:16px}
+.logo{font-family:var(--serif);font-weight:700;font-size:20px;text-decoration:none;font-variation-settings:'opsz' 100}
+.topnav a.back{font-size:12.5px;font-weight:500;text-decoration:none}
+.topnav a.back:hover{color:var(--red)}
+main{flex:1;display:flex;align-items:center;padding:clamp(40px,10vw,110px) var(--gut)}
+.box{max-width:60ch}
+.cat{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--red);font-weight:600}
+h1{font-family:var(--serif);font-weight:700;font-size:clamp(34px,6.4vw,72px);line-height:1;margin:14px 0 18px;letter-spacing:-.025em}
+p{font-size:16px;line-height:1.7;margin:0 0 14px;max-width:52ch;color:var(--muted)}
+.again{display:inline-block;margin-top:20px;border:1.5px solid var(--red);color:var(--red);text-decoration:none;
+ padding:14px 22px;border-radius:2px;font-size:12.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase}
+.again:hover{background:var(--red);color:var(--paper)}
+footer{padding:20px var(--gut);border-top:1px solid var(--line);font-size:11px;color:var(--muted)}
+</style>
+</head>
+<body>
+<div class="topnav">
+  <a class="logo" href="./">CRASTEL</a>
+  <a class="back" href="./">← Torna al catalogo</a>
+</div>
+<main>
+  <div class="box">
+    <span class="cat">Messaggio ricevuto</span>
+    <h1>Grazie, l'abbiamo preso.</h1>
+    <p>Rispondiamo entro due giorni lavorativi all'indirizzo che avete indicato. Se nel frattempo volete farci ascoltare qualcosa, allegatelo pure alla risposta.</p>
+    <p>Se non arriva niente, controllate la posta indesiderata: la nostra risposta arriva da un indirizzo che non conoscete ancora.</p>
+    <a class="again" href="./#catalogo">Guarda gli altri lavori</a>
+  </div>
+</main>
+<footer>CRASTEL — Marco Crivellaro e Simone Castellan, Bassano del Grappa (VI)</footer>
+</body>
+</html>
