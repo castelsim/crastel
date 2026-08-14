@@ -149,10 +149,6 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .who div{display:flex;justify-content:space-between;gap:16px;padding:12px 0;border-bottom:1px solid var(--line);align-items:baseline}
 .who b{font-family:var(--serif);font-weight:600;font-size:19px}
 .who span{color:var(--muted);font-size:12.5px;text-align:right;max-width:26ch}
-.who.collabora{margin-top:24px;border-top:0}
-.who.collabora .testa-collab{display:block;border:0;padding:0 0 6px}
-.who.collabora b.min{font-family:var(--grot);font-size:13.5px;font-weight:600}
-.who.collabora div{padding:9px 0}
 
 .colophon{padding:clamp(30px,5vw,60px) var(--gut);border-top:1px solid var(--line);
  display:flex;justify-content:space-between;gap:22px;flex-wrap:wrap;align-items:flex-end}
@@ -272,7 +268,6 @@ body.locked{overflow:hidden}
       <span class="cat">Chi siamo</span>
       <h2>Uno studio<br>di musica per immagini.</h2>
       <div class="who" id="who"></div>
-      <div class="who collabora" id="collabora"></div>
     </div>
     <div>
       <p class="first">CRASTEL è lo studio di Marco Crivellaro e Simone Castellan, a Bassano del Grappa. Scriviamo musica per immagini: temi per pianoforte e archi, elettronica, sound design. A seconda del progetto firmiamo insieme o separatamente, e chiamiamo attorno a noi gli strumentisti che servono.</p>
@@ -454,12 +449,6 @@ render();
 document.getElementById('anno').textContent = new Date().getFullYear();
 document.getElementById('who').innerHTML = STUDIO.members.map(m=>
   `<div><b>${m.name}</b><span>${m.alias?m.alias+' · ':''}${m.role}</span></div>`).join('');
-
-document.getElementById('collabora').innerHTML =
-  `<div class="testa-collab"><span class="cat">Con noi lavorano</span></div>` +
-  STUDIO.collaboratori.map(c=>`<div><b class="min">${c.name}</b><span>${c.role}</span></div>`).join('');
-
-
 
 function openLB(slug){
   const w = bySlug(slug), n = nextOf(slug);

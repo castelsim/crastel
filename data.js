@@ -26,16 +26,9 @@ const STUDIO = {
     {
       name: "Simone Castellan",
       alias: null,
-      role: "Composizione, programmazione musicale, sound design e post produzione",
+      role: "Programmazione musicale, sound design e post produzione",
       nota: null,
     },
-  ],
-
-  // collaboratori ricorrenti [CERTO] dai credits dei video e degli album
-  collaboratori: [
-    { name: "Federico Motta", role: "Violoncello — Donnafugata, live, Pianospheres" },
-    { name: "Riccardo Paolini", role: "Batteria — formazione live" },
-    { name: "Francesco Trento", role: "Basso — formazione live" },
   ],
 
   links: {
