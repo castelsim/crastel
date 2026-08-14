@@ -781,20 +781,58 @@ const WORKS = [
    ESERCIZI DI SCRITTURA — «music rework»
    Spot già usciti, ri-sonorizzati da capo come esercizio di studio (2019).
    NON sono commesse dei marchi citati: i video appartengono a loro.
-   Stanno in una fascia separata, fuori dal catalogo e dalla numerazione.
+   Vivono nel filtro «Esercizi» con sigla RW-, e nella fascia in fondo.
    [CERTO] tutti pubblicati dal canale ufficiale CRASTEL
    ============================================================ */
-const REWORKS = [
-  { id: "3YuZtqsL1WU", marchio: "Chanel", titolo: "Dark Chanel", cover: "assets/rw-3YuZtqsL1WU.jpg" },
-  { id: "tinc0Vf7rj0", marchio: "Chanel", titolo: "Gabrielle", cover: "assets/rw-tinc0Vf7rj0.jpg" },
-  { id: "TTCRdO4d-3M", marchio: "Chanel", titolo: "White", cover: "assets/rw-TTCRdO4d-3M.jpg" },
-  { id: "bnflsFPCrsk", marchio: "Benetton", titolo: "Unhate", cover: "assets/rw-bnflsFPCrsk.jpg" },
-  { id: "wcNSBjJYm3M", marchio: "Benetton", titolo: "Beauty is fragile", cover: "assets/rw-wcNSBjJYm3M.jpg" },
-  { id: "fCTaSxJ7fzc", marchio: "Benetton", titolo: "WE Program", cover: "assets/rw-fCTaSxJ7fzc.jpg" },
-  { id: "D7oJdYmM22A", marchio: "Diesel", titolo: "Say no to uncool wool", cover: "assets/rw-D7oJdYmM22A.jpg" },
-  { id: "f9sh70s0Ciw", marchio: "Marcelo Burlon", titolo: "Womenswear FW 2015-16", cover: "assets/rw-f9sh70s0Ciw.jpg" },
-  { id: "blPlDZD8Fek", marchio: "Corto", titolo: "Melancholia", cover: "assets/rw-blPlDZD8Fek.jpg" },
+const REWORK_BASE = [
+  { id: "3YuZtqsL1WU", marchio: "Chanel", titolo: "Dark Chanel" },
+  { id: "tinc0Vf7rj0", marchio: "Chanel", titolo: "Gabrielle" },
+  { id: "TTCRdO4d-3M", marchio: "Chanel", titolo: "White" },
+  { id: "bnflsFPCrsk", marchio: "Benetton", titolo: "Unhate" },
+  { id: "wcNSBjJYm3M", marchio: "Benetton", titolo: "Beauty is fragile" },
+  { id: "fCTaSxJ7fzc", marchio: "Benetton", titolo: "WE Program" },
+  { id: "D7oJdYmM22A", marchio: "Diesel", titolo: "Say no to uncool wool" },
+  { id: "f9sh70s0Ciw", marchio: "Marcelo Burlon", titolo: "Womenswear FW 2015-16" },
+  { id: "blPlDZD8Fek", marchio: "Corto d'autore", titolo: "Melancholia" },
 ];
+
+const REWORKS = REWORK_BASE.map((r, i) => ({
+  slug: "rw-" + r.id,
+  esercizio: true,
+  gruppo: "Esercizi",
+  type: "Rework",
+  title: r.titolo,
+  year: "2019",
+  typeLine: r.marchio + " — riscrittura musicale",
+  featured: false,
+  order: 100 + i,
+  director: "",
+  production: r.marchio,
+  distributor: "",
+  firma: "",
+  role: ["Musica"],
+  awards: [],
+  cover: "assets/rw-" + r.id + ".jpg",
+  stills: [],
+  trailer: {
+    platform: "youtube",
+    id: r.id,
+    channel: "CRASTEL",
+    url: "https://www.youtube.com/watch?v=" + r.id,
+    embedUrl: "https://www.youtube-nocookie.com/embed/" + r.id,
+    label: "Guarda il rework",
+  },
+  soundtrack: {},
+  description:
+    "Riscrittura musicale su uno spot già uscito: esercizio di studio del 2019, non una commessa. Il video appartiene a " + r.marchio + ".",
+  credits: [
+    ["Anno", "2019"],
+    ["Video", r.marchio],
+    ["Musica", "CRASTEL"],
+  ],
+}));
+
+WORKS.push(...REWORKS);
 
 // Utility condivise
 const featured = () => WORKS.filter((w) => w.featured).sort((a, b) => a.order - b.order);
