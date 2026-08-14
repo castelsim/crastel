@@ -46,6 +46,7 @@ const WORKS = [
     title: "Il caso Alex Schwazer",
     titleEn: "Running for the Truth: Alex Schwazer",
     year: "2023",
+    gruppo: "Serie e documentari",
     type: "Serie documentaria",
     typeLine: "Netflix — 4 episodi",
     featured: true,
@@ -94,6 +95,7 @@ const WORKS = [
     title: "Il caso Yara: oltre ogni ragionevole dubbio",
     titleEn: "The Yara Gambirasio Case: Beyond Reasonable Doubt",
     year: "2024",
+    gruppo: "Serie e documentari",
     type: "Serie documentaria",
     typeLine: "Netflix — 5 episodi",
     featured: true,
@@ -134,6 +136,7 @@ const WORKS = [
     title: "Immenso Blu",
     titleEn: null,
     year: "2021",
+    gruppo: "Serie e documentari",
     type: "Documentario",
     typeLine: "Documentario di spedizione",
     featured: true,
@@ -144,8 +147,17 @@ const WORKS = [
     distributor: "",
 
     role: ["Musica originale"],
-    // [CERTO] Swiss Mountain Film Festival
-    awards: ["Menzione speciale della giuria — Swiss Mountain Film Festival"],
+    firma: "Marco Crivellaro", // [CERTO] crediti del film
+    awards: [
+      "Vincitore — Mountain Film Festival, Verona", // [CERTO] Lo Scarpone (CAI)
+      "Menzione speciale della giuria — Swiss Mountain Film Festival",
+    ],
+    press: [
+      { testata: "Lo Scarpone — CAI", titolo: "Il documentario vincitore del Mountain Film Festival di Verona",
+        url: "https://www.loscarpone.cai.it/mountain-film-festival-verona/" },
+      { testata: "Radio Più", titolo: "Immenso Blu premiato al Swiss Mountain Film Festival",
+        url: "https://www.radiopiu.net/wordpress/immenso-blu-premiato-al-swiss-mountain-film-festival-lultima-fatica-docu-filmica-di-manrico-dellagnola-riceve-la-menzione-speciale-della-giuria/" },
+    ],
 
     cover: "assets/yt-orK0VpHFPDc.jpg",
     stills: ["assets/cover-immensoblu.jpg"],
@@ -167,12 +179,62 @@ const WORKS = [
       cover: "assets/cover-immensoblu.jpg",
     },
 
+    altri: [
+      { label: "Guarda il film completo", url: "https://www.youtube.com/watch?v=SUyoJdggbOs" },
+    ],
     description:
       "Tre alpinisti attraversano il Passaggio di Drake per raggiungere la Penisola Antartica: nuove linee di salita e campionamenti scientifici sui ghiacci.",
     credits: [
       ["Regia", "Manrico Dell'Agnola"],
-      ["Musica originale", "CRASTEL"],
-      ["Colonna sonora", "15 brani, 2024"],
+      ["Musica originale", "Marco Crivellaro con Enrica Bacchia"],
+      ["Montaggio", "Marco Recalchi"],
+      ["Durata", "38 minuti — selezionato in quattro festival internazionali"],
+    ],
+  },
+
+  {
+    slug: "antarctica-karpos",
+    gruppo: "Serie e documentari",
+    type: "Serie documentaria",
+    title: "Antarctica: Beyond the End of the World",
+    titleEn: null,
+    year: "2021",
+    typeLine: "Karpos — serie in 3 episodi",
+    featured: true,
+    order: 5,
+
+    director: "",
+    production: "Karpos", // [CERTO] canale ufficiale Karpos
+    distributor: "",
+    firma: "",
+    role: ["Musica originale"],
+    awards: [],
+
+    cover: "assets/yt-M0_zYG-DnMY.jpg",
+    stills: [],
+
+    trailer: {
+      platform: "youtube",
+      id: "M0_zYG-DnMY",
+      channel: "Karpos", // [CERTO] verificato via oEmbed
+      url: "https://www.youtube.com/watch?v=M0_zYG-DnMY",
+      embedUrl: "https://www.youtube-nocookie.com/embed/M0_zYG-DnMY",
+      label: "Guarda il primo episodio",
+    },
+    soundtrack: {},
+
+    description:
+      "La spedizione del Team Karpos alla Penisola Antartica: sei giorni di traversata del Passaggio di Drake sulla barca Ice Bird, campionamenti scientifici sulle microplastiche e salite su cime inesplorate. Tre episodi: la navigazione, la ricerca, l'alpinismo.",
+    credits: [
+      ["Produzione", "Karpos"],
+      ["Con", "Gianluca Cavalli, Manrico Dell'Agnola, Marcello Sanguineti"],
+      ["Formato", "3 episodi"],
+      ["Ruolo", "Musica originale"],
+    ],
+    altri: [
+      { label: "Episodio 2 — Exploration and Research", url: "https://www.youtube.com/watch?v=CH3CnspUJMU" },
+      { label: "Episodio 3 — Mountaineering in Antarctica", url: "https://www.youtube.com/watch?v=8KBwp7z5aE0" },
+      { label: "La storia sul sito Karpos", url: "https://www.karpos-outdoor.com/HR/en/stories/antarctica" },
     ],
   },
 
@@ -181,10 +243,11 @@ const WORKS = [
     title: "Donnafugata",
     titleEn: null,
     year: "2021",
+    gruppo: "Serie e documentari",
     type: "Documentario",
     typeLine: "Film di montagna — Karpos",
     featured: true,
-    order: 4,
+    order: 6,
 
     director: "", // [DA VERIFICARE]
     production: "Karpos",
@@ -228,10 +291,11 @@ const WORKS = [
     title: "Piccola Storia d'Amore",
     titleEn: null,
     year: "2022",
+    gruppo: "Corti",
     type: "Cortometraggio",
     typeLine: "Corto — Black Aurora Films",
     featured: true,
-    order: 8,
+    order: 9,
 
     director: "Davide Serra", // [CERTO] IMDb
     production: "Black Aurora Films",
@@ -274,10 +338,11 @@ const WORKS = [
     title: "La Ricorrenza",
     titleEn: "The Anniversary",
     year: "2020",
+    gruppo: "Corti",
     type: "Cortometraggio",
     typeLine: "Corto — regia di Davide Serra",
     featured: true,
-    order: 9,
+    order: 10,
 
     director: "Davide Serra",
     production: "Alpha Film", // [DA VERIFICARE]
@@ -313,10 +378,11 @@ const WORKS = [
     title: "Wanderlust — live",
     titleEn: null,
     year: "2022",
+    gruppo: "Musica",
     type: "Concerto",
     typeLine: "Marcus Grimm & Ensemble, Valbrenta",
     featured: true,
-    order: 16,
+    order: 17,
 
     director: "",
     production: "",
@@ -353,10 +419,11 @@ const WORKS = [
     title: "Latronico, una terra di emozioni",
     titleEn: null,
     year: "2021",
+    gruppo: "Su commissione",
     type: "Documentario",
     typeLine: "Ritratto di un territorio",
     featured: true,
-    order: 10,
+    order: 11,
 
     director: "",
     production: "Pro Loco Latronico",
@@ -380,14 +447,58 @@ const WORKS = [
   },
 
   {
+    slug: "trodoi-trails",
+    gruppo: "Su commissione",
+    type: "Film territoriale",
+    title: "Trodoi/Trails — Gambe in spalla",
+    titleEn: null,
+    year: "2026",
+    typeLine: "I sentieri della Valle del Brenta",
+    featured: true,
+    order: 12,
+
+    director: "",
+    production: "Trodoi/Trails", // [CERTO] canale ufficiale del progetto
+    distributor: "",
+    firma: "",
+    role: ["Musica originale"],
+    awards: [],
+
+    cover: "assets/yt-nXApEh3Xv30.jpg",
+    stills: [],
+
+    trailer: {
+      platform: "youtube",
+      id: "nXApEh3Xv30",
+      channel: "trodoitrails", // [CERTO] verificato via oEmbed
+      url: "https://www.youtube.com/watch?v=nXApEh3Xv30",
+      embedUrl: "https://www.youtube-nocookie.com/embed/nXApEh3Xv30",
+      label: "Guarda il film",
+    },
+    soundtrack: {},
+    altri: [
+      { label: "Il progetto Trodoi/Trails", url: "https://www.trodoitrails.com" },
+    ],
+
+    description:
+      "Non semplici sentieri di montagna e di valle, ma storie viventi: la Valle del Brenta raccontata camminando, fra paesaggi, tradizioni e testimonianze di esistenze dure e faticose.",
+    credits: [
+      ["Progetto", "Trodoi/Trails, Valbrenta"],
+      ["Anno", "2026"],
+      ["Ruolo", "Musica originale"],
+    ],
+  },
+
+  {
     slug: "maglificio-pini",
     title: "Maglificio Pini",
     titleEn: null,
     year: "2020",
+    gruppo: "Su commissione",
     type: "Film d'impresa",
     typeLine: "Ritratto d'azienda",
     featured: true,
-    order: 11,
+    order: 13,
 
     director: "",
     production: "Maglificio Pini",
@@ -416,9 +527,10 @@ const WORKS = [
     title: "Beslan — partitura per il Mercurio d'Argento",
     titleEn: null,
     year: "2025",
+    gruppo: "Sonorizzazioni",
     type: "Sonorizzazione",
     typeLine: "Premio Mercurio d'Argento — VII edizione",
-    featured: true,
+    featured: false, // niente video pubblico: fuori dal catalogo, resta qui come scheda
     order: 5,
 
     director: "",
@@ -448,9 +560,10 @@ const WORKS = [
     title: "Sounds of Silences — Romaeuropa",
     titleEn: null,
     year: "2020",
+    gruppo: "Sonorizzazioni",
     type: "Sonorizzazione",
     typeLine: "Concorso internazionale di composizione per le immagini",
-    featured: true,
+    featured: false, // niente video pubblico: fuori dal catalogo, resta qui come scheda
     order: 6,
 
     director: "",
@@ -481,9 +594,10 @@ const WORKS = [
     title: "Your sound for silents — Lago Film Fest",
     titleEn: null,
     year: "2023",
+    gruppo: "Sonorizzazioni",
     type: "Sonorizzazione",
     typeLine: "Musica per il cinema muto",
-    featured: true,
+    featured: false, // niente video pubblico: fuori dal catalogo, resta qui come scheda
     order: 7,
 
     director: "",
@@ -514,10 +628,11 @@ const WORKS = [
     title: "2 Planets",
     titleEn: null,
     year: "2019",
+    gruppo: "Musica",
     type: "Album",
     typeLine: "Marcus Grimm — album d'esordio",
     featured: true,
-    order: 12,
+    order: 14,
 
     director: "",
     production: "La Valigetta", // [CERTO] rockit, lavaligetta.com
@@ -544,6 +659,11 @@ const WORKS = [
       released: "2019",
     },
 
+    press: [
+      { testata: "Rockit", titolo: "Recensione di Chiara Lauretani, gennaio 2020",
+        url: "https://www.rockit.it/recensione/46438/marcusgrimm-2-planets",
+        citazione: "Un risultato finale davvero inaspettato, che non solo determina la grande tecnica di Marcus ma la porta a un livello successivo fatto di sfumature elettroniche." },
+    ],
     description:
       "Dodici brani fra pianoforte, archi ed elettronica: un viaggio che parte da «Gaia» e finisce su «Pandora». Registrato al Teatro delle Voci di Treviso e masterizzato ad Abbey Road, Londra.",
     credits: [
@@ -559,9 +679,10 @@ const WORKS = [
     title: "BOSCO SESSION",
     titleEn: null,
     year: "2025",
+    gruppo: "Musica",
     type: "Album",
     typeLine: "Registrazione dal vivo",
-    featured: true,
+    featured: false, // niente video pubblico: fuori dal catalogo, resta qui come scheda
     order: 13,
 
     director: "",
@@ -595,9 +716,10 @@ const WORKS = [
     title: "By this River",
     titleEn: null,
     year: "2024",
+    gruppo: "Musica",
     type: "Concerto",
     typeLine: "Composizione originale per OperaEstate",
-    featured: true,
+    featured: false, // niente video pubblico: fuori dal catalogo, resta qui come scheda
     order: 14,
 
     director: "",
@@ -626,9 +748,10 @@ const WORKS = [
     title: "Pianospheres",
     titleEn: null,
     year: "2026",
+    gruppo: "Musica",
     type: "Concerto",
     typeLine: "Marcus Grimm feat. Federico Motta",
-    featured: true,
+    featured: false, // niente video pubblico: fuori dal catalogo, resta qui come scheda
     order: 15,
 
     director: "",
