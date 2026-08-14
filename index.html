@@ -42,6 +42,18 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .topnav nav a:hover{color:var(--red)}
 .topnav .em{color:var(--red);font-weight:600;font-size:12.5px}
 @media(max-width:700px){ .topnav nav{gap:14px} .topnav nav a{font-size:11.5px} .topnav .em{display:none} }
+/* su telefono i filtri stanno su una riga sola, che scorre */
+@media(max-width:700px){
+  .filters{flex-wrap:nowrap;overflow-x:auto;overflow-y:hidden;scrollbar-width:none;-webkit-overflow-scrolling:touch;
+   gap:7px;padding:11px var(--gut);position:relative}
+  .filters::-webkit-scrollbar{display:none}
+  .filters .lab{display:none}
+  .filters .count{display:none}
+  .filters #filterbtns{flex-wrap:nowrap!important;gap:7px}
+  .filters button{white-space:nowrap;flex:0 0 auto;min-height:36px;padding:7px 12px;font-size:12px}
+  .filters::after{content:"";position:sticky;right:0;flex:0 0 18px;height:36px;margin-left:-18px;
+   background:linear-gradient(to right,rgba(232,228,218,0),var(--paper));pointer-events:none}
+}
 @media(max-width:520px){ .topnav{flex-wrap:wrap;gap:6px;padding:10px var(--gut) 8px}
  .topnav nav{width:100%;justify-content:space-between;gap:8px} .topnav .logo{font-size:18px}
  }
@@ -138,24 +150,6 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .premio .dove{grid-column:2;font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);margin:4px 0 0}
 .premio .chi{grid-column:2;font-size:12.5px;font-weight:500;margin:8px 0 0}
 .premio p.testo{grid-column:2;margin:6px 0 0;font-size:13.5px;line-height:1.6;color:var(--muted);max-width:56ch}
-
-/* ---------- esercizi: fascia separata, peso minore ---------- */
-.esercizi{padding:clamp(30px,4.6vw,64px) var(--gut);border-top:2px solid var(--ink);background:var(--card)}
-.esercizi .testa{display:flex;justify-content:space-between;gap:clamp(18px,4vw,60px);flex-wrap:wrap;
- align-items:flex-end;margin-bottom:22px}
-.esercizi h2{font-family:var(--serif);font-weight:600;font-size:clamp(24px,3.2vw,38px);margin:6px 0 0;
- line-height:1;letter-spacing:-.02em}
-.esercizi .testa p{margin:0;max-width:52ch;font-size:13px;line-height:1.6;color:var(--muted)}
-.rew-griglia{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:14px}
-.rew{display:flex;flex-direction:column;gap:7px;text-align:left;padding:0;border:0;cursor:pointer}
-.rew .ombra{position:relative;overflow:hidden;aspect-ratio:16/9;background:var(--paper);border:1px solid var(--line)}
-.rew img{width:100%;height:100%;object-fit:cover;filter:saturate(.7) contrast(1.02);
- transform:scale(1.02);transition:filter .4s, transform .5s}
-.rew:hover img,.rew:focus-visible img{filter:none;transform:scale(1.06)}
-.rew .ombra::after{content:"▶";position:absolute;right:7px;bottom:5px;color:var(--paper);font-size:11px;
- text-shadow:0 1px 6px rgba(0,0,0,.6)}
-.rew b{font-size:12.5px;font-weight:600;line-height:1.2}
-.rew span{font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
 
 /* ---------- about, colophon ---------- */
 .about{padding:clamp(40px,7vw,90px) var(--gut);border-top:2px solid var(--ink);display:grid;
@@ -296,18 +290,6 @@ body.locked{overflow:hidden}
   <p id="nota-filtro" class="nota-filtro" style="display:none"></p>
   <section class="grid" id="catalogo"></section>
   </div>
-
-  <section class="esercizi" id="esercizi">
-    <div class="testa">
-      <div>
-        <span class="cat">Esercizi di scrittura</span>
-        <h2>Rework</h2>
-      </div>
-      <p>Spot già usciti, riscritti da capo per esercizio nel 2019: stessa immagine, musica nostra.
-         Non sono lavori commissionati dai marchi citati e i video appartengono a loro.</p>
-    </div>
-    <div class="rew-griglia" id="rew-griglia"></div>
-  </section>
 
   <section class="about" id="about">
     <div>
@@ -513,12 +495,6 @@ function render(){
 render();
 
 document.getElementById('anno').textContent = new Date().getFullYear();
-document.getElementById('rew-griglia').innerHTML = ESERCIZI.map(w=>
-  `<button class="rew" onclick="openLB('${w.slug}')" aria-label="Guarda il rework ${w.production} ${w.title}">
-     <span class="ombra"><img src="${w.cover}" alt="${w.production} — ${w.title}" loading="lazy"></span>
-     <span>${w.production}</span><b>${w.title}</b>
-   </button>`).join('');
-
 document.getElementById('who').innerHTML = STUDIO.members.map(m=>
   `<div><b>${m.name}</b><span>${m.alias?m.alias+' · ':''}${m.role}</span></div>`).join('');
 
