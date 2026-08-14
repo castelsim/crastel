@@ -42,17 +42,13 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .topnav nav a:hover{color:var(--red)}
 .topnav .em{color:var(--red);font-weight:600;font-size:12.5px}
 @media(max-width:700px){ .topnav nav{gap:14px} .topnav nav a{font-size:11.5px} .topnav .em{display:none} }
-/* su telefono i filtri stanno su una riga sola, che scorre */
+/* su telefono le categorie stanno tutte su una riga, senza scorrimento */
 @media(max-width:700px){
-  .filters{flex-wrap:nowrap;overflow-x:auto;overflow-y:hidden;scrollbar-width:none;-webkit-overflow-scrolling:touch;
-   gap:7px;padding:11px var(--gut);position:relative}
-  .filters::-webkit-scrollbar{display:none}
-  .filters .lab{display:none}
-  .filters .count{display:none}
-  .filters #filterbtns{flex-wrap:nowrap!important;gap:7px}
-  .filters button{white-space:nowrap;flex:0 0 auto;min-height:36px;padding:7px 12px;font-size:12px}
-  .filters::after{content:"";position:sticky;right:0;flex:0 0 18px;height:36px;margin-left:-18px;
-   background:linear-gradient(to right,rgba(232,228,218,0),var(--paper));pointer-events:none}
+  .filters{flex-wrap:nowrap;gap:0;padding:10px 10px}
+  .filters .lab, .filters .count{display:none}
+  .filters #filterbtns{flex-wrap:nowrap;gap:3px;width:100%;justify-content:space-between}
+  .filters #filterbtns button{white-space:nowrap;flex:1 1 auto;min-height:34px;padding:7px 3px;
+   font-size:clamp(9px,2.7vw,12px);letter-spacing:-.015em;text-align:center}
 }
 @media(max-width:520px){ .topnav{flex-wrap:wrap;gap:6px;padding:10px var(--gut) 8px}
  .topnav nav{width:100%;justify-content:space-between;gap:8px} .topnav .logo{font-size:18px}
@@ -74,6 +70,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .filters{position:sticky;top:52px;z-index:40;background:var(--paper);display:flex;gap:8px;flex-wrap:wrap;align-items:center;
  padding:14px var(--gut);border-bottom:1px solid var(--line);margin-top:clamp(22px,4vw,44px)}
 .filters .lab{margin-right:6px}
+#filterbtns{display:flex;gap:8px;flex-wrap:wrap}
 .filters button{border:1px solid var(--line);border-radius:2px;padding:7px 13px;font-size:12px;min-height:38px}
 .filters button[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
 .filters button:hover{border-color:var(--red);color:var(--red)}
@@ -283,7 +280,7 @@ body.locked{overflow:hidden}
   <div class="catalogo-wrap">
   <div class="filters" id="filters">
     <span class="cat lab">Filtra</span>
-    <div id="filterbtns" style="display:flex;gap:8px;flex-wrap:wrap"></div>
+    <div id="filterbtns"></div>
     <span class="count" id="count"></span>
   </div>
 
@@ -388,7 +385,7 @@ body.locked{overflow:hidden}
   </div>
 </div>
 
-<script src="data.js?v=202608141158"></script>
+<script src="data.js?v=202608141214"></script>
 <script>
 const ORDINE = WORKS.filter(w => w.featured && w.trailer).sort((a,b)=>a.order-b.order);
 const NUMERO = new Map(ORDINE.map((w,i) => [w.slug, i+1]));
@@ -400,7 +397,7 @@ const refNo = (w) => w.esercizio
 
 
 /* filtri derivati dal dataset */
-const TYPES = ['Tutti', ...new Set(WORKS.filter(w=>w.featured && w.trailer).map(w=>w.gruppo)), 'Esercizi'];
+const TYPES = ['Tutti', ...new Set(WORKS.filter(w=>w.featured && w.trailer).map(w=>w.gruppo)), 'Rework'];
 let active = 'Tutti';
 document.getElementById('filterbtns').innerHTML = TYPES.map(t=>
   `<button aria-pressed="${t===active}" onclick="setFilter('${t}')">${t}</button>`).join('');
@@ -456,7 +453,7 @@ function riordina(){
 }
 
 function render(){
-  const rows = (active === 'Esercizi'
+  const rows = (active === 'Rework'
       ? WORKS.filter(w => w.esercizio)
       : WORKS.filter(w => w.featured && w.trailer)
              .filter(w => active === 'Tutti' || w.gruppo === active)
@@ -464,11 +461,11 @@ function render(){
 
   // il filtro Esercizi si spiega da sé
   const nota = document.getElementById('nota-filtro');
-  nota.innerHTML = active === 'Esercizi'
+  nota.innerHTML = active === 'Rework'
     ? 'Spot già usciti, riscritti da capo per esercizio nel 2019: stessa immagine, musica nostra. Non sono lavori commissionati dai marchi citati e i video appartengono a loro.'
     : '';
-  nota.style.display = active === 'Esercizi' ? '' : 'none';
-  document.getElementById('count').textContent = rows.length + (active==='Esercizi' ? ' esercizi' : ' schede');
+  nota.style.display = active === 'Rework' ? '' : 'none';
+  document.getElementById('count').textContent = rows.length + (active==='Rework' ? ' esercizi' : ' schede');
   document.getElementById('catalogo').innerHTML = rows.map((w,i)=>{
     const cta = (!w.trailer && w.soundtrack && w.soundtrack.appleMusic)
       ? `<a class="listen" href="${w.soundtrack.appleMusic}" target="_blank" rel="noopener">▸ Ascolta la colonna sonora (${w.soundtrack.tracks} brani)</a>`
