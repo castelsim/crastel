@@ -1,44 +1,82 @@
 /* ============================================================
    CRASTEL — DATASET CENTRALE
-   Fonte unica per i tre mockup. Aggiungere un progetto = aggiungere
-   un oggetto a WORKS. Homepage, selected work, player, metadata e
-   "next project" si generano da qui.
+   Fonte unica del sito. Aggiungere un lavoro = aggiungere un oggetto
+   a WORKS: catalogo, filtri, schede, player e "prossima scheda" si
+   rigenerano da soli.
 
-   VERIFICA DELLE FONTI (13/08/2026)
-   [CERTO]        = aperto e letto direttamente
-   [DICHIARATO]   = dichiarato dal canale ufficiale CRASTEL (linktr.ee/crastel)
-   [DA VERIFICARE]= da confermare con Marco/Simone
+   VERIFICA DELLE FONTI (aggiornata al 14/08/2026)
+   [CERTO]         = fonte aperta e letta direttamente
+   [DA VERIFICARE] = da confermare con Marco/Simone
    ============================================================ */
 
 const STUDIO = {
   name: "CRASTEL",
-  claim: "Original music for stories on screen",
-  claimIt: "Musica originale per storie sullo schermo",
+  claim: "Musica originale per film, documentari e serie",
   base: "Bassano del Grappa, Italia",
-  // [CERTO] bio ufficiale su linktr.ee/crastel
-  bioShort:
-    "CRASTEL è il progetto comune di Marco Crivellaro e Simone Castellan: musica originale per film, documentari e produzioni audiovisive. Pianoforte ed elettronica, scrittura tematica e sound design nello stesso gesto.",
+  email: "castellansimone@gmail.com",
+
   members: [
     {
       name: "Marco Crivellaro",
       alias: "Marcus Grimm",
+      // [CERTO] scheda ufficiale OperaEstate
       role: "Composizione, pianoforte, orchestrazione",
+      nota: "Diplomato in composizione con lode al Conservatorio «Agostino Steffani» di Castelfranco Veneto.",
     },
     {
       name: "Simone Castellan",
       alias: null,
       role: "Composizione, programmazione musicale, sound design e post produzione",
+      nota: null,
     },
   ],
-  email: "info@crastelstudio.com", // [DA VERIFICARE] dominio scaduto: DNS non risolve più
+
+  // collaboratori ricorrenti [CERTO] dai credits dei video e degli album
+  collaboratori: [
+    { name: "Federico Motta", role: "Violoncello — Donnafugata, live, Pianospheres" },
+    { name: "Riccardo Paolini", role: "Batteria — formazione live" },
+    { name: "Francesco Trento", role: "Basso — formazione live" },
+  ],
+
   links: {
-    youtube: "https://www.youtube.com/@crastel3827",     // [CERTO]
-    spotifyMarco: "https://open.spotify.com/artist/6zOh1DcaVttzIVNSjVspeU", // [CERTO] verificato 13/08
-    spotify: "https://open.spotify.com/artist/5VxcMXYiq5CqGUnfnWoj9B", // [CERTO]
-    facebook: "https://www.facebook.com/crastel",        // [CERTO]
-    linktree: "https://linktr.ee/crastel",               // [CERTO]
+    youtube: "https://www.youtube.com/@crastel3827",
+    spotify: "https://open.spotify.com/artist/5VxcMXYiq5CqGUnfnWoj9B",
+    spotifyMarco: "https://open.spotify.com/artist/6zOh1DcaVttzIVNSjVspeU",
+    facebook: "https://www.facebook.com/crastel",
+    linktree: "https://linktr.ee/crastel",
   },
 };
+
+/* Riconoscimenti che non appartengono a un singolo lavoro del catalogo:
+   sono premi di composizione, vinti dai singoli dentro il percorso dello studio. */
+const PREMI = [
+  {
+    anno: "2025",
+    titolo: "Premio Mercurio d'Argento",
+    luogo: "Città di Massa — VII edizione",
+    chi: "Marco Crivellaro",
+    testo:
+      "Primo premio per una partitura ispirata alla strage di Beslan del 2004. La giuria ha scritto di «un'orchestrazione con una buonissima varietà timbrica, evocativa senza mai essere ridondante».",
+    fonte: "[CERTO] La Nazione, agosto 2025",
+  },
+  {
+    anno: "2023",
+    titolo: "Your sound for silents — primo premio",
+    luogo: "Lago Film Fest",
+    chi: "Marco Crivellaro",
+    testo: "Miglior musica per il concorso di sonorizzazione del cinema muto.",
+    fonte: "[CERTO] scheda ufficiale OperaEstate",
+  },
+  {
+    anno: "2020",
+    titolo: "Sounds of Silences",
+    luogo: "Romaeuropa Festival — Edison Studio, Cineteca di Bologna",
+    chi: "Simone Castellan",
+    testo:
+      "Fra i tre compositori premiati su 162 candidature da 36 Paesi, al Concorso internazionale di composizione musicale per le immagini in movimento. Esecuzione dal vivo al Mattatoio di Roma su «En Dirigeable sur les champs de bataille» (1918).",
+    fonte: "[CERTO] Romaeuropa Festival, archivio 2020",
+  },
+];
 
 const WORKS = [
   {
@@ -46,32 +84,32 @@ const WORKS = [
     title: "Il caso Alex Schwazer",
     titleEn: "Running for the Truth: Alex Schwazer",
     year: "2023",
-    type: "Docuserie",
-    typeLine: "Netflix Documentary Series",
+    type: "Serie documentaria",
+    typeLine: "Netflix — 4 episodi",
     featured: true,
     order: 1,
 
-    director: "", // [DA VERIFICARE]
-    production: "",
+    director: "Massimo Cappello", // [CERTO] Sky TG24, ANSA
+    production: "Indigo Stories", // [CERTO]
     distributor: "Netflix",
 
-    role: ["Brano originale «Evo»"], // [CERTO 14/08] confermato da Simone: Evo è uno dei brani usati nella serie
+    role: ["Brano originale «Evo»"], // [CERTO 14/08] confermato da Simone
+    awards: [],
 
-    cover: "assets/clean-f-Egf2hQq3Km8-2.jpg", // fotogramma da clip ufficiale Netflix Italia, watermark ritagliato
-    focus: "center 24%", // taglia il watermark d'angolo: CRASTEL resta il marchio
-    stillsNote: "[DA CHIEDERE] still ufficiali alla produzione per il sito definitivo",
+    cover: "assets/clean-f-Egf2hQq3Km8-2.jpg",
+    focus: "center 24%",
     stills: ["assets/yt-Egf2hQq3Km8.jpg"],
 
     trailer: {
       platform: "youtube",
       id: "aXWi3--bsq8",
-      channel: "Netflix Italia", // [CERTO] verificato via oEmbed
+      channel: "Netflix Italia",
       url: "https://www.youtube.com/watch?v=aXWi3--bsq8",
       embedUrl: "https://www.youtube-nocookie.com/embed/aXWi3--bsq8",
       label: "Trailer ufficiale",
     },
     soundtrack: {
-      // [CERTO] su Spotify il brano è accreditato a Marco Crivellaro e Simone Castellan
+      // [CERTO] su Spotify «Evo» è accreditato a Marco Crivellaro e Simone Castellan
       spotify: "https://open.spotify.com/track/4egTVlSWUyAmmIIEL29bZJ",
       appleMusic: "https://music.apple.com/it/album/evo-single/1789223808",
       tracks: 1,
@@ -81,9 +119,9 @@ const WORKS = [
     description:
       "La ricostruzione del caso di doping più discusso dell'atletica italiana: quattro episodi fra inchiesta giudiziaria e ritratto umano. Nella serie è entrato «Evo».",
     credits: [
-      ["Distribuzione", "Netflix"],
-      ["Anno", "2023"],
-      ["Formato", "Serie documentaria"],
+      ["Regia", "Massimo Cappello"],
+      ["Produzione", "Indigo Stories"],
+      ["Distribuzione", "Netflix — 13 aprile 2023"],
       ["Brano", "Evo — Marco Crivellaro, Simone Castellan"],
     ],
   },
@@ -93,16 +131,17 @@ const WORKS = [
     title: "Il caso Yara: oltre ogni ragionevole dubbio",
     titleEn: "The Yara Gambirasio Case: Beyond Reasonable Doubt",
     year: "2024",
-    type: "Documentario",
-    typeLine: "Netflix Documentary",
+    type: "Serie documentaria",
+    typeLine: "Netflix — 5 episodi",
     featured: true,
     order: 2,
 
-    director: "", // [DA VERIFICARE]
-    production: "",
+    director: "Gianluca Neri", // [CERTO] Wikipedia
+    production: "Quarantadue", // [CERTO]
     distributor: "Netflix",
 
-    role: ["Musiche"], // [DICHIARATO]
+    role: ["Musiche"], // [DA VERIFICARE] quale brano, come per Schwazer
+    awards: [],
 
     cover: "assets/clean-f-CXoJFIlEAtc-3.jpg",
     focus: "center 30%",
@@ -111,7 +150,7 @@ const WORKS = [
     trailer: {
       platform: "youtube",
       id: "CXoJFIlEAtc",
-      channel: "Netflix Italia", // [CERTO]
+      channel: "Netflix Italia",
       url: "https://www.youtube.com/watch?v=CXoJFIlEAtc",
       embedUrl: "https://www.youtube-nocookie.com/embed/CXoJFIlEAtc",
       label: "Trailer ufficiale",
@@ -119,11 +158,11 @@ const WORKS = [
     soundtrack: {},
 
     description:
-      "Il caso giudiziario italiano più seguito dell'ultimo decennio, riaperto dalle testimonianze di chi lo ha vissuto da dentro.",
+      "Cinque episodi sul caso giudiziario italiano più seguito dell'ultimo decennio, costruiti su sessanta faldoni di atti e sulle testimonianze di chi l'ha vissuto da dentro.",
     credits: [
-      ["Distribuzione", "Netflix"],
-      ["Anno", "2024"],
-      ["Formato", "Documentario"],
+      ["Regia", "Gianluca Neri"],
+      ["Produzione", "Quarantadue"],
+      ["Distribuzione", "Netflix — 16 luglio 2024"],
     ],
   },
 
@@ -132,16 +171,18 @@ const WORKS = [
     title: "Immenso Blu",
     titleEn: null,
     year: "2021",
-    type: "Docufilm",
-    typeLine: "Documentario di montagna e spedizione",
+    type: "Documentario",
+    typeLine: "Documentario di spedizione",
     featured: true,
     order: 3,
 
     director: "Manrico Dell'Agnola", // [CERTO]
-    production: "", // [DA VERIFICARE]
+    production: "",
     distributor: "",
 
-    role: ["Musica originale"], // [CERTO] trailer caricato dal canale CRASTEL
+    role: ["Musica originale"],
+    // [CERTO] Swiss Mountain Film Festival
+    awards: ["Menzione speciale della giuria — Swiss Mountain Film Festival"],
 
     cover: "assets/yt-orK0VpHFPDc.jpg",
     stills: ["assets/cover-immensoblu.jpg"],
@@ -149,13 +190,12 @@ const WORKS = [
     trailer: {
       platform: "youtube",
       id: "orK0VpHFPDc",
-      channel: "CRASTEL", // [CERTO]
+      channel: "CRASTEL",
       url: "https://www.youtube.com/watch?v=orK0VpHFPDc",
       embedUrl: "https://www.youtube-nocookie.com/embed/orK0VpHFPDc",
       label: "Trailer ufficiale",
     },
     soundtrack: {
-      // [CERTO] iTunes API: 15 tracce, 04/02/2024
       appleMusic:
         "https://music.apple.com/it/album/immenso-blu-original-motion-picture-soundtrack/1789431593",
       spotify: "https://open.spotify.com/album/70MVmKAEoQTLwahVIVsvhl",
@@ -165,7 +205,7 @@ const WORKS = [
     },
 
     description:
-      "Tre alpinisti attraversano il Passaggio di Drake per raggiungere la Penisola Antartica: nuove linee di salita e campionamenti scientifici sui ghiacci. Menzione speciale della giuria allo Swiss Mountain Film Festival.",
+      "Tre alpinisti attraversano il Passaggio di Drake per raggiungere la Penisola Antartica: nuove linee di salita e campionamenti scientifici sui ghiacci.",
     credits: [
       ["Regia", "Manrico Dell'Agnola"],
       ["Musica originale", "CRASTEL"],
@@ -178,16 +218,18 @@ const WORKS = [
     title: "Donnafugata",
     titleEn: null,
     year: "2021",
-    type: "Cortometraggio",
+    type: "Documentario",
     typeLine: "Film di montagna — Karpos",
     featured: true,
     order: 4,
 
     director: "", // [DA VERIFICARE]
-    production: "Karpos", // [CERTO] il film è pubblicato dal canale ufficiale Karpos
+    production: "Karpos",
     distributor: "",
 
-    role: ["Musica originale"], // [CERTO] album accreditato a Crastel
+    role: ["Musica originale"],
+    // [CERTO] il cartello di apertura compare nel film
+    awards: ["Selezione ufficiale — 67° Trento Film Festival"],
 
     cover: "assets/yt-cq9qnX32Zos.jpg",
     stills: ["assets/cover-donnafugata.jpg"],
@@ -195,29 +237,26 @@ const WORKS = [
     trailer: {
       platform: "youtube",
       id: "cq9qnX32Zos",
-      channel: "Karpos", // [CERTO] verificato via oEmbed
+      channel: "Karpos",
       url: "https://www.youtube.com/watch?v=cq9qnX32Zos",
       embedUrl: "https://www.youtube-nocookie.com/embed/cq9qnX32Zos",
       label: "Guarda il film",
     },
-
     soundtrack: {
-      // [CERTO] iTunes API: EP 6 tracce, 19/10/2021
       appleMusic:
         "https://music.apple.com/it/album/donnafugata-original-motion-picture-soundtrack-feat/1808211715",
-      spotify: "https://open.spotify.com/artist/6zOh1DcaVttzIVNSjVspeU", // [CERTO] profilo di Marco: l'album è lì
+      spotify: "https://open.spotify.com/artist/6zOh1DcaVttzIVNSjVspeU",
       tracks: 6,
       released: "2021",
       cover: "assets/cover-donnafugata.jpg",
-      trackNames: ["Beginning", "Echoes", "Drone", "Finale"], // [CERTO] 4 di 6
     },
 
     description:
-      "Selezione ufficiale al 67° Trento Film Festival. Colonna sonora elettronica e ambientale firmata insieme a Federico Motta: pianoforte trattato, droni e code sospese.",
+      "Una via nuova su una torre dolomitica, raccontata dal basso verso l'alto. Colonna sonora elettronica e ambientale scritta con Federico Motta.",
     credits: [
-      ["Festival", "67° Trento Film Festival — selezione ufficiale"],
+      ["Produzione", "Karpos"],
       ["Musica", "Marco Crivellaro, Simone Castellan, Federico Motta"],
-      ["Pubblicazione", "2021 — 6 brani"],
+      ["Colonna sonora", "6 brani, 2021"],
     ],
   },
 
@@ -227,15 +266,16 @@ const WORKS = [
     titleEn: null,
     year: "2022",
     type: "Cortometraggio",
-    typeLine: "Short film",
+    typeLine: "Corto — Black Aurora Films",
     featured: true,
     order: 5,
 
-    director: "", // [DA VERIFICARE]
-    production: "Black Aurora Films", // [CERTO] trailer pubblicato dal loro canale
+    director: "Davide Serra", // [CERTO] IMDb
+    production: "Black Aurora Films",
     distributor: "",
 
-    role: ["Compositore"], // [CERTO] IMDb tt19460284
+    role: ["Compositore"],
+    awards: [],
 
     cover: "assets/f-DZev67wsBo0-1.jpg",
     focus: "center 55%",
@@ -244,14 +284,12 @@ const WORKS = [
     trailer: {
       platform: "youtube",
       id: "DZev67wsBo0",
-      channel: "Black Aurora Films", // [CERTO]
+      channel: "Black Aurora Films",
       url: "https://www.youtube.com/watch?v=DZev67wsBo0",
       embedUrl: "https://www.youtube-nocookie.com/embed/DZev67wsBo0",
       label: "Trailer ufficiale",
     },
-
     soundtrack: {
-      // [CERTO] iTunes API: EP 5 tracce, 27/05/2022
       appleMusic: "https://music.apple.com/it/album/piccola-storia-damore-ep/1789435287",
       spotify: "https://open.spotify.com/album/5cW8cgiCbm6qTtwngUIGt2",
       tracks: 5,
@@ -260,35 +298,38 @@ const WORKS = [
     },
 
     description:
-      "Cinque miniature per pianoforte e archi. Scrittura intima, tempi lunghi, nessun effetto.",
+      "Un uomo si innamora di una ragazza morta. Cinque miniature per pianoforte e archi: scrittura intima, tempi lunghi, nessun effetto.",
     credits: [
-      ["Ruolo", "Compositore"],
-      ["Anno", "2022"],
+      ["Regia", "Davide Serra"],
+      ["Produzione", "Black Aurora Films"],
+      ["Colonna sonora", "5 brani, 2022"],
     ],
   },
 
   {
     slug: "la-ricorrenza",
     title: "La Ricorrenza",
-    titleEn: null,
+    titleEn: "The Anniversary",
     year: "2020",
     type: "Cortometraggio",
-    typeLine: "Short film",
-    featured: false,
+    typeLine: "Corto — regia di Davide Serra",
+    featured: true,
     order: 6,
 
-    director: "Davide Serra", // [CERTO] il corto è pubblicato dal canale del regista
+    director: "Davide Serra",
     production: "Alpha Film", // [DA VERIFICARE]
     distributor: "",
 
-    role: ["Musica originale"], // [CERTO] IMDb tt12288134
+    role: ["Musica originale"],
+    // [CERTO] allori impressi sulla locandina del corto
+    awards: ["Selezioni in festival: Red Wood Film Festival, We Make Films, Aracnea Festival"],
 
     cover: "assets/yt-am2A8bLgw1g.jpg",
     stills: [],
     trailer: {
       platform: "youtube",
       id: "am2A8bLgw1g",
-      channel: "Davide Serra", // [CERTO]
+      channel: "Davide Serra",
       url: "https://www.youtube.com/watch?v=am2A8bLgw1g",
       embedUrl: "https://www.youtube-nocookie.com/embed/am2A8bLgw1g",
       label: "Guarda il corto",
@@ -296,68 +337,12 @@ const WORKS = [
     soundtrack: {},
 
     description:
-      "Una vedova rende omaggio al marito nel giorno del loro anniversario. Selezionato in festival, tra cui Aracnea Festival.",
-    credits: [["Regia", "Davide Serra"], ["Anno", "2020"], ["Ruolo", "Musica originale"]],
-  },
-
-  {
-    slug: "latronico",
-    title: "Latronico, una terra di emozioni",
-    titleEn: null,
-    year: "2021",
-    type: "Documentario turistico",
-    typeLine: "Film territoriale",
-    featured: false,
-    order: 8,
-
-    director: "",
-    production: "Pro Loco Latronico", // [CERTO] canale che pubblica
-    distributor: "",
-    role: ["Musica originale"],
-
-    cover: "assets/yt-30FGUJkpow8.jpg",
-    stills: [],
-    trailer: {
-      platform: "youtube",
-      id: "30FGUJkpow8",
-      channel: "Pro Loco Latronico",
-      url: "https://www.youtube.com/watch?v=30FGUJkpow8",
-      embedUrl: "https://www.youtube-nocookie.com/embed/30FGUJkpow8",
-      label: "Guarda il film",
-    },
-    soundtrack: {},
-    description: "Ritratto di un territorio lucano fra terme, pietra e montagna.",
-    credits: [["Anno", "2021"], ["Ruolo", "Musica originale"]],
-  },
-
-  {
-    slug: "maglificio-pini",
-    title: "Maglificio Pini",
-    titleEn: null,
-    year: "2020",
-    type: "Branded film",
-    typeLine: "Film d'impresa",
-    featured: false,
-    order: 9,
-
-    director: "",
-    production: "Maglificio Pini", // [CERTO] canale che pubblica
-    distributor: "",
-    role: ["Musica originale"],
-
-    cover: "assets/yt-M1lvrm07Pc8.jpg",
-    stills: [],
-    trailer: {
-      platform: "youtube",
-      id: "M1lvrm07Pc8",
-      channel: "Maglificio Pini",
-      url: "https://www.youtube.com/watch?v=M1lvrm07Pc8",
-      embedUrl: "https://www.youtube-nocookie.com/embed/M1lvrm07Pc8",
-      label: "Guarda il film",
-    },
-    soundtrack: {},
-    description: "Il gesto artigianale raccontato come processo: mani, macchine, tempo.",
-    credits: [["Anno", "2020"], ["Ruolo", "Musica originale"]],
+      "Una vedova rende omaggio al marito nel giorno del loro anniversario.",
+    credits: [
+      ["Regia", "Davide Serra"],
+      ["Anno", "2020"],
+      ["Ruolo", "Musica originale"],
+    ],
   },
 
   {
@@ -367,7 +352,7 @@ const WORKS = [
     year: "2022",
     type: "Live",
     typeLine: "Marcus Grimm & Ensemble, Valbrenta",
-    featured: false,
+    featured: true,
     order: 7,
 
     director: "",
@@ -375,6 +360,7 @@ const WORKS = [
     distributor: "",
 
     role: ["Composizione", "Pianoforte"],
+    awards: [],
 
     cover: "assets/yt-7x2psSyEOTU.jpg",
     stills: ["assets/yt-PVcxAgewgAU.jpg"],
@@ -382,7 +368,7 @@ const WORKS = [
     trailer: {
       platform: "youtube",
       id: "7x2psSyEOTU",
-      channel: "CRASTEL", // [CERTO]
+      channel: "CRASTEL",
       url: "https://www.youtube.com/watch?v=7x2psSyEOTU",
       embedUrl: "https://www.youtube-nocookie.com/embed/7x2psSyEOTU",
       label: "Guarda il live",
@@ -398,9 +384,71 @@ const WORKS = [
       ["Basso", "Francesco Trento"],
     ],
   },
+
+  {
+    slug: "latronico",
+    title: "Latronico, una terra di emozioni",
+    titleEn: null,
+    year: "2021",
+    type: "Documentario",
+    typeLine: "Ritratto di un territorio",
+    featured: true,
+    order: 8,
+
+    director: "",
+    production: "Pro Loco Latronico",
+    distributor: "",
+    role: ["Musica originale"],
+    awards: [],
+
+    cover: "assets/yt-30FGUJkpow8.jpg",
+    stills: [],
+    trailer: {
+      platform: "youtube",
+      id: "30FGUJkpow8",
+      channel: "Pro Loco Latronico",
+      url: "https://www.youtube.com/watch?v=30FGUJkpow8",
+      embedUrl: "https://www.youtube-nocookie.com/embed/30FGUJkpow8",
+      label: "Guarda il film",
+    },
+    soundtrack: {},
+    description: "Un territorio lucano fra terme, pietra e montagna.",
+    credits: [["Produzione", "Pro Loco Latronico"], ["Anno", "2021"], ["Ruolo", "Musica originale"]],
+  },
+
+  {
+    slug: "maglificio-pini",
+    title: "Maglificio Pini",
+    titleEn: null,
+    year: "2020",
+    type: "Film d'impresa",
+    typeLine: "Ritratto d'azienda",
+    featured: true,
+    order: 9,
+
+    director: "",
+    production: "Maglificio Pini",
+    distributor: "",
+    role: ["Musica originale"],
+    awards: [],
+
+    cover: "assets/yt-M1lvrm07Pc8.jpg",
+    stills: [],
+    trailer: {
+      platform: "youtube",
+      id: "M1lvrm07Pc8",
+      channel: "Maglificio Pini",
+      url: "https://www.youtube.com/watch?v=M1lvrm07Pc8",
+      embedUrl: "https://www.youtube-nocookie.com/embed/M1lvrm07Pc8",
+      label: "Guarda il film",
+    },
+    soundtrack: {},
+    description: "Il gesto artigianale raccontato come processo: mani, macchine, tempo.",
+    credits: [["Anno", "2020"], ["Ruolo", "Musica originale"]],
+  },
 ];
 
-// Utility condivise dai tre mockup
+// Utility condivise
 const featured = () => WORKS.filter((w) => w.featured).sort((a, b) => a.order - b.order);
 const bySlug = (s) => WORKS.find((w) => w.slug === s);
 const nextOf = (slug) => {
