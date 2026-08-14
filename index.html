@@ -148,19 +148,22 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .premio .chi{grid-column:2;font-size:12.5px;font-weight:500;margin:8px 0 0}
 .premio p.testo{grid-column:2;margin:6px 0 0;font-size:13.5px;line-height:1.6;color:var(--muted);max-width:56ch}
 
-/* ---------- about, colophon ---------- */
+/* ---------- chi siamo: una bio per lo studio, una per ciascuno ---------- */
 .about{padding:clamp(40px,7vw,90px) var(--gut);border-top:2px solid var(--ink);display:grid;
- grid-template-columns:1fr 1fr;gap:clamp(24px,4vw,64px)}
-@media(max-width:820px){ .about{grid-template-columns:1fr} }
-.about h2{font-family:var(--serif);font-weight:600;font-size:clamp(28px,4.4vw,52px);margin:6px 0 18px;line-height:1.02;letter-spacing:-.02em}
-.about p{font-size:15px;line-height:1.68;margin:0 0 16px;max-width:52ch}
-.about p.premi-riga{font-size:13.5px;line-height:1.65;color:var(--muted);border-top:1px solid var(--line);padding-top:14px;margin-top:22px}
-.about p.premi-riga b{color:var(--red);font-weight:600}
-.about p.first::first-letter{font-family:var(--serif);font-size:3.5em;line-height:.82;float:left;padding:6px 10px 0 0;color:var(--red);font-weight:700}
-.who{border-top:1px solid var(--line);padding-top:14px;margin-top:8px}
-.who div{display:flex;justify-content:space-between;gap:16px;padding:12px 0;border-bottom:1px solid var(--line);align-items:baseline}
-.who b{font-family:var(--serif);font-weight:600;font-size:19px}
-.who span{color:var(--muted);font-size:12.5px;text-align:right;max-width:26ch}
+ grid-template-columns:1fr 1.15fr;gap:clamp(26px,5vw,80px);align-items:start}
+@media(max-width:880px){ .about{grid-template-columns:1fr} }
+.about h2{font-family:var(--serif);font-weight:700;font-size:clamp(30px,4.6vw,56px);margin:8px 0 18px;
+ line-height:1;letter-spacing:-.03em}
+.about p{font-size:15px;line-height:1.68;margin:0 0 14px;max-width:54ch;color:var(--ink)}
+#bio-studio p:first-child::first-letter{font-family:var(--serif);font-size:3.4em;line-height:.82;float:left;
+ padding:6px 10px 0 0;color:var(--red);font-weight:700}
+.persona{border-top:1px solid var(--line);padding-top:18px;margin-top:26px}
+.persona:first-child{border-top:0;margin-top:0;padding-top:0}
+.persona h3{font-family:var(--serif);font-weight:600;font-size:clamp(21px,2.4vw,28px);margin:0;
+ line-height:1.1;letter-spacing:-.02em}
+.persona h3 em{font-style:normal;color:var(--red);font-size:.62em;letter-spacing:0}
+.persona .mestiere{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:7px 0 12px}
+.persona p{font-size:14px;line-height:1.62;margin:0 0 10px;color:var(--muted);max-width:56ch}
 
 .colophon{padding:clamp(30px,5vw,60px) var(--gut);border-top:1px solid var(--line);
  display:flex;justify-content:space-between;gap:22px;flex-wrap:wrap;align-items:flex-end}
@@ -289,17 +292,12 @@ body.locked{overflow:hidden}
   </div>
 
   <section class="about" id="about">
-    <div>
+    <div class="about-studio">
       <span class="cat">Chi siamo</span>
-      <h2>Uno studio<br>di musica per immagini.</h2>
-      <div class="who" id="who"></div>
+      <h2>CRASTEL</h2>
+      <div id="bio-studio"></div>
     </div>
-    <div>
-      <p class="first">CRASTEL è lo studio di Marco Crivellaro e Simone Castellan, a Bassano del Grappa. Scriviamo musica per immagini: temi per pianoforte e archi, elettronica, sound design. A seconda del progetto firmiamo insieme o separatamente, e chiamiamo attorno a noi gli strumentisti che servono.</p>
-      <p>Il lavoro parte dal montaggio, non dallo spartito: guardiamo il film finché non dice di che cosa ha bisogno. Da lì la scrittura passa allo studio, dove la stessa idea diventa arrangiamento, suono e mix senza cambiare mano.</p>
-      <p>Da qui sono uscite musiche per due serie Netflix, per documentari premiati nei festival di montagna e per cortometraggi selezionati in rassegne italiane e internazionali.</p>
-      <p class="premi-riga"><b>Premi di composizione:</b> Mercurio d'Argento 2025, Città di Massa, a Marco Crivellaro — «Your sound for silents», primo premio al Lago Film Fest 2023, a Marco Crivellaro — Sounds of Silences 2020 al Romaeuropa Festival, con Edison Studio e la Cineteca di Bologna, a Simone Castellan: fra i tre premiati su 162 candidature da 36 Paesi.</p>
-    </div>
+    <div class="about-persone" id="bio-persone"></div>
   </section>
 
   <section class="contatti" id="contatti">
@@ -385,7 +383,7 @@ body.locked{overflow:hidden}
   </div>
 </div>
 
-<script src="data.js?v=202608141231"></script>
+<script src="data.js?v=202608141441"></script>
 <script>
 const ORDINE = WORKS.filter(w => w.featured && w.trailer).sort((a,b)=>a.order-b.order);
 const NUMERO = new Map(ORDINE.map((w,i) => [w.slug, i+1]));
@@ -492,8 +490,13 @@ function render(){
 render();
 
 document.getElementById('anno').textContent = new Date().getFullYear();
-document.getElementById('who').innerHTML = STUDIO.members.map(m=>
-  `<div><b>${m.name}</b><span>${m.alias?m.alias+' · ':''}${m.role}</span></div>`).join('');
+document.getElementById('bio-studio').innerHTML = STUDIO.bio.map(p=>`<p>${p}</p>`).join('');
+document.getElementById('bio-persone').innerHTML = STUDIO.members.map(m=>
+  `<article class="persona">
+     <h3>${m.name}${m.alias?` <em>/ ${m.alias}</em>`:''}</h3>
+     <p class="mestiere">${m.role}</p>
+     ${m.bio.map(p=>`<p>${p}</p>`).join('')}
+   </article>`).join('');
 
 function openLB(slug){
   const w = bySlug(slug), n = nextOf(slug);

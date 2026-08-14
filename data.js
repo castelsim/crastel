@@ -15,19 +15,35 @@ const STUDIO = {
   base: "Bassano del Grappa, Italia",
   email: "castellansimone@gmail.com",
 
+  /* Bio dello studio — BOZZA da rivedere con Marco e Simone.
+     Costruita solo su fatti verificati; nessuna frase su metodo di lavoro. */
+  bio: [
+    "CRASTEL è lo studio di composizione per immagini di Marco Crivellaro e Simone Castellan, a Bassano del Grappa.",
+    "Scriviamo musica originale per film, serie e documentari: temi per pianoforte e archi, elettronica e sound design, dalla prima idea al mix finale.",
+    "Le nostre musiche accompagnano produzioni distribuite da Netflix, documentari premiati nei festival internazionali di montagna e cortometraggi selezionati in rassegne italiane e straniere.",
+  ],
+
   members: [
     {
       name: "Marco Crivellaro",
       alias: "Marcus Grimm",
-      // [CERTO] scheda ufficiale OperaEstate
       role: "Composizione, pianoforte, orchestrazione",
-      nota: "Diplomato in composizione con lode al Conservatorio «Agostino Steffani» di Castelfranco Veneto.",
+      /* BOZZA — tutto verificato: OperaEstate, La Nazione, Rockit, La Valigetta */
+      bio: [
+        "Diplomato con lode in composizione al Conservatorio «Agostino Steffani» di Castelfranco Veneto.",
+        "Firma musiche per serie, documentari e cortometraggi. Come Marcus Grimm pubblica dal 2018 il proprio repertorio strumentale: «2 Planets» (2019), registrato al Teatro delle Voci di Treviso e masterizzato ad Abbey Road, e «BOSCO SESSION» (2025).",
+        "Nel 2025 ha vinto il Premio Mercurio d'Argento della Città di Massa con una partitura ispirata alla strage di Beslan; nel 2023 il primo premio «Your sound for silents» al Lago Film Fest.",
+      ],
     },
     {
       name: "Simone Castellan",
       alias: null,
       role: "Programmazione musicale, sound design e post produzione",
-      nota: null,
+      /* BOZZA — da completare con formazione e lavori scelti da Simone */
+      bio: [
+        "Compositore e sound designer. In studio segue programmazione musicale, sound design e post produzione.",
+        "Nel 2020 è fra i tre autori premiati a «Sounds of Silences», concorso internazionale di composizione per le immagini del Romaeuropa Festival con Edison Studio e la Cineteca di Bologna, scelto su 162 candidature da 36 Paesi: la sua partitura è stata eseguita dal vivo in sincrono con le immagini all'Ex Mattatoio di Roma.",
+      ],
     },
   ],
 
