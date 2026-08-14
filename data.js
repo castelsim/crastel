@@ -55,7 +55,7 @@ const WORKS = [
     production: "",
     distributor: "Netflix",
 
-    role: ["Musiche"], // [DICHIARATO] — precisare se score originale o brani in licenza
+    role: ["Brano originale «Evo»"], // [CERTO 14/08] confermato da Simone: Evo è uno dei brani usati nella serie
 
     cover: "assets/clean-f-Egf2hQq3Km8-2.jpg", // fotogramma da clip ufficiale Netflix Italia, watermark ritagliato
     focus: "center 24%", // taglia il watermark d'angolo: CRASTEL resta il marchio
@@ -70,14 +70,21 @@ const WORKS = [
       embedUrl: "https://www.youtube-nocookie.com/embed/aXWi3--bsq8",
       label: "Trailer ufficiale",
     },
-    soundtrack: {},
+    soundtrack: {
+      // [CERTO] su Spotify il brano è accreditato a Marco Crivellaro e Simone Castellan
+      spotify: "https://open.spotify.com/track/4egTVlSWUyAmmIIEL29bZJ",
+      appleMusic: "https://music.apple.com/it/album/evo-single/1789223808",
+      tracks: 1,
+      label: "Ascolta «Evo», il brano nella serie",
+    },
 
     description:
-      "La ricostruzione del caso di doping più discusso dell'atletica italiana: quattro episodi fra inchiesta giudiziaria e ritratto umano.",
+      "La ricostruzione del caso di doping più discusso dell'atletica italiana: quattro episodi fra inchiesta giudiziaria e ritratto umano. Nella serie è entrato «Evo».",
     credits: [
       ["Distribuzione", "Netflix"],
       ["Anno", "2023"],
       ["Formato", "Serie documentaria"],
+      ["Brano", "Evo — Marco Crivellaro, Simone Castellan"],
     ],
   },
 

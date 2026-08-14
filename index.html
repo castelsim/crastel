@@ -435,7 +435,7 @@ function openLB(slug){
   if(st.spotify) ascolti.push(`<a href="${st.spotify}" target="_blank" rel="noopener">Spotify</a>`);
   if(st.appleMusic) ascolti.push(`<a href="${st.appleMusic}" target="_blank" rel="noopener">Apple Music</a>`);
   document.getElementById('lb-ascolta').innerHTML = ascolti.length
-    ? `<span class="cat">Ascolta la colonna sonora${st.tracks?` — ${st.tracks} brani`:''}</span><div class="dove">${ascolti.join('')}</div>`
+    ? `<span class="cat">${st.label || `Ascolta la colonna sonora${st.tracks?` — ${st.tracks} bran${st.tracks===1?'o':'i'}`:''}`}</span><div class="dove">${ascolti.join('')}</div>`
     : '';
   document.getElementById('lb-video').innerHTML =
     `<iframe src="${embedSrc(w)}" allow="autoplay; encrypted-media; fullscreen" allowfullscreen title="${w.title}"></iframe>`;
