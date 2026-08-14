@@ -777,6 +777,25 @@ const WORKS = [
 ];
 
 
+/* ============================================================
+   ESERCIZI DI SCRITTURA — «music rework»
+   Spot già usciti, ri-sonorizzati da capo come esercizio di studio (2019).
+   NON sono commesse dei marchi citati: i video appartengono a loro.
+   Stanno in una fascia separata, fuori dal catalogo e dalla numerazione.
+   [CERTO] tutti pubblicati dal canale ufficiale CRASTEL
+   ============================================================ */
+const REWORKS = [
+  { id: "3YuZtqsL1WU", marchio: "Chanel", titolo: "Dark Chanel", cover: "assets/rw-3YuZtqsL1WU.jpg" },
+  { id: "tinc0Vf7rj0", marchio: "Chanel", titolo: "Gabrielle", cover: "assets/rw-tinc0Vf7rj0.jpg" },
+  { id: "TTCRdO4d-3M", marchio: "Chanel", titolo: "White", cover: "assets/rw-TTCRdO4d-3M.jpg" },
+  { id: "bnflsFPCrsk", marchio: "Benetton", titolo: "Unhate", cover: "assets/rw-bnflsFPCrsk.jpg" },
+  { id: "wcNSBjJYm3M", marchio: "Benetton", titolo: "Beauty is fragile", cover: "assets/rw-wcNSBjJYm3M.jpg" },
+  { id: "fCTaSxJ7fzc", marchio: "Benetton", titolo: "WE Program", cover: "assets/rw-fCTaSxJ7fzc.jpg" },
+  { id: "D7oJdYmM22A", marchio: "Diesel", titolo: "Say no to uncool wool", cover: "assets/rw-D7oJdYmM22A.jpg" },
+  { id: "f9sh70s0Ciw", marchio: "Marcelo Burlon", titolo: "Womenswear FW 2015-16", cover: "assets/rw-f9sh70s0Ciw.jpg" },
+  { id: "blPlDZD8Fek", marchio: "Corto", titolo: "Melancholia", cover: "assets/rw-blPlDZD8Fek.jpg" },
+];
+
 // Utility condivise
 const featured = () => WORKS.filter((w) => w.featured).sort((a, b) => a.order - b.order);
 const bySlug = (s) => WORKS.find((w) => w.slug === s);

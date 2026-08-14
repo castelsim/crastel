@@ -138,6 +138,24 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .premio .chi{grid-column:2;font-size:12.5px;font-weight:500;margin:8px 0 0}
 .premio p.testo{grid-column:2;margin:6px 0 0;font-size:13.5px;line-height:1.6;color:var(--muted);max-width:56ch}
 
+/* ---------- esercizi: fascia separata, peso minore ---------- */
+.esercizi{padding:clamp(30px,4.6vw,64px) var(--gut);border-top:2px solid var(--ink);background:var(--card)}
+.esercizi .testa{display:flex;justify-content:space-between;gap:clamp(18px,4vw,60px);flex-wrap:wrap;
+ align-items:flex-end;margin-bottom:22px}
+.esercizi h2{font-family:var(--serif);font-weight:600;font-size:clamp(24px,3.2vw,38px);margin:6px 0 0;
+ line-height:1;letter-spacing:-.02em}
+.esercizi .testa p{margin:0;max-width:52ch;font-size:13px;line-height:1.6;color:var(--muted)}
+.rew-griglia{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:14px}
+.rew{display:flex;flex-direction:column;gap:7px;text-align:left;padding:0;border:0;cursor:pointer}
+.rew .ombra{position:relative;overflow:hidden;aspect-ratio:16/9;background:var(--paper);border:1px solid var(--line)}
+.rew img{width:100%;height:100%;object-fit:cover;filter:saturate(.7) contrast(1.02);
+ transform:scale(1.02);transition:filter .4s, transform .5s}
+.rew:hover img,.rew:focus-visible img{filter:none;transform:scale(1.06)}
+.rew .ombra::after{content:"▶";position:absolute;right:7px;bottom:5px;color:var(--paper);font-size:11px;
+ text-shadow:0 1px 6px rgba(0,0,0,.6)}
+.rew b{font-size:12.5px;font-weight:600;line-height:1.2}
+.rew span{font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+
 /* ---------- about, colophon ---------- */
 .about{padding:clamp(40px,7vw,90px) var(--gut);border-top:2px solid var(--ink);display:grid;
  grid-template-columns:1fr 1fr;gap:clamp(24px,4vw,64px)}
@@ -276,6 +294,18 @@ body.locked{overflow:hidden}
 
   <section class="grid" id="catalogo"></section>
   </div>
+
+  <section class="esercizi" id="esercizi">
+    <div class="testa">
+      <div>
+        <span class="cat">Esercizi di scrittura</span>
+        <h2>Rework</h2>
+      </div>
+      <p>Spot già usciti, riscritti da capo per esercizio nel 2019: stessa immagine, musica nostra.
+         Non sono lavori commissionati dai marchi citati e i video appartengono a loro.</p>
+    </div>
+    <div class="rew-griglia" id="rew-griglia"></div>
+  </section>
 
   <section class="about" id="about">
     <div>
@@ -469,6 +499,35 @@ function render(){
 render();
 
 document.getElementById('anno').textContent = new Date().getFullYear();
+document.getElementById('rew-griglia').innerHTML = REWORKS.map((r,i)=>
+  `<button class="rew" onclick="openRework(${i})" aria-label="Guarda il rework ${r.marchio} ${r.titolo}">
+     <span class="ombra"><img src="${r.cover}" alt="${r.marchio} — ${r.titolo}" loading="lazy"></span>
+     <span>${r.marchio}</span><b>${r.titolo}</b>
+   </button>`).join('');
+
+function openRework(i){
+  const r = REWORKS[i];
+  document.getElementById('lb-ref').textContent = 'Esercizio di scrittura';
+  document.getElementById('lb-kind').textContent = r.marchio + ' — 2019';
+  document.getElementById('lb-title').textContent = r.titolo;
+  document.getElementById('lb-desc').textContent =
+    'Riscrittura musicale su uno spot già uscito: esercizio di studio, non una commessa. Il video appartiene a ' + r.marchio + '.';
+  document.getElementById('lb-dl').innerHTML = '<dt>Anno</dt><dd>2019</dd><dt>Video</dt><dd>' + r.marchio + '</dd><dt>Musica</dt><dd>CRASTEL</dd>';
+  document.getElementById('lb-premi').innerHTML = '';
+  document.getElementById('lb-stampa').innerHTML = '';
+  document.getElementById('lb-altri').innerHTML = '';
+  document.getElementById('lb-ascolta').innerHTML = '';
+  const box = document.getElementById('lb-video');
+  box.style.display=''; document.querySelector('.sheet').classList.remove('solo-testo');
+  box.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${r.id}?autoplay=1&rel=0&modestbranding=1&playsinline=1" allow="autoplay; encrypted-media; fullscreen" allowfullscreen title="${r.titolo}"></iframe>`;
+  const nx = document.getElementById('lb-next');
+  const suc = REWORKS[(i+1) % REWORKS.length];
+  nx.innerHTML = `${suc.titolo} <span class="cat">${suc.marchio}</span>`;
+  nx.onclick = (e)=>{ e.preventDefault(); openRework((i+1) % REWORKS.length); };
+  document.getElementById('lb').classList.add('on');
+  document.body.classList.add('locked');
+}
+
 document.getElementById('who').innerHTML = STUDIO.members.map(m=>
   `<div><b>${m.name}</b><span>${m.alias?m.alias+' · ':''}${m.role}</span></div>`).join('');
 
