@@ -381,7 +381,7 @@ const WORKS = [
     gruppo: "Musica",
     type: "Concerto",
     typeLine: "Marcus Grimm & Ensemble, Valbrenta",
-    featured: true,
+    featured: false, // fuori dal catalogo: il sito resta sulla musica per immagini
     order: 17,
 
     director: "",
@@ -631,7 +631,7 @@ const WORKS = [
     gruppo: "Musica",
     type: "Album",
     typeLine: "Marcus Grimm — album d'esordio",
-    featured: true,
+    featured: false, // fuori dal catalogo: il sito resta sulla musica per immagini
     order: 14,
 
     director: "",

@@ -263,7 +263,7 @@ body.locked{overflow:hidden}
     <h1>CRASTEL</h1>
     <div class="lead">
       <h2>Musica originale per film, documentari e serie.</h2>
-      <p>Marco Crivellaro e Simone Castellan. Dal 2018 a oggi: film, serie, sonorizzazioni, dischi e concerti. Ogni scheda porta al lavoro.</p>
+      <p>Marco Crivellaro e Simone Castellan. Dal 2020 a oggi: serie, documentari, corti e film su commissione. Ogni scheda porta al lavoro.</p>
     </div>
   </section>
 
@@ -376,11 +376,13 @@ body.locked{overflow:hidden}
 
 <script src="data.js"></script>
 <script>
-const refNo = (w) => 'CR-' + String(w.order).padStart(3,'0');
+const ORDINE = WORKS.filter(w => w.featured && w.trailer).sort((a,b)=>a.order-b.order);
+const NUMERO = new Map(ORDINE.map((w,i) => [w.slug, i+1]));
+const refNo = (w) => 'CR-' + String(NUMERO.get(w.slug) || w.order).padStart(3,'0');
 
 
 /* filtri derivati dal dataset */
-const TYPES = ['Tutti', ...new Set(WORKS.filter(w=>w.trailer).map(w=>w.gruppo))];
+const TYPES = ['Tutti', ...new Set(WORKS.filter(w=>w.featured && w.trailer).map(w=>w.gruppo))];
 let active = 'Tutti';
 document.getElementById('filterbtns').innerHTML = TYPES.map(t=>
   `<button aria-pressed="${t===active}" onclick="setFilter('${t}')">${t}</button>`).join('');
@@ -437,7 +439,7 @@ function riordina(){
 
 function render(){
   const rows = WORKS
-    .filter(w => w.trailer)                                   // nel catalogo solo lavori con un video
+    .filter(w => w.featured && w.trailer)                     // nel catalogo solo lavori con un video
     .filter(w => active === 'Tutti' || w.gruppo === active)
     .sort((a,b) => a.order - b.order);
   document.getElementById('count').textContent = rows.length + ' schede';
