@@ -448,7 +448,7 @@ const WORKS = [
 
   {
     slug: "trodoi-trails",
-    gruppo: "Brand",
+    gruppo: "Aziende",
     type: "Film territoriale",
     title: "Trodoi/Trails — Gambe in spalla",
     titleEn: null,
@@ -494,7 +494,7 @@ const WORKS = [
     title: "Maglificio Pini",
     titleEn: null,
     year: "2020",
-    gruppo: "Brand",
+    gruppo: "Aziende",
     type: "Film d'impresa",
     typeLine: "Ritratto d'azienda",
     featured: true,
