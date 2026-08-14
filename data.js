@@ -47,37 +47,6 @@ const STUDIO = {
   },
 };
 
-/* Riconoscimenti che non appartengono a un singolo lavoro del catalogo:
-   sono premi di composizione, vinti dai singoli dentro il percorso dello studio. */
-const PREMI = [
-  {
-    anno: "2025",
-    titolo: "Premio Mercurio d'Argento",
-    luogo: "Città di Massa — VII edizione",
-    chi: "Marco Crivellaro",
-    testo:
-      "Primo premio per una partitura ispirata alla strage di Beslan del 2004. La giuria ha scritto di «un'orchestrazione con una buonissima varietà timbrica, evocativa senza mai essere ridondante».",
-    fonte: "[CERTO] La Nazione, agosto 2025",
-  },
-  {
-    anno: "2023",
-    titolo: "Your sound for silents — primo premio",
-    luogo: "Lago Film Fest",
-    chi: "Marco Crivellaro",
-    testo: "Miglior musica per il concorso di sonorizzazione del cinema muto.",
-    fonte: "[CERTO] scheda ufficiale OperaEstate",
-  },
-  {
-    anno: "2020",
-    titolo: "Sounds of Silences",
-    luogo: "Romaeuropa Festival — Edison Studio, Cineteca di Bologna",
-    chi: "Simone Castellan",
-    testo:
-      "Fra i tre compositori premiati su 162 candidature da 36 Paesi, al Concorso internazionale di composizione musicale per le immagini in movimento. Esecuzione dal vivo al Mattatoio di Roma su «En Dirigeable sur les champs de bataille» (1918).",
-    fonte: "[CERTO] Romaeuropa Festival, archivio 2020",
-  },
-];
-
 const WORKS = [
   {
     slug: "alex-schwazer",
@@ -94,6 +63,7 @@ const WORKS = [
     distributor: "Netflix",
 
     role: ["Brano originale «Evo»"], // [CERTO 14/08] confermato da Simone
+    firma: "Marco Crivellaro e Simone Castellan", // [CERTO] accrediti Spotify
     awards: [],
 
     cover: "assets/clean-f-Egf2hQq3Km8-2.jpg",
@@ -268,7 +238,7 @@ const WORKS = [
     type: "Cortometraggio",
     typeLine: "Corto — Black Aurora Films",
     featured: true,
-    order: 5,
+    order: 8,
 
     director: "Davide Serra", // [CERTO] IMDb
     production: "Black Aurora Films",
@@ -314,7 +284,7 @@ const WORKS = [
     type: "Cortometraggio",
     typeLine: "Corto — regia di Davide Serra",
     featured: true,
-    order: 6,
+    order: 9,
 
     director: "Davide Serra",
     production: "Alpha Film", // [DA VERIFICARE]
@@ -350,10 +320,10 @@ const WORKS = [
     title: "Wanderlust — live",
     titleEn: null,
     year: "2022",
-    type: "Live",
+    type: "Concerto",
     typeLine: "Marcus Grimm & Ensemble, Valbrenta",
     featured: true,
-    order: 7,
+    order: 16,
 
     director: "",
     production: "",
@@ -393,7 +363,7 @@ const WORKS = [
     type: "Documentario",
     typeLine: "Ritratto di un territorio",
     featured: true,
-    order: 8,
+    order: 10,
 
     director: "",
     production: "Pro Loco Latronico",
@@ -424,7 +394,7 @@ const WORKS = [
     type: "Film d'impresa",
     typeLine: "Ritratto d'azienda",
     featured: true,
-    order: 9,
+    order: 11,
 
     director: "",
     production: "Maglificio Pini",
@@ -446,7 +416,250 @@ const WORKS = [
     description: "Il gesto artigianale raccontato come processo: mani, macchine, tempo.",
     credits: [["Anno", "2020"], ["Ruolo", "Musica originale"]],
   },
+
+/* ---------- sonorizzazioni e concorsi di composizione ---------- */
+  {
+    slug: "mercurio-dargento",
+    title: "Beslan — partitura per il Mercurio d'Argento",
+    titleEn: null,
+    year: "2025",
+    type: "Sonorizzazione",
+    typeLine: "Premio Mercurio d'Argento — VII edizione",
+    featured: true,
+    order: 5,
+
+    director: "",
+    production: "Città di Massa",
+    distributor: "",
+    firma: "Marco Crivellaro",
+    role: ["Composizione", "Orchestrazione"],
+    // [CERTO] La Nazione, agosto 2025
+    awards: ["Primo premio — Premio Mercurio d'Argento 2025, Città di Massa"],
+
+    cover: "",
+    stills: [],
+    trailer: null,
+    soundtrack: {},
+
+    description:
+      "Partitura scritta per immagini sulla strage di Beslan del 2004. La giuria ha premiato «un'orchestrazione con una buonissima varietà timbrica, evocativa senza mai essere ridondante, equilibrata ma con un gusto tematico molto incisivo, in empatia rispettosa con il dramma».",
+    credits: [
+      ["Premio", "Mercurio d'Argento 2025 — VII edizione"],
+      ["Dove", "Città di Massa, 21-23 agosto 2025"],
+      ["Firma", "Marco Crivellaro"],
+    ],
+  },
+
+  {
+    slug: "sounds-of-silences",
+    title: "Sounds of Silences — Romaeuropa",
+    titleEn: null,
+    year: "2020",
+    type: "Sonorizzazione",
+    typeLine: "Concorso internazionale di composizione per le immagini",
+    featured: true,
+    order: 6,
+
+    director: "",
+    production: "Edison Studio, Cineteca di Bologna",
+    distributor: "Romaeuropa Festival",
+    firma: "Simone Castellan",
+    role: ["Composizione", "Elettronica"],
+    // [CERTO] archivio Romaeuropa + Edison Studio
+    awards: ["Fra i tre premiati su 162 candidature da 36 Paesi"],
+
+    cover: "",
+    stills: [],
+    trailer: null,
+    soundtrack: {},
+
+    description:
+      "Colonna sonora originale per un film muto scelto da Edison Studio con la Cineteca di Bologna, eseguita dal vivo in sincrono con le immagini al Foyer 1 dell'Ex Mattatoio di Roma, dentro il Romaeuropa Festival.",
+    credits: [
+      ["Concorso", "Sounds of Silences — V edizione"],
+      ["Dove", "Ex Mattatoio, Roma — 21 ottobre 2020"],
+      ["Con", "Edison Studio, Cineteca di Bologna, Romaeuropa Festival"],
+      ["Firma", "Simone Castellan"],
+    ],
+  },
+
+  {
+    slug: "lago-film-fest",
+    title: "Your sound for silents — Lago Film Fest",
+    titleEn: null,
+    year: "2023",
+    type: "Sonorizzazione",
+    typeLine: "Musica per il cinema muto",
+    featured: true,
+    order: 7,
+
+    director: "",
+    production: "Lago Film Fest",
+    distributor: "",
+    firma: "Marco Crivellaro",
+    role: ["Composizione"],
+    // [CERTO] scheda ufficiale OperaEstate
+    awards: ["Primo premio per la miglior musica — Lago Film Fest 2023"],
+
+    cover: "",
+    stills: [],
+    trailer: null,
+    soundtrack: {},
+
+    description:
+      "Sonorizzazione originale per il concorso di musica sul cinema muto del Lago Film Fest, a Revine Lago.",
+    credits: [
+      ["Premio", "Your sound for silents — primo premio"],
+      ["Dove", "Lago Film Fest 2023, Revine Lago"],
+      ["Firma", "Marco Crivellaro"],
+    ],
+  },
+
+  /* ---------- dischi e concerti ---------- */
+  {
+    slug: "2-planets",
+    title: "2 Planets",
+    titleEn: null,
+    year: "2019",
+    type: "Album",
+    typeLine: "Marcus Grimm — album d'esordio",
+    featured: true,
+    order: 12,
+
+    director: "",
+    production: "La Valigetta", // [CERTO] rockit, lavaligetta.com
+    distributor: "",
+    firma: "Marcus Grimm (Marco Crivellaro)",
+    role: ["Composizione", "Pianoforte", "Produzione"],
+    awards: [],
+
+    cover: "assets/cover-2planets.jpg",
+    stills: [],
+
+    trailer: {
+      platform: "youtube",
+      id: "_rLzc1BEkeo",
+      channel: "MarcusGrimmVEVO", // [CERTO] verificato via oEmbed
+      url: "https://www.youtube.com/watch?v=_rLzc1BEkeo",
+      embedUrl: "https://www.youtube-nocookie.com/embed/_rLzc1BEkeo",
+      label: "Guarda «Gaia»",
+    },
+    soundtrack: {
+      appleMusic: "https://music.apple.com/it/album/2-planets/1742696634",
+      spotify: "https://open.spotify.com/artist/04rZw1GR1yi7AnM1Z4jxPP",
+      tracks: 12,
+      released: "2019",
+    },
+
+    description:
+      "Dodici brani fra pianoforte, archi ed elettronica: un viaggio che parte da «Gaia» e finisce su «Pandora». Registrato al Teatro delle Voci di Treviso e masterizzato ad Abbey Road, Londra.",
+    credits: [
+      ["Etichetta", "La Valigetta"],
+      ["Registrazione", "Teatro delle Voci, Treviso"],
+      ["Mastering", "Abbey Road Studios, Londra"],
+      ["Firma", "Marcus Grimm — Marco Crivellaro"],
+    ],
+  },
+
+  {
+    slug: "bosco-session",
+    title: "BOSCO SESSION",
+    titleEn: null,
+    year: "2025",
+    type: "Album",
+    typeLine: "Registrazione dal vivo",
+    featured: true,
+    order: 13,
+
+    director: "",
+    production: "",
+    distributor: "",
+    firma: "Marcus Grimm con Federico Motta",
+    role: ["Composizione", "Pianoforte"],
+    awards: [],
+
+    cover: "assets/cover-boscosession.jpg",
+    stills: [],
+    trailer: null,
+    soundtrack: {
+      appleMusic: "https://music.apple.com/it/album/bosco-session/1794199142",
+      spotify: "https://open.spotify.com/artist/04rZw1GR1yi7AnM1Z4jxPP",
+      tracks: 10,
+      released: "2025",
+    },
+
+    description:
+      "Dieci brani registrati dal vivo nel bosco: il repertorio riletto per pianoforte e violoncello, senza rete.",
+    credits: [
+      ["Anno", "2025 — 10 brani"],
+      ["Con", "Federico Motta, violoncello"],
+      ["Firma", "Marcus Grimm — Marco Crivellaro"],
+    ],
+  },
+
+  {
+    slug: "by-this-river",
+    title: "By this River",
+    titleEn: null,
+    year: "2024",
+    type: "Concerto",
+    typeLine: "Composizione originale per OperaEstate",
+    featured: true,
+    order: 14,
+
+    director: "",
+    production: "OperaEstate Festival Veneto, con Veneto Barbaro", // [CERTO]
+    distributor: "",
+    firma: "Marcus Grimm & Ensemble",
+    role: ["Composizione", "Pianoforte"],
+    awards: [],
+
+    cover: "",
+    stills: [],
+    trailer: null,
+    soundtrack: {},
+
+    description:
+      "Un concerto scritto per il fiume: il Brenta dalla sorgente alla foce, con il suono dell'acqua che entra nell'organico come uno strumento. Composizione originale commissionata per la serata, eseguita in riva al fiume a Campolongo di Valbrenta.",
+    credits: [
+      ["Dove", "Campolongo, Valbrenta — 30 luglio 2024"],
+      ["Produzione", "OperaEstate Festival Veneto con Veneto Barbaro"],
+      ["Firma", "Marcus Grimm & Ensemble"],
+    ],
+  },
+
+  {
+    slug: "pianospheres",
+    title: "Pianospheres",
+    titleEn: null,
+    year: "2026",
+    type: "Concerto",
+    typeLine: "Marcus Grimm feat. Federico Motta",
+    featured: true,
+    order: 15,
+
+    director: "",
+    production: "Alveare Culturale Studio ETS", // [CERTO] Eventbrite
+    distributor: "",
+    firma: "Marcus Grimm con Federico Motta",
+    role: ["Composizione", "Pianoforte"],
+    awards: [],
+
+    cover: "",
+    stills: [],
+    trailer: null,
+    soundtrack: {},
+
+    description:
+      "Pianoforte e violoncello in dialogo: il repertorio dello studio portato in concerto a Milano.",
+    credits: [
+      ["Dove", "Milano — 6 marzo 2026"],
+      ["Organizzazione", "Alveare Culturale Studio ETS"],
+      ["Firma", "Marcus Grimm con Federico Motta"],
+    ],
+  },
 ];
+
 
 // Utility condivise
 const featured = () => WORKS.filter((w) => w.featured).sort((a, b) => a.order - b.order);

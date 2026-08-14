@@ -102,6 +102,15 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .card h3{font-family:var(--serif);font-weight:600;font-variation-settings:'opsz' 40;
  font-size:clamp(15.5px,1.25vw,19px);line-height:1.14;margin:11px 0 5px;letter-spacing:-.01em}
 .card .riga{font-size:11.5px;color:var(--muted);line-height:1.45;margin:0}
+.card .firma{font-size:11px;color:var(--ink);margin:6px 0 0;font-weight:500}
+.card .thumb.scritta{display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-end;
+ gap:4px;padding:16px;background:var(--card);border:1px solid var(--line);text-align:left}
+.card .thumb.scritta .annone{font-family:var(--serif);font-weight:600;font-size:clamp(30px,3.4vw,46px);
+ line-height:.9;letter-spacing:-.03em;color:var(--ink)}
+.card .thumb.scritta .titolone{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);
+ line-height:1.4;max-width:24ch}
+.card .thumb.scritta::after{content:"";position:absolute;left:16px;top:16px;width:26px;height:2px;background:var(--red)}
+.card .thumb.scritta .stamp{top:auto;bottom:16px;right:16px;left:auto}
 .card .alloro{font-size:10.5px;color:var(--red);line-height:1.4;margin:7px 0 0;padding-left:14px;position:relative}
 .card .alloro::before{content:"✦";position:absolute;left:0;top:0}
 .card .riga b{font-weight:500;color:var(--ink)}
@@ -203,6 +212,7 @@ form.scheda{display:grid;gap:16px;align-content:start}
  display:grid;grid-template-columns:1.85fr .95fr}
 @media(max-width:900px){ .sheet{grid-template-columns:1fr} }
 .sheet .video{background:#000;aspect-ratio:16/9}
+.sheet.solo-testo{grid-template-columns:1fr;max-width:760px}
 .sheet .video iframe{width:100%;height:100%;border:0;display:block}
 .sheet .info{padding:clamp(16px,2.4vw,30px);display:flex;flex-direction:column;gap:12px}
 .sheet .info h3{font-family:var(--serif);font-weight:700;font-size:clamp(22px,2.6vw,34px);margin:2px 0 0;line-height:1.05;letter-spacing:-.02em}
@@ -232,7 +242,6 @@ body.locked{overflow:hidden}
   <a class="logo" href="#top">CRASTEL</a>
   <nav>
     <a href="#catalogo">Catalogo</a>
-    <a href="#premi">Premi</a>
     <a href="#about">Chi siamo</a>
     <a href="#contatti">Contatti</a>
   </nav>
@@ -244,7 +253,7 @@ body.locked{overflow:hidden}
     <h1>CRASTEL</h1>
     <div class="lead">
       <h2>Musica originale per film, documentari e serie.</h2>
-      <p>Marco Crivellaro e Simone Castellan. Dal 2020 a oggi: nove lavori fra sala, festival e piattaforme. Ogni scheda porta al film.</p>
+      <p>Marco Crivellaro e Simone Castellan. Dal 2018 a oggi: film, serie, sonorizzazioni, dischi e concerti. Ogni scheda porta al lavoro.</p>
     </div>
   </section>
 
@@ -257,14 +266,6 @@ body.locked{overflow:hidden}
 
   <section class="grid" id="catalogo"></section>
   </div>
-
-  <section class="premi" id="premi">
-    <div class="premi-testa">
-      <span class="cat">Riconoscimenti</span>
-      <p>Premi di composizione vinti dalle persone dello studio.</p>
-    </div>
-    <div id="premi-lista"></div>
-  </section>
 
   <section class="about" id="about">
     <div>
@@ -431,19 +432,18 @@ function render(){
       : '';
     return `<article class="card" data-slug="${w.slug}">
       <div class="head"><span class="refno">${refNo(w)}</span><span class="cat">${w.year}</span></div>
-      ${w.trailer
-        ? `<button class="thumb" onclick="openLB('${w.slug}')" aria-label="Apri la scheda di ${w.title}">
-             <img src="${w.cover}" alt="${w.title}" style="object-position:${w.focus||'center'}">
-             ${w.distributor?`<span class="stamp">${w.distributor}</span>`:''}
-             <span class="segno"><i></i></span>
-             <span class="lente"><span><i></i>${w.trailer.label}</span></span>
-           </button>`
-        : `<div class="thumb" style="cursor:default">
-             <img src="${w.cover}" alt="${w.title}" style="object-position:${w.focus||'center'}">
-             ${w.distributor?`<span class="stamp">${w.distributor}</span>`:''}
-           </div>`}
+      <button class="thumb${w.cover?'':' scritta'}" onclick="openLB('${w.slug}')" aria-label="Apri la scheda di ${w.title}">
+        ${w.cover
+          ? `<img src="${w.cover}" alt="${w.title}" style="object-position:${w.focus||'center'}">`
+          : `<span class="annone">${w.year}</span><span class="titolone">${w.typeLine}</span>`}
+        ${w.distributor?`<span class="stamp">${w.distributor}</span>`:''}
+        ${w.trailer?`<span class="segno"><i></i></span>
+        <span class="lente"><span><i></i>${w.trailer.label}</span></span>`
+                   :`<span class="lente"><span>Apri la scheda</span></span>`}
+      </button>
       <h3>${w.title}</h3>
       <p class="riga"><b>${w.type}</b> · ${w.role.join(', ')}${w.director?`<br>Regia ${w.director}`:(w.production?`<br>${w.production}`:'')}</p>
+      ${w.firma?`<p class="firma">${w.firma}</p>`:''}
       ${w.awards && w.awards.length?`<p class="alloro">${w.awards[0]}</p>`:''}
       ${cta}
     </article>`;
@@ -459,14 +459,7 @@ document.getElementById('collabora').innerHTML =
   `<div class="testa-collab"><span class="cat">Con noi lavorano</span></div>` +
   STUDIO.collaboratori.map(c=>`<div><b class="min">${c.name}</b><span>${c.role}</span></div>`).join('');
 
-document.getElementById('premi-lista').innerHTML = PREMI.map(p=>
-  `<article class="premio">
-     <span class="anno">${p.anno}</span>
-     <h3>${p.titolo}</h3>
-     <p class="dove">${p.luogo}</p>
-     <p class="chi">${p.chi}</p>
-     <p class="testo">${p.testo}</p>
-   </article>`).join('');
+
 
 function openLB(slug){
   const w = bySlug(slug), n = nextOf(slug);
@@ -477,7 +470,7 @@ function openLB(slug){
   document.getElementById('lb-premi').innerHTML = (w.awards && w.awards.length)
     ? w.awards.map(a=>`<p class="alloro-lb">${a}</p>`).join('') : '';
   document.getElementById('lb-dl').innerHTML = w.credits.map(c=>`<dt>${c[0]}</dt><dd>${c[1]}</dd>`).join('')
-    + `<dt>Video</dt><dd>${w.trailer.channel} — canale ufficiale</dd>`;
+    + (w.trailer?`<dt>Video</dt><dd>${w.trailer.channel} — canale ufficiale</dd>`:'');
   const st = w.soundtrack || {};
   const ascolti = [];
   if(st.spotify) ascolti.push(`<a href="${st.spotify}" target="_blank" rel="noopener">Spotify</a>`);
@@ -485,8 +478,17 @@ function openLB(slug){
   document.getElementById('lb-ascolta').innerHTML = ascolti.length
     ? `<span class="cat">${st.label || `Ascolta la colonna sonora${st.tracks?` — ${st.tracks} bran${st.tracks===1?'o':'i'}`:''}`}</span><div class="dove">${ascolti.join('')}</div>`
     : '';
-  document.getElementById('lb-video').innerHTML =
-    `<iframe src="${embedSrc(w)}" allow="autoplay; encrypted-media; fullscreen" allowfullscreen title="${w.title}"></iframe>`;
+  const box = document.getElementById('lb-video');
+  const sheet = document.querySelector('.sheet');
+  if(w.trailer){
+    box.style.display='';
+    sheet.classList.remove('solo-testo');
+    box.innerHTML = `<iframe src="${embedSrc(w)}" allow="autoplay; encrypted-media; fullscreen" allowfullscreen title="${w.title}"></iframe>`;
+  } else {
+    box.style.display='none';
+    box.innerHTML='';
+    sheet.classList.add('solo-testo');
+  }
   const nx = document.getElementById('lb-next');
   nx.innerHTML = `${n.title} <span class="cat">${n.year}</span>`;
   nx.onclick = (e)=>{ e.preventDefault(); openLB(n.slug); };
