@@ -3,7 +3,11 @@
 Portfolio di **CRASTEL**, duo di composizione per immagini: Marco Crivellaro (Marcus Grimm) e Simone Castellan.
 Musica originale per film, documentari e serie.
 
-**Online:** https://castelsim.github.io/crastel/
+**Online:** https://crastelstudio.com — dominio su Aruba, sito su GitHub Pages.
+
+I DNS puntano ai quattro IP di GitHub (185.199.108-111.153) e `www` è un CNAME verso
+`castelsim.github.io`. Il file `CNAME` in questa cartella dice a GitHub quale dominio servire:
+non va cancellato.
 
 ## Com'è fatto
 

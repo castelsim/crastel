@@ -309,18 +309,25 @@ const WORKS = [
     type: "Docufilm",
     title: "Il mistero del Phandambiri",
     titleEn: null,
-    year: "2023", // [DA VERIFICARE] anno di uscita
-    typeLine: "Documentario di spedizione",
+    year: "2025", // [CERTO] spedizione estate 2025, prima visione giugno 2026
+    typeLine: "Documentario di spedizione — 50 minuti",
     featured: true,
     order: 7,
 
     director: "Manrico Dell'Agnola", // [CERTO] trailer sul suo canale ufficiale
     production: "",
     distributor: "",
-    firma: "",
-    contributi: [], // [DA COMPLETARE] chi ha firmato cosa
+    firma: "Marco Crivellaro con Enrica Bacchia",
+    // [CERTO] Bellunopress, 15 giugno 2026: la colonna sonora è eseguita dal vivo alle proiezioni
+    contributi: [["Musiche", "Marco Crivellaro con Enrica Bacchia"], ["Esecuzione", "Dal vivo, in sala"]],
     role: ["Musica originale"],
     awards: [],
+    press: [
+      { testata: "Bellunopress", titolo: "Un mistero di roccia e musica: a Conegliano arriva «Il mistero del Phandambiri»",
+        url: "https://www.bellunopress.it/2026/06/15/un-mistero-di-roccia-e-musica-a-conegliano-arriva-il-mistero-del-phandambiri/" },
+      { testata: "Radio Più", titolo: "La prima scalata del monte Phandambiri nel film di Manrico Dell'Agnola",
+        url: "https://www.radiopiu.net/wordpress/la-prima-scalata-del-monte-phandambiri-nel-film-di-manrico-dellagnola-proiettato-ad-alleghe/" },
+    ],
 
     cover: "assets/yt-RE4-BsOGOzI.jpg",
     stills: [],
@@ -336,9 +343,12 @@ const WORKS = [
     soundtrack: {},
 
     description:
-      "Un nuovo documentario di spedizione firmato da Manrico Dell'Agnola, dopo Immenso Blu.", // [DA COMPLETARE]
+      "Sei alpinisti italiani nel cuore della savana del Mozambico, davanti a novecento metri di granito ritenuti inviolati. Sulla parete trovano tracce di passaggi precedenti, mai documentati né confermati: l'enigma resta aperto. Alle proiezioni la colonna sonora viene eseguita dal vivo.",
     credits: [
       ["Regia", "Manrico Dell'Agnola"],
+      ["Spedizione", "Antonella Giacomini, Nancy Paoletto, Maurizio Giordani, Mirco Grasso, Samuele Mazzolini, Manrico Dell'Agnola"],
+      ["Dove", "Monte Phandambiri, Mozambico — estate 2025"],
+      ["Durata", "50 minuti"],
     ],
   },
 
