@@ -31,7 +31,7 @@ const STUDIO = {
       /* BOZZA — tutto verificato: OperaEstate, La Nazione, Rockit, La Valigetta */
       bio: [
         "Diplomato con lode in composizione al Conservatorio «Agostino Steffani» di Castelfranco Veneto.",
-        "Firma musiche per serie, documentari e cortometraggi. Come Marcus Grimm pubblica dal 2018 il proprio repertorio strumentale: «2 Planets» (2019), registrato al Teatro delle Voci di Treviso e masterizzato ad Abbey Road, e «BOSCO SESSION» (2025).",
+        "Firma musiche per serie, documentari e cortometraggi. Come Marcus Grimm pubblica dal 2018 il proprio repertorio strumentale: «2 Planets» (2019), registrato al Teatro delle Voci di Treviso e masterizzato ad Abbey Road, e «BOSCO SESSION» (2025), esibendosi in numerosi festival fra cui Operaestate, Time Zones Festival e Porte Aperte Festival.",
         "Nel 2025 ha vinto il Premio Mercurio d'Argento della Città di Massa con una partitura ispirata alla strage di Beslan; nel 2023 il primo premio «Your sound for silents» al Lago Film Fest.",
       ],
     },
@@ -72,6 +72,7 @@ const WORKS = [
     production: "Indigo Stories", // [CERTO]
     distributor: "Netflix",
 
+    contributi: [["Musiche", "Marco Crivellaro e Simone Castellan"]],
     role: ["Brano originale «Evo»"], // [CERTO 14/08] confermato da Simone
     firma: "Marco Crivellaro e Simone Castellan", // [CERTO] accrediti Spotify
     awards: [],
@@ -102,7 +103,7 @@ const WORKS = [
       ["Regia", "Massimo Cappello"],
       ["Produzione", "Indigo Stories"],
       ["Distribuzione", "Netflix — 13 aprile 2023"],
-      ["Brano", "Evo — Marco Crivellaro, Simone Castellan"],
+      ["Brano nella serie", "Evo"],
     ],
   },
 
@@ -162,6 +163,7 @@ const WORKS = [
     production: "",
     distributor: "",
 
+    contributi: [["Musiche", "Marco Crivellaro con Enrica Bacchia"]],
     role: ["Musica originale"],
     firma: "Marco Crivellaro", // [CERTO] crediti del film
     awards: [
@@ -202,7 +204,6 @@ const WORKS = [
       "Tre alpinisti attraversano il Passaggio di Drake per raggiungere la Penisola Antartica: nuove linee di salita e campionamenti scientifici sui ghiacci.",
     credits: [
       ["Regia", "Manrico Dell'Agnola"],
-      ["Musica originale", "Marco Crivellaro con Enrica Bacchia"],
       ["Montaggio", "Marco Recalchi"],
       ["Durata", "38 minuti — selezionato in quattro festival internazionali"],
     ],
@@ -210,7 +211,7 @@ const WORKS = [
 
   {
     slug: "antarctica-karpos",
-    gruppo: "Serie",
+    gruppo: "Aziende",
     type: "Serie documentaria",
     title: "Antarctica: Beyond the End of the World",
     titleEn: null,
@@ -222,7 +223,8 @@ const WORKS = [
     director: "",
     production: "Karpos", // [CERTO] canale ufficiale Karpos
     distributor: "",
-    firma: "",
+    firma: "Marco Crivellaro e Simone Castellan",
+    contributi: [["Musiche", "Marco Crivellaro e Simone Castellan"]],
     role: ["Musica originale"],
     awards: [],
 
@@ -245,7 +247,6 @@ const WORKS = [
       ["Produzione", "Karpos"],
       ["Con", "Gianluca Cavalli, Manrico Dell'Agnola, Marcello Sanguineti"],
       ["Formato", "3 episodi"],
-      ["Ruolo", "Musica originale"],
     ],
     altri: [
       { label: "Episodio 2 — Exploration and Research", url: "https://www.youtube.com/watch?v=CH3CnspUJMU" },
@@ -269,6 +270,7 @@ const WORKS = [
     production: "Karpos",
     distributor: "",
 
+    contributi: [["Musiche", "Marco Crivellaro, Simone Castellan"], ["Violoncello", "Federico Motta"]],
     role: ["Musica originale"],
     // [CERTO] il cartello di apertura compare nel film
     awards: ["Selezione ufficiale — 67° Trento Film Festival"],
@@ -297,8 +299,88 @@ const WORKS = [
       "Una via nuova su una torre dolomitica, raccontata dal basso verso l'alto. Colonna sonora elettronica e ambientale scritta con Federico Motta.",
     credits: [
       ["Produzione", "Karpos"],
-      ["Musica", "Marco Crivellaro, Simone Castellan, Federico Motta"],
       ["Colonna sonora", "6 brani, 2021"],
+    ],
+  },
+
+  {
+    slug: "phandambiri",
+    gruppo: "Docufilm",
+    type: "Docufilm",
+    title: "Il mistero del Phandambiri",
+    titleEn: null,
+    year: "2023", // [DA VERIFICARE] anno di uscita
+    typeLine: "Documentario di spedizione",
+    featured: true,
+    order: 7,
+
+    director: "Manrico Dell'Agnola", // [CERTO] trailer sul suo canale ufficiale
+    production: "",
+    distributor: "",
+    firma: "",
+    contributi: [], // [DA COMPLETARE] chi ha firmato cosa
+    role: ["Musica originale"],
+    awards: [],
+
+    cover: "assets/yt-RE4-BsOGOzI.jpg",
+    stills: [],
+
+    trailer: {
+      platform: "youtube",
+      id: "RE4-BsOGOzI",
+      channel: "Manrico Dell'Agnola",
+      url: "https://www.youtube.com/watch?v=RE4-BsOGOzI",
+      embedUrl: "https://www.youtube-nocookie.com/embed/RE4-BsOGOzI",
+      label: "Trailer ufficiale",
+    },
+    soundtrack: {},
+
+    description:
+      "Un nuovo documentario di spedizione firmato da Manrico Dell'Agnola, dopo Immenso Blu.", // [DA COMPLETARE]
+    credits: [
+      ["Regia", "Manrico Dell'Agnola"],
+    ],
+  },
+
+  {
+    slug: "in-cammino-con-maria",
+    gruppo: "Docufilm",
+    type: "Docufilm",
+    title: "In Cammino con Maria",
+    titleEn: null,
+    year: "2020",
+    typeLine: "Docufilm — 27 minuti",
+    featured: true,
+    order: 8,
+
+    director: "Walter Molfese", // [CERTO] Vimeo ufficiale
+    production: "Comuni di Terranova di Pollino, San Severino Lucano ed Episcopia",
+    distributor: "",
+    firma: "",
+    contributi: [], // [DA COMPLETARE]
+    role: ["Musica originale"],
+    awards: [],
+
+    cover: "assets/vimeo-397640326.jpg",
+    stills: [],
+
+    trailer: {
+      platform: "vimeo",
+      id: "397640326",
+      channel: "Walter Molfese",
+      url: "https://vimeo.com/397640326",
+      embedUrl: "https://player.vimeo.com/video/397640326",
+      label: "Guarda il docufilm",
+    },
+    soundtrack: {},
+
+    description:
+      "Il cammino mariano fra Terranova di Pollino, San Severino Lucano ed Episcopia: un docufilm commissionato dai tre comuni per il bando «Capitale per un giorno» di Matera Capitale Europea della Cultura 2019.",
+    credits: [
+      ["Regia", "Walter Molfese"],
+      ["Committenti", "Terranova di Pollino, San Severino Lucano, Episcopia"],
+      ["Contesto", "Matera Capitale Europea della Cultura 2019"],
+      ["Durata", "27 minuti"],
     ],
   },
 
@@ -317,6 +399,7 @@ const WORKS = [
     production: "Black Aurora Films",
     distributor: "",
 
+    contributi: [["Musiche", "Marco Crivellaro"]],
     role: ["Compositore"],
     awards: [],
 
@@ -364,6 +447,7 @@ const WORKS = [
     production: "Alpha Film", // [DA VERIFICARE]
     distributor: "",
 
+    contributi: [["Musiche", "Marco Crivellaro"]],
     role: ["Musica originale"],
     // [CERTO] allori impressi sulla locandina del corto
     awards: ["Selezioni in festival: Red Wood Film Festival, We Make Films, Aracnea Festival"],
@@ -385,7 +469,6 @@ const WORKS = [
     credits: [
       ["Regia", "Davide Serra"],
       ["Anno", "2020"],
-      ["Ruolo", "Musica originale"],
     ],
   },
 
@@ -435,7 +518,7 @@ const WORKS = [
     title: "Latronico, una terra di emozioni",
     titleEn: null,
     year: "2021",
-    gruppo: "Docufilm",
+    gruppo: "Aziende",
     type: "Documentario",
     typeLine: "Ritratto di un territorio",
     featured: true,
@@ -501,7 +584,6 @@ const WORKS = [
     credits: [
       ["Progetto", "Trodoi/Trails, Valbrenta"],
       ["Anno", "2026"],
-      ["Ruolo", "Musica originale"],
     ],
   },
 
@@ -859,4 +941,6 @@ const nextOf = (slug) => {
   return f[(i + 1) % f.length];
 };
 const embedSrc = (w, { autoplay = 1, mute = 0 } = {}) =>
-  `${w.trailer.embedUrl}?autoplay=${autoplay}&mute=${mute}&rel=0&modestbranding=1&playsinline=1`;
+  w.trailer.platform === "vimeo"
+    ? `${w.trailer.embedUrl}?autoplay=${autoplay}&muted=${mute}&title=0&byline=0&portrait=0&dnt=1`
+    : `${w.trailer.embedUrl}?autoplay=${autoplay}&mute=${mute}&rel=0&modestbranding=1&playsinline=1`;
