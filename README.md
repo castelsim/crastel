@@ -22,7 +22,8 @@ Sito statico, nessuna dipendenza da installare.
 ## ⚠️ Dopo ogni modifica a `data.js`
 
 ```bash
-node ops/prerender.mjs
+node ops/prerender.mjs   # riscrive catalogo, competenze e domande nell'HTML
+node ops/persone.mjs     # rigenera /marco-crivellaro/ e /simone-castellan/ e la sitemap
 ```
 
 Riscrive le schede dentro `index.html` e rigenera i dati strutturati. Serve ai motori di
