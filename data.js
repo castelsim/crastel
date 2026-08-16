@@ -163,7 +163,7 @@ const WORKS = [
     production: "",
     distributor: "",
 
-    contributi: [["Musiche", "Marco Crivellaro con Enrica Bacchia"]],
+    contributi: [["Musiche", "Marco Crivellaro"], ["Voce", "Enrica Bacchia"]],
     role: ["Musica originale"],
     firma: "Marco Crivellaro", // [CERTO] crediti del film
     awards: [
@@ -270,7 +270,7 @@ const WORKS = [
     production: "Karpos",
     distributor: "",
 
-    contributi: [["Musiche", "Marco Crivellaro, Simone Castellan"], ["Violoncello", "Federico Motta"]],
+    contributi: [["Musiche", "Marco Crivellaro"], ["Post produzione, elettronica", "Simone Castellan"], ["Violoncello", "Federico Motta"]],
     role: ["Musica originale"],
     // [CERTO] il cartello di apertura compare nel film
     awards: ["Selezione ufficiale — 67° Trento Film Festival"],
@@ -317,9 +317,9 @@ const WORKS = [
     director: "Manrico Dell'Agnola", // [CERTO] trailer sul suo canale ufficiale
     production: "",
     distributor: "",
-    firma: "Marco Crivellaro con Enrica Bacchia",
+    firma: "Marco Crivellaro",
     // [CERTO] Bellunopress, 15 giugno 2026: la colonna sonora è eseguita dal vivo alle proiezioni
-    contributi: [["Musiche", "Marco Crivellaro con Enrica Bacchia"], ["Esecuzione", "Dal vivo, in sala"]],
+    contributi: [["Musiche", "Marco Crivellaro"], ["Voce", "Enrica Bacchia"], ["Esecuzione", "Dal vivo, in sala"]],
     role: ["Musica originale"],
     awards: [],
     press: [
@@ -598,6 +598,46 @@ const WORKS = [
   },
 
   {
+    slug: "todis",
+    gruppo: "Aziende",
+    type: "Spot",
+    title: "Todis — Buongiorno Convenienza",
+    titleEn: null,
+    year: "2024", // [DA VERIFICARE] anno di messa in onda
+    typeLine: "Jingle pubblicitario",
+    featured: true,
+    order: 14,
+
+    director: "",
+    production: "Todis",
+    distributor: "",
+    firma: "Marco Crivellaro",
+    contributi: [["Musiche", "Marco Crivellaro"], ["Cliente", "Todis"]],
+    role: ["Jingle"],
+    awards: [],
+
+    cover: "assets/yt-Eb3sBAR7lSE.jpg",
+    stills: [],
+
+    trailer: {
+      platform: "youtube",
+      id: "Eb3sBAR7lSE",
+      channel: "Todis Buongiorno Convenienza", // [CERTO] canale ufficiale del cliente
+      url: "https://www.youtube.com/watch?v=Eb3sBAR7lSE",
+      embedUrl: "https://www.youtube-nocookie.com/embed/Eb3sBAR7lSE",
+      label: "Guarda lo spot",
+    },
+    soundtrack: {},
+
+    description:
+      "Il jingle per la campagna dell'insegna: pochi secondi per far riconoscere un marchio.",
+    credits: [
+      ["Cliente", "Todis"],
+      ["Formato", "Spot pubblicitario"],
+    ],
+  },
+
+  {
     slug: "maglificio-pini",
     title: "Maglificio Pini",
     titleEn: null,
@@ -606,7 +646,7 @@ const WORKS = [
     type: "Film d'impresa",
     typeLine: "Ritratto d'azienda",
     featured: true,
-    order: 13,
+    order: 15,
 
     director: "",
     production: "Maglificio Pini",
