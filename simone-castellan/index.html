@@ -36,7 +36,7 @@ h1 em{font-style:normal;color:var(--red);font-size:.5em;display:block;margin-top
 .corpo{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(26px,5vw,70px);margin-top:clamp(26px,4vw,48px);align-items:start}
 @media(max-width:880px){.corpo{grid-template-columns:1fr}}
 .corpo p{font-size:15.5px;line-height:1.68;margin:0 0 15px;max-width:58ch}
-.corpo p:first-of-type::first-letter{font-family:var(--serif);font-size:3.4em;line-height:.82;float:left;
+.corpo>div:first-child p:first-of-type::first-letter{font-family:var(--serif);font-size:3.4em;line-height:.82;float:left;
  padding:6px 10px 0 0;color:var(--red);font-weight:700}
 h2{font-family:var(--serif);font-weight:600;font-size:clamp(21px,2.4vw,28px);margin:34px 0 14px;letter-spacing:-.02em}
 .scheda{border-top:1px solid var(--line);padding-top:14px}
