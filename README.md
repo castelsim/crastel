@@ -19,6 +19,18 @@ Sito statico, nessuna dipendenza da installare.
 - `assets/` — fotogrammi e copertine
 - `grazie.html` — pagina di conferma dopo l'invio del form
 
+## ⚠️ Dopo ogni modifica a `data.js`
+
+```bash
+node ops/prerender.mjs
+```
+
+Riscrive le schede dentro `index.html` e rigenera i dati strutturati. Serve ai motori di
+ricerca: senza, l'HTML che scaricano è quasi vuoto perché il catalogo lo costruisce il
+JavaScript, e Google quel passaggio lo fa con giorni di ritardo. Va anche alzato il numero
+di versione in `<script src="data.js?v=…">`, altrimenti chi torna sul sito vede il catalogo
+vecchio (GitHub Pages tiene il file in cache).
+
 ## Aggiungere un lavoro
 
 ```js
