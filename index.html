@@ -187,6 +187,9 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .persona h3 em{font-style:normal;color:var(--red);font-size:.62em;letter-spacing:0}
 .persona .mestiere{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:7px 0 12px}
 .persona p{font-size:14px;line-height:1.62;margin:0 0 10px;color:var(--muted);max-width:56ch}
+.persona p.vaialla{margin-top:12px}
+.persona p.vaialla a{color:var(--red);font-weight:600;font-size:13px;border-bottom:1px solid var(--line);padding-bottom:2px}
+.persona p.vaialla a:hover{border-color:var(--red)}
 
 .colophon{padding:clamp(30px,5vw,60px) var(--gut);border-top:1px solid var(--line);
  display:flex;justify-content:space-between;gap:22px;flex-wrap:wrap;align-items:flex-end}
@@ -520,7 +523,23 @@ body.locked{overflow:hidden}
       <h2>CRASTEL</h2>
       <div id="bio-studio"></div>
     </div>
-    <div class="about-persone" id="bio-persone"></div>
+    <div class="about-persone" id="bio-persone"><!-- PERSONE:INIZIO -->
+      <article class="persona">
+        <h3>Marco Crivellaro <em>/ Marcus Grimm</em></h3>
+        <p class="mestiere">Composizione, pianoforte, orchestrazione</p>
+        <p>Diplomato con lode in composizione al Conservatorio «Agostino Steffani» di Castelfranco Veneto.</p>
+        <p>Firma musiche per serie, documentari e cortometraggi. Come Marcus Grimm pubblica dal 2018 il proprio repertorio strumentale: «2 Planets» (2019), registrato al Teatro delle Voci di Treviso e masterizzato ad Abbey Road, e «BOSCO SESSION» (2025), esibendosi in numerosi festival fra cui Operaestate, Time Zones Festival e Porte Aperte Festival.</p>
+        <p>Nel 2025 ha vinto il Premio Mercurio d'Argento della Città di Massa con una partitura ispirata alla strage di Beslan; nel 2023 il primo premio «Your sound for silents» al Lago Film Fest.</p>
+        <p class="vaialla"><a href="/marco-crivellaro/">Scheda completa di Marco &rarr;</a></p>
+      </article>
+      <article class="persona">
+        <h3>Simone Castellan</h3>
+        <p class="mestiere">Programmazione musicale, sound design e post produzione</p>
+        <p>Compositore e sound designer. In studio segue programmazione musicale, sound design e post produzione.</p>
+        <p>Nel 2020 è fra i tre autori premiati a «Sounds of Silences», concorso internazionale di composizione per le immagini del Romaeuropa Festival con Edison Studio e la Cineteca di Bologna, scelto su 162 candidature da 36 Paesi: la sua partitura è stata eseguita dal vivo in sincrono con le immagini all'Ex Mattatoio di Roma.</p>
+        <p class="vaialla"><a href="/simone-castellan/">Scheda completa di Simone &rarr;</a></p>
+      </article>
+    <!-- PERSONE:FINE --></div>
   </section>
 
   <section class="domande" id="domande">
@@ -618,7 +637,7 @@ body.locked{overflow:hidden}
   </div>
 </div>
 
-<script src="data.js?v=202608161558"></script>
+<script src="data.js?v=202608161614"></script>
 <script>
 const ORDINE = WORKS.filter(w => w.featured && w.trailer).sort((a,b)=>a.order-b.order);
 const NUMERO = new Map(ORDINE.map((w,i) => [w.slug, i+1]));
@@ -732,11 +751,13 @@ document.getElementById('faq-lista').innerHTML = DOMANDE.map(x=>
   `<article class="domanda"><h3>${x.d}</h3><p>${x.r}</p></article>`).join('');
 
 document.getElementById('bio-studio').innerHTML = STUDIO.bio.map(p=>`<p>${p}</p>`).join('');
+const SCHEDA = {"Marco Crivellaro":"/marco-crivellaro/", "Simone Castellan":"/simone-castellan/"};
 document.getElementById('bio-persone').innerHTML = STUDIO.members.map(m=>
   `<article class="persona">
      <h3>${m.name}${m.alias?` <em>/ ${m.alias}</em>`:''}</h3>
      <p class="mestiere">${m.role}</p>
      ${m.bio.map(p=>`<p>${p}</p>`).join('')}
+     ${SCHEDA[m.name]?`<p class="vaialla"><a href="${SCHEDA[m.name]}">Scheda completa di ${m.name.split(' ')[0]} →</a></p>`:''}
    </article>`).join('');
 
 function openLB(slug){

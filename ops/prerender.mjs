@@ -57,6 +57,18 @@ const competenze = contesto.COMPETENZE.voci
   .map((v) => `      <article><h3>${esc(v.nome)}</h3><p>${esc(v.testo)}</p></article>`)
   .join("\n");
 
+const schede = { "Marco Crivellaro": "/marco-crivellaro/", "Simone Castellan": "/simone-castellan/" };
+const persone = contesto.STUDIO.members
+  .map(
+    (m) => `      <article class="persona">
+        <h3>${esc(m.name)}${m.alias ? ` <em>/ ${esc(m.alias)}</em>` : ""}</h3>
+        <p class="mestiere">${esc(m.role)}</p>
+        ${m.bio.map((x) => `<p>${esc(x)}</p>`).join("\n        ")}
+        ${schede[m.name] ? `<p class="vaialla"><a href="${schede[m.name]}">Scheda completa di ${esc(m.name.split(" ")[0])} &rarr;</a></p>` : ""}
+      </article>`
+  )
+  .join("\n");
+
 const domande = contesto.DOMANDE
   .map((x) => `      <article class="domanda"><h3>${esc(x.d)}</h3><p>${esc(x.r)}</p></article>`)
   .join("\n");
@@ -141,6 +153,7 @@ const fra = (testo, inizio, fine, nuovo) => {
 html = fra(html, "<!-- CATALOGO:INIZIO -->", "<!-- CATALOGO:FINE -->", "\n" + catalogo + "\n    ");
 html = fra(html, "<!-- COMPETENZE:INIZIO -->", "<!-- COMPETENZE:FINE -->", "\n" + competenze + "\n    ");
 html = fra(html, "<!-- DOMANDE:INIZIO -->", "<!-- DOMANDE:FINE -->", "\n" + domande + "\n    ");
+html = fra(html, "<!-- PERSONE:INIZIO -->", "<!-- PERSONE:FINE -->", "\n" + persone + "\n    ");
 html = fra(
   html,
   "<!-- DATISTRUTTURATI:INIZIO -->",
