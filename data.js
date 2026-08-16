@@ -13,7 +13,7 @@ const STUDIO = {
   name: "CRASTEL",
   claim: "Musica originale per film, documentari e serie",
   base: "Bassano del Grappa, Italia",
-  email: "castellansimone@gmail.com",
+  email: "crastelstudio@gmail.com",
 
   /* Bio dello studio — BOZZA da rivedere con Marco e Simone.
      Costruita solo su fatti verificati; nessuna frase su metodo di lavoro. */
