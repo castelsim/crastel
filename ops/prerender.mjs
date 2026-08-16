@@ -18,7 +18,7 @@ const radice = join(qui, "..");
 
 // data.js non è un modulo: lo eseguo in una funzione e mi faccio restituire i dati
 const sorgente = readFileSync(join(radice, "data.js"), "utf8");
-const contesto = new Function(sorgente + "\nreturn { WORKS, STUDIO, REWORKS };")();
+const contesto = new Function(sorgente + "\nreturn { WORKS, STUDIO, REWORKS, COMPETENZE, DOMANDE };")();
 
 const WORKS = contesto.WORKS;
 const inCatalogo = WORKS.filter((w) => w.featured && w.trailer).sort((a, b) => a.order - b.order);
@@ -53,6 +53,14 @@ const scheda = (w) => `
 
 const catalogo = inCatalogo.map(scheda).join("\n");
 
+const competenze = contesto.COMPETENZE.voci
+  .map((v) => `      <article><h3>${esc(v.nome)}</h3><p>${esc(v.testo)}</p></article>`)
+  .join("\n");
+
+const domande = contesto.DOMANDE
+  .map((x) => `      <article class="domanda"><h3>${esc(x.d)}</h3><p>${esc(x.r)}</p></article>`)
+  .join("\n");
+
 /* Dati strutturati: dicono ai motori che questo è uno studio musicale
    e quali sono i lavori, senza dipendere dal JavaScript. */
 const jsonld = {
@@ -75,6 +83,26 @@ const jsonld = {
         jobTitle: m.role,
       })),
       sameAs: Object.values(contesto.STUDIO.links),
+      knowsAbout: contesto.COMPETENZE.argomenti,
+      areaServed: [{ "@type": "Country", name: "Italia" }, { "@type": "Place", name: "Europa" }],
+      slogan: contesto.COMPETENZE.intro,
+      hasOfferCatalog: {
+        "@type": "OfferCatalog",
+        name: "Cosa scriviamo",
+        itemListElement: contesto.COMPETENZE.voci.map((v) => ({
+          "@type": "Offer",
+          itemOffered: { "@type": "Service", name: v.nome, description: v.testo },
+        })),
+      },
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://crastelstudio.com/#domande",
+      mainEntity: contesto.DOMANDE.map((x) => ({
+        "@type": "Question",
+        name: x.d,
+        acceptedAnswer: { "@type": "Answer", text: x.r },
+      })),
     },
     {
       "@type": "ItemList",
@@ -111,6 +139,8 @@ const fra = (testo, inizio, fine, nuovo) => {
 };
 
 html = fra(html, "<!-- CATALOGO:INIZIO -->", "<!-- CATALOGO:FINE -->", "\n" + catalogo + "\n    ");
+html = fra(html, "<!-- COMPETENZE:INIZIO -->", "<!-- COMPETENZE:FINE -->", "\n" + competenze + "\n    ");
+html = fra(html, "<!-- DOMANDE:INIZIO -->", "<!-- DOMANDE:FINE -->", "\n" + domande + "\n    ");
 html = fra(
   html,
   "<!-- DATISTRUTTURATI:INIZIO -->",
@@ -120,4 +150,6 @@ html = fra(
 
 writeFileSync(join(radice, "index.html"), html);
 console.log(`schede scritte nell'HTML: ${inCatalogo.length}`);
-console.log(`dati strutturati: ${jsonld["@graph"][1].itemListElement.length} lavori + studio`);
+const lista = jsonld["@graph"].find((x) => x["@type"] === "ItemList");
+const faq = jsonld["@graph"].find((x) => x["@type"] === "FAQPage");
+console.log(`dati strutturati: studio + ${lista.itemListElement.length} lavori + ${faq.mainEntity.length} domande`);

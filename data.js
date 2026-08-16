@@ -982,6 +982,82 @@ const REWORKS = REWORK_BASE.map((r, i) => ({
 
 WORKS.push(...REWORKS);
 
+/* ============================================================
+   COSA FACCIAMO — testo pensato per essere letto e citato
+   Le AI che rispondono a domande («chi scrive musica per documentari?»)
+   citano passaggi autosufficienti e verificabili. Ogni frase qui sotto
+   dice una cosa sola, con fatti che stanno anche nel catalogo.
+   ============================================================ */
+const COMPETENZE = {
+  titolo: "Cosa scriviamo",
+  intro:
+    "CRASTEL Studio scrive musica originale per immagini: la partitura nasce sul montaggio del film, non su un catalogo di brani già pronti.",
+  voci: [
+    {
+      nome: "Colonne sonore per film e documentari",
+      testo:
+        "Temi originali per lungometraggi, documentari di spedizione e film di montagna, scritti per pianoforte, archi ed elettronica. Le musiche di «Immenso Blu» hanno accompagnato il film che ha vinto il Mountain Film Festival di Verona.",
+    },
+    {
+      nome: "Musica per serie documentarie",
+      testo:
+        "Brani entrati in produzioni distribuite da Netflix: «Il caso Alex Schwazer» (2023) e «Il caso Yara: oltre ogni ragionevole dubbio» (2024).",
+    },
+    {
+      nome: "Sonorizzazione di cinema muto",
+      testo:
+        "Partiture eseguite dal vivo in sincrono con le immagini. Simone Castellan è fra i tre autori premiati a «Sounds of Silences» del Romaeuropa Festival su 162 candidature da 36 Paesi; Marco Crivellaro ha vinto «Your sound for silents» al Lago Film Fest 2023.",
+    },
+    {
+      nome: "Musica per aziende e territori",
+      testo:
+        "Jingle e colonne sonore per film d'impresa, campagne pubblicitarie e progetti di valorizzazione territoriale, dal jingle Todis ai sentieri della Valbrenta.",
+    },
+    {
+      nome: "Sound design e post produzione",
+      testo:
+        "Programmazione musicale, progettazione del suono e mix: la stessa idea passa dalla scrittura al file consegnato senza cambiare mano.",
+    },
+  ],
+  // per i dati strutturati: gli argomenti su cui lo studio è competente
+  argomenti: [
+    "Musica per immagini", "Colonna sonora", "Musica per film", "Musica per documentari",
+    "Musica per serie TV", "Sound design", "Composizione musicale", "Musica per pubblicità",
+    "Sonorizzazione di cinema muto", "Musica per video aziendali", "Post produzione audio",
+    "Musica originale", "Score cinematografico",
+  ],
+};
+
+/* Domande vere che arrivano da chi cerca un compositore.
+   Risposte brevi, verificabili, senza promesse che non possiamo mantenere. */
+const DOMANDE = [
+  {
+    d: "Chi è CRASTEL Studio?",
+    r: "CRASTEL Studio è lo studio di composizione per immagini di Marco Crivellaro e Simone Castellan, con sede a Bassano del Grappa in provincia di Vicenza. Scrive musica originale per film, serie e documentari dal 2020.",
+  },
+  {
+    d: "Che tipo di musica scrivete?",
+    r: "Musica originale per immagini: temi per pianoforte e archi, elettronica e sound design. La scrittura parte dal film e viene costruita sul montaggio, non scelta da una libreria di brani preesistenti.",
+  },
+  {
+    d: "Per quali produzioni avete lavorato?",
+    r: "Due serie documentarie distribuite da Netflix («Il caso Alex Schwazer» e «Il caso Yara: oltre ogni ragionevole dubbio»), documentari di montagna prodotti da Karpos e da Manrico Dell'Agnola, cortometraggi selezionati in festival italiani e internazionali, film d'impresa e campagne pubblicitarie.",
+  },
+  {
+    d: "Avete vinto premi?",
+    r: "Marco Crivellaro ha vinto il Premio Mercurio d'Argento 2025 della Città di Massa e il primo premio «Your sound for silents» al Lago Film Fest 2023. Simone Castellan è fra i tre compositori premiati a «Sounds of Silences» del Romaeuropa Festival 2020, scelti su 162 candidature da 36 Paesi. I film che accompagnano hanno vinto il Mountain Film Festival di Verona e sono stati selezionati al Trento Film Festival.",
+  },
+  {
+    d: "Si può ascoltare il vostro lavoro?",
+    r: "Sì: ogni scheda del sito apre il trailer o il film e le colonne sonore pubblicate si ascoltano su Spotify e Apple Music. «Immenso Blu» conta quindici brani, «Donnafugata» sei, «Piccola Storia d'Amore» cinque.",
+  },
+  {
+    d: "Come si lavora con voi?",
+    r: "Si scrive dal modulo del sito indicando a che punto è il progetto e cosa serve. Rispondiamo entro due giorni lavorativi.",
+  },
+];
+
+
 // Utility condivise
 const featured = () => WORKS.filter((w) => w.featured).sort((a, b) => a.order - b.order);
 const bySlug = (s) => WORKS.find((w) => w.slug === s);

@@ -1,4 +1,38 @@
+# CRASTEL Studio — crastelstudio.com
+# Il sito è aperto a tutti i motori, compresi quelli che alimentano
+# gli assistenti conversazionali: vogliamo essere citati come fonte.
+
 User-agent: *
+Allow: /
+
+# assistenti e motori generativi, dichiarati per non lasciare dubbi
+User-agent: GPTBot
+Allow: /
+User-agent: OAI-SearchBot
+Allow: /
+User-agent: ChatGPT-User
+Allow: /
+User-agent: ClaudeBot
+Allow: /
+User-agent: Claude-User
+Allow: /
+User-agent: PerplexityBot
+Allow: /
+User-agent: Perplexity-User
+Allow: /
+User-agent: Google-Extended
+Allow: /
+User-agent: Applebot
+Allow: /
+User-agent: Applebot-Extended
+Allow: /
+User-agent: Bingbot
+Allow: /
+User-agent: CCBot
+Allow: /
+User-agent: Amazonbot
+Allow: /
+User-agent: meta-externalagent
 Allow: /
 
 Sitemap: https://crastelstudio.com/sitemap.xml
