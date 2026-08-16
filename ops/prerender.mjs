@@ -91,7 +91,10 @@ const jsonld = {
           ...(w.production ? { productionCompany: { "@type": "Organization", name: w.production } } : {}),
           description: w.description,
           musicBy: { "@id": "https://crastelstudio.com/#studio" },
-          ...(w.trailer ? { trailer: { "@type": "VideoObject", name: w.title, url: w.trailer.url, thumbnailUrl: "https://crastelstudio.com/" + w.cover } } : {}),
+          image: "https://crastelstudio.com/" + w.cover,
+          // niente VideoObject: richiede uploadDate e descrizione del video, dati che non
+          // abbiamo con certezza. Un markup incompleto viene segnalato come errore da Google.
+          ...(w.trailer ? { sameAs: w.trailer.url } : {}),
         },
       })),
     },
