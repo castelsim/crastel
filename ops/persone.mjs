@@ -41,6 +41,8 @@ const PERSONE = [
     descrizione:
       "Marco Crivellaro, in arte Marcus Grimm, è compositore per immagini a Bassano del Grappa: musiche per serie Netflix, documentari di montagna e cortometraggi. Premio Mercurio d'Argento 2025.",
     bio: dati.STUDIO.members[0].bio,
+    ritrattoGrande: dati.STUDIO.members[0].ritrattoGrande,
+    fotografo: dati.STUDIO.members[0].fotografo,
     premi: [
       "Premio Mercurio d'Argento 2025 — Città di Massa, VII edizione, per una partitura ispirata alla strage di Beslan",
       "«Your sound for silents» 2023 — primo premio per la miglior musica al Lago Film Fest",
@@ -68,6 +70,8 @@ const PERSONE = [
     descrizione:
       "Simone Castellan è compositore e sound designer a Bassano del Grappa: programmazione musicale, progettazione del suono e post produzione per film, serie e documentari. Premiato a Sounds of Silences, Romaeuropa Festival.",
     bio: dati.STUDIO.members[1].bio,
+    ritrattoGrande: dati.STUDIO.members[1].ritrattoGrande,
+    fotografo: dati.STUDIO.members[1].fotografo,
     premi: [
       "«Sounds of Silences» 2020 — fra i tre compositori premiati su 162 candidature da 36 Paesi, al concorso internazionale di composizione per le immagini in movimento del Romaeuropa Festival con Edison Studio e la Cineteca di Bologna, con esecuzione dal vivo all'Ex Mattatoio di Roma",
     ],
@@ -98,6 +102,13 @@ main{padding:clamp(30px,5vw,64px) var(--gut) clamp(40px,7vw,90px);max-width:1400
 h1{font-family:var(--serif);font-weight:700;font-size:clamp(34px,6vw,72px);line-height:.98;margin:0;letter-spacing:-.03em}
 h1 em{font-style:normal;color:var(--red);font-size:.5em;display:block;margin-top:10px;letter-spacing:0;font-weight:600}
 .mestiere{font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin:16px 0 0}
+.testata{display:flex;gap:26px;align-items:center;flex-wrap:wrap}
+.testata>div{min-width:0;flex:1 1 320px}
+.testata .ritratto{margin:0;flex:0 0 auto}
+.testata .ritratto img{width:140px;height:140px;border-radius:50%;object-fit:cover;display:block;background:var(--ink)}
+.testata .ritratto figcaption{font-size:10px;letter-spacing:.11em;text-transform:uppercase;color:var(--muted);
+ margin-top:9px;text-align:center;max-width:140px}
+@media(max-width:560px){ .testata .ritratto img{width:104px;height:104px} }
 .corpo{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(26px,5vw,70px);margin-top:clamp(26px,4vw,48px);align-items:start}
 @media(max-width:880px){.corpo{grid-template-columns:1fr}}
 .corpo p{font-size:15.5px;line-height:1.68;margin:0 0 15px;max-width:58ch}
@@ -133,6 +144,7 @@ const pagina = (p) => {
     jobTitle: p.ruolo,
     description: p.descrizione,
     url: `https://crastelstudio.com/${p.slug}/`,
+    ...(p.ritrattoGrande ? { image: `https://crastelstudio.com/${p.ritrattoGrande}` } : {}),
     nationality: { "@type": "Country", name: "Italia" },
     workLocation: { "@type": "Place", name: "Bassano del Grappa, Vicenza, Italia" },
     memberOf: { "@type": "Organization", "@id": "https://crastelstudio.com/#studio", name: "CRASTEL Studio" },
@@ -177,8 +189,16 @@ ${lavori[0] ? `<meta property="og:image" content="https://crastelstudio.com/${es
 
 <main>
   <p class="briciole"><a href="/">CRASTEL Studio</a> — Chi siamo</p>
-  <h1>${esc(p.nome)}${p.alias ? `<em>in arte ${esc(p.alias)}</em>` : ""}</h1>
-  <p class="mestiere">${esc(p.ruolo)} — Bassano del Grappa (VI), Italia</p>
+  <div class="testata">
+    ${p.ritrattoGrande ? `<figure class="ritratto">
+      <img src="/${esc(p.ritrattoGrande)}" alt="${esc(p.nome)}" width="140" height="140">
+      ${p.fotografo ? `<figcaption>Foto ${esc(p.fotografo)}</figcaption>` : ""}
+    </figure>` : ""}
+    <div>
+      <h1>${esc(p.nome)}${p.alias ? `<em>in arte ${esc(p.alias)}</em>` : ""}</h1>
+      <p class="mestiere">${esc(p.ruolo)} — Bassano del Grappa (VI), Italia</p>
+    </div>
+  </div>
 
   <div class="corpo">
     <div>

@@ -61,8 +61,13 @@ const schede = { "Marco Crivellaro": "/marco-crivellaro/", "Simone Castellan": "
 const persone = contesto.STUDIO.members
   .map(
     (m) => `      <article class="persona">
-        <h3>${esc(m.name)}${m.alias ? ` <em>/ ${esc(m.alias)}</em>` : ""}</h3>
-        <p class="mestiere">${esc(m.role)}</p>
+        <div class="intestazione">
+          ${m.ritratto ? `<div class="ritratto"><img src="${esc(m.ritratto)}" alt="${esc(m.name)}" width="92" height="92" loading="lazy"></div>` : ""}
+          <div>
+            <h3>${esc(m.name)}${m.alias ? ` <em>/ ${esc(m.alias)}</em>` : ""}</h3>
+            <p class="mestiere">${esc(m.role)}</p>
+          </div>
+        </div>
         ${m.bio.map((x) => `<p>${esc(x)}</p>`).join("\n        ")}
         ${schede[m.name] ? `<p class="vaialla"><a href="${schede[m.name]}">Scheda completa di ${esc(m.name.split(" ")[0])} &rarr;</a></p>` : ""}
       </article>`
@@ -93,6 +98,7 @@ const jsonld = {
         name: m.name,
         ...(m.alias ? { alternateName: m.alias } : {}),
         jobTitle: m.role,
+        ...(m.ritrattoGrande ? { image: "https://crastelstudio.com/" + m.ritrattoGrande } : {}),
       })),
       sameAs: Object.values(contesto.STUDIO.links),
       knowsAbout: contesto.COMPETENZE.argomenti,

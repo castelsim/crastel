@@ -28,6 +28,11 @@ const STUDIO = {
       name: "Marco Crivellaro",
       alias: "Marcus Grimm",
       role: "Composizione, pianoforte, orchestrazione",
+      /* Ritagli scelti da Simone nell'editor il 18/08: occhi al 36% del cerchio in
+         entrambi i ritratti, così i due medaglioni risultano allineati fra loro. */
+      ritratto: "assets/ritratto-marco.jpg",
+      ritrattoGrande: "assets/ritratto-marco-g.jpg",
+      fotografo: "Antonio Campanella",
       /* BOZZA — tutto verificato: OperaEstate, La Nazione, Rockit, La Valigetta */
       bio: [
         "Diplomato con lode in composizione al Conservatorio «Agostino Steffani» di Castelfranco Veneto.",
@@ -39,6 +44,9 @@ const STUDIO = {
       name: "Simone Castellan",
       alias: null,
       role: "Programmazione musicale, sound design e post produzione",
+      ritratto: "assets/ritratto-simone.jpg",
+      ritrattoGrande: "assets/ritratto-simone-g.jpg",
+      fotografo: null,
       /* BOZZA — da completare con formazione e lavori scelti da Simone */
       bio: [
         "Compositore e sound designer. In studio segue programmazione musicale, sound design e post produzione.",
