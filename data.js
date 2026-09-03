@@ -348,7 +348,13 @@ const WORKS = [
       embedUrl: "https://www.youtube-nocookie.com/embed/RE4-BsOGOzI",
       label: "Trailer ufficiale",
     },
-    soundtrack: {},
+    soundtrack: {
+      spotify: "https://open.spotify.com/album/5KWGXaY4tI29EEeWmSCSmp",
+      appleMusic: "https://music.apple.com/it/album/il-mistero-del-phandambiri/6808001339",
+      tracks: 12,
+      released: "2026",
+      cover: "assets/cover-phandambiri.jpg",
+    },
 
     description:
       "Sei alpinisti italiani nel cuore della savana del Mozambico, davanti a novecento metri di granito ritenuti inviolati. Sulla parete trovano tracce di passaggi precedenti, mai documentati né confermati: l'enigma resta aperto. Alle proiezioni la colonna sonora viene eseguita dal vivo.",
