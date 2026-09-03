@@ -180,9 +180,15 @@ const WORKS = [
     ],
     press: [
       { testata: "Lo Scarpone — CAI", titolo: "Il documentario vincitore del Mountain Film Festival di Verona",
-        url: "https://www.loscarpone.cai.it/mountain-film-festival-verona/" },
+        url: "https://www.loscarpone.cai.it/dettaglio/mountain-film-festival-verona/" },
       { testata: "Radio Più", titolo: "Immenso Blu premiato al Swiss Mountain Film Festival",
         url: "https://www.radiopiu.net/wordpress/immenso-blu-premiato-al-swiss-mountain-film-festival-lultima-fatica-docu-filmica-di-manrico-dellagnola-riceve-la-menzione-speciale-della-giuria/" },
+      { testata: "il Dolomiti", titolo: "«Immenso blu», la mostra con le foto della spedizione Antartide 2020 arriva in provincia",
+        url: "https://www.ildolomiti.it/cultura/2025/immenso-blu-arriva-in-provincia-la-mostra-con-le-foto-scattate-dal-fotografo-e-alpinista-manrico-dellagnola-durante-la-spedizione-antartide-2020-esperienza-grandiosa" },
+      { testata: "Bellunopress", titolo: "L'Antartide approda a Mel con una mostra e un docu-film a Camminando Festival",
+        url: "https://www.bellunopress.it/2025/06/10/immenso-blu-lantartide-approda-a-mel-con-una-mostra-e-un-docu-film-a-camminando-festival/" },
+      { testata: "Bellunopress", titolo: "Serata dedicata all'avventura con Manrico Dell'Agnola, in Nevegal",
+        url: "https://www.bellunopress.it/2024/01/02/serata-dedicata-allavventura-con-manrico-dellagnola-venerdi-in-nevegal/" },
     ],
 
     cover: "assets/yt-orK0VpHFPDc.jpg",
@@ -282,6 +288,17 @@ const WORKS = [
     role: ["Musica originale"],
     // [CERTO] il cartello di apertura compare nel film
     awards: ["Selezione ufficiale — 67° Trento Film Festival"],
+
+    press: [
+      { testata: "PlanetMountain", titolo: "Donnafugata alla Torre Trieste in Civetta: il film di Manrico Dell'Agnola al Trento Film Festival",
+        url: "https://www.planetmountain.com/it/notizie/alpinismo/donnafugata-torre-trieste-civetta-film-manrico-dell-agnola-trento-film-festival.html" },
+      { testata: "PlanetMountain", titolo: "Donnafugata e l'arrampicata sulla Torre Trieste, il film online per tutti",
+        url: "https://www.planetmountain.com/it/notizie/alpinismo/donnafugata-arrampicata-sulla-torre-trieste-film-manrico-dell-agnola-online-per-tutti.html" },
+      { testata: "MountainBlog", titolo: "Karpos presenta «Donnafugata» al Trento Film Festival",
+        url: "https://www.mountainblog.it/redazionale/karpos-presenta-donnafugata-al-trento-film-festival/" },
+      { testata: "Outdoor Magazine", titolo: "«Donnafugata», il corto di Karpos al Trento Film Festival",
+        url: "https://outdoormagazine.it/2019/04/29/donnafugata-il-corto-di-karpos-al-trento-film-festival/" },
+    ],
 
     cover: "assets/yt-cq9qnX32Zos.jpg",
     stills: ["assets/cover-donnafugata.jpg"],
