@@ -26,6 +26,15 @@ const numero = new Map(inCatalogo.map((w, i) => [w.slug, i + 1]));
 const esercizi = WORKS.filter((w) => w.esercizio);
 const numRw = new Map(esercizi.map((w, i) => [w.slug, i + 1]));
 
+const MESI = ["gennaio","febbraio","marzo","aprile","maggio","giugno","luglio","agosto","settembre","ottobre","novembre","dicembre"];
+const quando = (d) => {
+  if (!d) return "";
+  const p = String(d).split("-");
+  if (p.length === 3) return `${+p[2]} ${MESI[+p[1] - 1]} ${p[0]}`;
+  if (p.length === 2) return `${MESI[+p[1] - 1]} ${p[0]}`;
+  return p[0];
+};
+
 const esc = (s) =>
   String(s ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 
@@ -141,6 +150,13 @@ const jsonld = {
           // niente VideoObject: richiede uploadDate e descrizione del video, dati che non
           // abbiamo con certezza. Un markup incompleto viene segnalato come errore da Google.
           ...(w.trailer ? { sameAs: w.trailer.url } : {}),
+          ...(w.vicende && w.vicende.length
+            ? { subjectOf: w.vicende.filter((v) => v.url).map((v) => ({
+                "@type": "CreativeWork", name: v.cosa,
+                ...(v.data ? { datePublished: v.data } : {}),
+                ...(v.testata ? { publisher: { "@type": "Organization", name: v.testata } } : {}),
+                url: v.url })) }
+            : {}),
         },
       })),
     },

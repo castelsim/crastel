@@ -85,6 +85,13 @@ const WORKS = [
     firma: "Marco Crivellaro e Simone Castellan", // [CERTO] accrediti Spotify
     awards: [],
 
+    vicende: [
+      { data: "2023-04-13", tipo: "uscita", cosa: "Esce su Netflix in quattro episodi" },
+      { data: "2023-04-12", tipo: "stampa", cosa: "L'ANSA annuncia l'arrivo della docuserie", testata: "ANSA", url: "https://www.ansa.it/sito/notizie/cultura/tv/2023/04/12/il-caso-alex-schwazer-arriva-su-netflix-la-docuserie_102c22e9-9e9f-401d-9d32-dfc981ca138b.html" },
+      { data: "2023-05", tipo: "stampa", cosa: "La recensione di Kalporz", testata: "Kalporz", url: "https://www.kalporz.com/2023/05/il-caso-alex-schwazer/" },
+      { data: "2023", tipo: "stampa", cosa: "Runlovers racconta la docuserie", testata: "Runlovers", url: "https://runlovers.it/2023/il-caso-schwazer-la-docu-serie-netflix/" },
+    ],
+
     cover: "assets/clean-f-Egf2hQq3Km8-2.jpg",
     focus: "center 24%",
     stills: ["assets/yt-Egf2hQq3Km8.jpg"],
@@ -132,6 +139,12 @@ const WORKS = [
 
     role: ["Musiche"], // [DA VERIFICARE] quale brano, come per Schwazer
     awards: [],
+
+    vicende: [
+      { data: "2024-07-16", tipo: "uscita", cosa: "Esce su Netflix in cinque episodi" },
+      { data: "2024-07", tipo: "stampa", cosa: "Il Messaggero segue l'uscita e le polemiche", testata: "il Messaggero", url: "https://www.ilmessaggero.it/spettacoli/serietv/yara_gambirasio_serie_netflix_dove_vederla_polemiche_perche-8244907.html" },
+      { data: "2024", tipo: "stampa", cosa: "L'analisi di Rivista Studio", testata: "Rivista Studio", url: "https://www.rivistastudio.com/il-caso-yara-documentario-netflix/" },
+    ],
 
     cover: "assets/clean-f-CXoJFIlEAtc-3.jpg",
     focus: "center 30%",
@@ -191,6 +204,15 @@ const WORKS = [
         url: "https://www.bellunopress.it/2024/01/02/serata-dedicata-allavventura-con-manrico-dellagnola-venerdi-in-nevegal/" },
     ],
 
+    vicende: [
+      { data: "2025", tipo: "stampa", cosa: "Il Dolomiti racconta la mostra con gli scatti della spedizione", testata: "il Dolomiti", url: "https://www.ildolomiti.it/cultura/2025/immenso-blu-arriva-in-provincia-la-mostra-con-le-foto-scattate-dal-fotografo-e-alpinista-manrico-dellagnola-durante-la-spedizione-antartide-2020-esperienza-grandiosa" },
+      { data: "2025-06-10", tipo: "proiezione", cosa: "Mostra e proiezione a Mel per il Camminando Festival", testata: "Bellunopress", url: "https://www.bellunopress.it/2025/06/10/immenso-blu-lantartide-approda-a-mel-con-una-mostra-e-un-docu-film-a-camminando-festival/" },
+      { data: "2024-01-02", tipo: "proiezione", cosa: "Serata in Nevegal", testata: "Bellunopress", url: "https://www.bellunopress.it/2024/01/02/serata-dedicata-allavventura-con-manrico-dellagnola-venerdi-in-nevegal/" },
+      { data: "2021", tipo: "proiezione", cosa: "Serata al Teatro Dina Orsi per il CAI di Conegliano, con Marco Crivellaro ed Enrica Bacchia in sala" },
+      { data: "2021", tipo: "premio", cosa: "Vincitore del Mountain Film Festival di Verona", testata: "Lo Scarpone — CAI", url: "https://www.loscarpone.cai.it/dettaglio/mountain-film-festival-verona/" },
+      { data: "2021", tipo: "premio", cosa: "Menzione speciale della giuria allo Swiss Mountain International Film Festival", testata: "Radio Più", url: "https://www.radiopiu.net/wordpress/immenso-blu-premiato-al-swiss-mountain-film-festival-lultima-fatica-docu-filmica-di-manrico-dellagnola-riceve-la-menzione-speciale-della-giuria/" },
+    ],
+
     cover: "assets/yt-orK0VpHFPDc.jpg",
     stills: ["assets/cover-immensoblu.jpg"],
 
@@ -241,6 +263,10 @@ const WORKS = [
     contributi: [["Musiche", "Marco Crivellaro e Simone Castellan"]],
     role: ["Musica originale"],
     awards: [],
+
+    vicende: [
+      { data: "2021", tipo: "stampa", cosa: "PlanetMountain presenta la serie nell'edizione internazionale", testata: "PlanetMountain", url: "https://www.planetmountain.com/en/companies-news/antarctica-exploration-beyond-the-end-of-the-world-with-karpos.html" },
+    ],
 
     cover: "assets/yt-M0_zYG-DnMY.jpg",
     stills: [],
@@ -300,6 +326,15 @@ const WORKS = [
         url: "https://outdoormagazine.it/2019/04/29/donnafugata-il-corto-di-karpos-al-trento-film-festival/" },
     ],
 
+    vicende: [
+      { data: "2019-04-29", tipo: "stampa", cosa: "Outdoor Magazine sul corto di Karpos al festival", testata: "Outdoor Magazine", url: "https://outdoormagazine.it/2019/04/29/donnafugata-il-corto-di-karpos-al-trento-film-festival/" },
+      { data: "2019-04", tipo: "premio", cosa: "Premiere mondiale al 67° Trento Film Festival, sezione Alp&ism", testata: "Trento Film Festival", url: "https://trentofestival.it/en/archives/2019/donna-fugata/" },
+      { data: "2019-04", tipo: "stampa", cosa: "PlanetMountain presenta il film al Trento Film Festival", testata: "PlanetMountain", url: "https://www.planetmountain.com/it/notizie/alpinismo/donnafugata-torre-trieste-civetta-film-manrico-dell-agnola-trento-film-festival.html" },
+      { data: "2019", tipo: "stampa", cosa: "MountainBlog: Karpos presenta «Donnafugata»", testata: "MountainBlog", url: "https://www.mountainblog.it/redazionale/karpos-presenta-donnafugata-al-trento-film-festival/" },
+      { data: "2019", tipo: "stampa", cosa: "Outdoortest sulla presentazione al festival", testata: "Outdoortest", url: "https://outdoortest.it/karpos-presenta-donna-fugata-al-trento-film-festival/" },
+      { data: "", tipo: "stampa", cosa: "PlanetMountain annuncia l'uscita online del film", testata: "PlanetMountain", url: "https://www.planetmountain.com/it/notizie/alpinismo/donnafugata-arrampicata-sulla-torre-trieste-film-manrico-dell-agnola-online-per-tutti.html" },
+    ],
+
     cover: "assets/yt-cq9qnX32Zos.jpg",
     stills: ["assets/cover-donnafugata.jpg"],
 
@@ -352,6 +387,12 @@ const WORKS = [
         url: "https://www.bellunopress.it/2026/06/15/un-mistero-di-roccia-e-musica-a-conegliano-arriva-il-mistero-del-phandambiri/" },
       { testata: "Radio Più", titolo: "La prima scalata del monte Phandambiri nel film di Manrico Dell'Agnola",
         url: "https://www.radiopiu.net/wordpress/la-prima-scalata-del-monte-phandambiri-nel-film-di-manrico-dellagnola-proiettato-ad-alleghe/" },
+    ],
+
+    vicende: [
+      { data: "2026-08-25", tipo: "disco", cosa: "Esce la colonna sonora, dodici brani" },
+      { data: "2026-06-15", tipo: "proiezione", cosa: "Proiezione a Conegliano", testata: "Bellunopress", url: "https://www.bellunopress.it/2026/06/15/un-mistero-di-roccia-e-musica-a-conegliano-arriva-il-mistero-del-phandambiri/" },
+      { data: "", tipo: "stampa", cosa: "Radio Più sulla prima scalata del monte Phandambiri", testata: "Radio Più", url: "https://www.radiopiu.net/wordpress/la-prima-scalata-del-monte-phandambiri-nel-film-di-manrico-dellagnola-proiettato-ad-alleghe/" },
     ],
 
     cover: "assets/yt-RE4-BsOGOzI.jpg",
@@ -444,6 +485,10 @@ const WORKS = [
     role: ["Compositore"],
     awards: [],
 
+    vicende: [
+      { data: "2022-04-09", tipo: "uscita", cosa: "Uscita del cortometraggio" },
+    ],
+
     cover: "assets/f-DZev67wsBo0-1.jpg",
     focus: "center 55%",
     stills: ["assets/cover-piccolastoria.jpg"],
@@ -492,6 +537,11 @@ const WORKS = [
     role: ["Musica originale"],
     // [CERTO] allori impressi sulla locandina del corto
     awards: ["Selezioni in festival: Red Wood Film Festival, We Make Films, Aracnea Festival"],
+
+    vicende: [
+      { data: "2020-04-25", tipo: "uscita", cosa: "Uscita del cortometraggio" },
+      { data: "", tipo: "premio", cosa: "Selezioni: Red Wood Film Festival, We Make Films, Aracnea Festival" },
+    ],
 
     cover: "assets/yt-am2A8bLgw1g.jpg",
     stills: [],
@@ -603,6 +653,10 @@ const WORKS = [
     firma: "",
     role: ["Musica originale"],
     awards: [],
+
+    vicende: [
+      { data: "", tipo: "stampa", cosa: "Il progetto della Valbrenta per il turismo outdoor", testata: "ilcinque.info", url: "https://www.ilcinque.info/post/valbrenta-trodoi-trails-una-guida-e-un-progetto-per-amplificare-attivit%C3%A0-e-turismo-outdoor" },
+    ],
 
     cover: "assets/yt-nXApEh3Xv30.jpg",
     stills: [],
