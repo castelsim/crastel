@@ -88,6 +88,9 @@ const WORKS = [
     vicende: [
       { data: "2023-04-13", tipo: "uscita", cosa: "Esce su Netflix in quattro episodi" },
       { data: "2023-04-12", tipo: "stampa", cosa: "L'ANSA annuncia l'arrivo della docuserie", testata: "ANSA", url: "https://www.ansa.it/sito/notizie/cultura/tv/2023/04/12/il-caso-alex-schwazer-arriva-su-netflix-la-docuserie_102c22e9-9e9f-401d-9d32-dfc981ca138b.html" },
+      { data: "2023-04-24", tipo: "stampa", cosa: "Rivista Undici: «Il caso Alex Schwazer e la violenza della gogna»", testata: "Rivista Undici", url: "https://www.rivistaundici.com/2023/04/24/alex-schwazer-serie-netflix/" },
+      { data: "2023-04-13", tipo: "stampa", cosa: "Sky TG24 dà notizia dell'uscita in quattro episodi", testata: "Sky TG24", url: "https://tg24.sky.it/spettacolo/serie-tv/2023/04/13/il-caso-alex-schwazer-serie-tv" },
+      { data: "2023-04-13", tipo: "stampa", cosa: "La recensione di Movieplayer, «la lunga marcia della verità»", testata: "Movieplayer", url: "https://movieplayer.it/articoli/il-caso-alex-schwazer-recensione-serie-tv-netflix_29387/" },
       { data: "2023-05", tipo: "stampa", cosa: "La recensione di Kalporz", testata: "Kalporz", url: "https://www.kalporz.com/2023/05/il-caso-alex-schwazer/" },
       { data: "2023", tipo: "stampa", cosa: "Runlovers racconta la docuserie", testata: "Runlovers", url: "https://runlovers.it/2023/il-caso-schwazer-la-docu-serie-netflix/" },
     ],
@@ -142,6 +145,7 @@ const WORKS = [
 
     vicende: [
       { data: "2024-07-16", tipo: "uscita", cosa: "Esce su Netflix in cinque episodi" },
+      { data: "2024-07-27", tipo: "stampa", cosa: "Prima Bergamo: «fa discutere mezza Italia, ma è bello oltre ogni dubbio»", testata: "Prima Bergamo", url: "https://primabergamo.it/attualita/il-caso-yara-su-netflix-fa-discutere-mezza-italia-ma-e-bello-oltre-ogni-dubbio/" },
       { data: "2024-07", tipo: "stampa", cosa: "Il Messaggero segue l'uscita e le polemiche", testata: "il Messaggero", url: "https://www.ilmessaggero.it/spettacoli/serietv/yara_gambirasio_serie_netflix_dove_vederla_polemiche_perche-8244907.html" },
       { data: "2024", tipo: "stampa", cosa: "L'analisi di Rivista Studio", testata: "Rivista Studio", url: "https://www.rivistastudio.com/il-caso-yara-documentario-netflix/" },
     ],
@@ -327,6 +331,7 @@ const WORKS = [
     ],
 
     vicende: [
+      { data: "2020-04-01", tipo: "stampa", cosa: "Outdoor Magazine: il corto esce online per tutti", testata: "Outdoor Magazine", url: "https://outdoormagazine.it/2020/04/01/donnafugata-ora-disponibile-anche-on-line/" },
       { data: "2019-04-29", tipo: "stampa", cosa: "Outdoor Magazine sul corto di Karpos al festival", testata: "Outdoor Magazine", url: "https://outdoormagazine.it/2019/04/29/donnafugata-il-corto-di-karpos-al-trento-film-festival/" },
       { data: "2019-04", tipo: "premio", cosa: "Premiere mondiale al 67° Trento Film Festival, sezione Alp&ism", testata: "Trento Film Festival", url: "https://trentofestival.it/en/archives/2019/donna-fugata/" },
       { data: "2019-04", tipo: "stampa", cosa: "PlanetMountain presenta il film al Trento Film Festival", testata: "PlanetMountain", url: "https://www.planetmountain.com/it/notizie/alpinismo/donnafugata-torre-trieste-civetta-film-manrico-dell-agnola-trento-film-festival.html" },
@@ -387,10 +392,18 @@ const WORKS = [
         url: "https://www.bellunopress.it/2026/06/15/un-mistero-di-roccia-e-musica-a-conegliano-arriva-il-mistero-del-phandambiri/" },
       { testata: "Radio Più", titolo: "La prima scalata del monte Phandambiri nel film di Manrico Dell'Agnola",
         url: "https://www.radiopiu.net/wordpress/la-prima-scalata-del-monte-phandambiri-nel-film-di-manrico-dellagnola-proiettato-ad-alleghe/" },
+      { testata: "L'Azione", titolo: "Conegliano: Manrico Dell'Agnola presenta la spedizione sul monte Phanda",
+        url: "https://www.lazione.it/news/dai-nostri-paesi/coneglianese/conegliano-manrico-dellagnola-presenta-la-spedizione-sul-monte-phanda/27699" },
+      { testata: "Bellunesi nel mondo", titolo: "Alleghe, la savana del Mozambico protagonista al Centro Congressi",
+        url: "https://www.bellunesinelmondo.info/2026/07/31/alleghe-la-savana-del-mozambico-protagonista-al-centro-congressi-in-rassegna-il-docu-film-phandambiri/" },
     ],
 
     vicende: [
       { data: "2026-08-25", tipo: "disco", cosa: "Esce la colonna sonora, dodici brani" },
+      { data: "2026-08-06", tipo: "proiezione", cosa: "Proiezione al Centro Congressi di Alleghe per la rassegna «La Montagna nel Cuore»", testata: "Bellunesi nel mondo", url: "https://www.bellunesinelmondo.info/2026/07/31/alleghe-la-savana-del-mozambico-protagonista-al-centro-congressi-in-rassegna-il-docu-film-phandambiri/" },
+      { data: "2026-07-31", tipo: "stampa", cosa: "Bellunesi nel mondo annuncia la proiezione di Alleghe", testata: "Bellunesi nel mondo", url: "https://www.bellunesinelmondo.info/2026/07/31/alleghe-la-savana-del-mozambico-protagonista-al-centro-congressi-in-rassegna-il-docu-film-phandambiri/" },
+      { data: "2026-06-18", tipo: "proiezione", cosa: "Auditorium Dina Orsi di Conegliano: colonna sonora eseguita dal vivo da Marco Crivellaro ed Enrica Bacchia", testata: "CAI Conegliano", url: "https://www.caiconegliano.it/evento/il-mistero-del-phandambiri/" },
+      { data: "2026-06-17", tipo: "stampa", cosa: "L'Azione annuncia la serata di Conegliano e i due musicisti", testata: "L'Azione", url: "https://www.lazione.it/news/dai-nostri-paesi/coneglianese/conegliano-manrico-dellagnola-presenta-la-spedizione-sul-monte-phanda/27699" },
       { data: "2026-06-15", tipo: "proiezione", cosa: "Proiezione a Conegliano", testata: "Bellunopress", url: "https://www.bellunopress.it/2026/06/15/un-mistero-di-roccia-e-musica-a-conegliano-arriva-il-mistero-del-phandambiri/" },
       { data: "", tipo: "stampa", cosa: "Radio Più sulla prima scalata del monte Phandambiri", testata: "Radio Più", url: "https://www.radiopiu.net/wordpress/la-prima-scalata-del-monte-phandambiri-nel-film-di-manrico-dellagnola-proiettato-ad-alleghe/" },
     ],
@@ -655,6 +668,7 @@ const WORKS = [
     awards: [],
 
     vicende: [
+      { data: "2026-07-22", tipo: "stampa", cosa: "Presentati il terzo volume della guida e il nuovo video: la colonna sonora originale è di Marco Crivellaro", testata: "L'Eco Vicentino", url: "https://www.ecovicentino.it/bassano-del-grappa/valbrenta/valbrenta-punta-sul-turismo-lento-e-sostenibile-presentati-altri-dieci-itinerari-da-scoprire/" },
       { data: "", tipo: "stampa", cosa: "Il progetto della Valbrenta per il turismo outdoor", testata: "ilcinque.info", url: "https://www.ilcinque.info/post/valbrenta-trodoi-trails-una-guida-e-un-progetto-per-amplificare-attivit%C3%A0-e-turismo-outdoor" },
     ],
 
@@ -773,6 +787,11 @@ const WORKS = [
     role: ["Composizione", "Orchestrazione"],
     // [CERTO] La Nazione, agosto 2025
     awards: ["Primo premio — Premio Mercurio d'Argento 2025, Città di Massa"],
+
+    vicende: [
+      { data: "2025-08-26", tipo: "premio", cosa: "La Nazione dà conto della vittoria e della motivazione della giuria", testata: "La Nazione", url: "https://www.lanazione.it/massa-carrara/cronaca/mercurio-emozioni-tra-musica-e-a3d71db6" },
+      { data: "2025-08-20", tipo: "stampa", cosa: "SoundtrackFest annuncia i tre finalisti del concorso di composizione", testata: "SoundtrackFest", url: "https://soundtrackfest.com/en/news/premio-mercurio-dargento-2025-music-for-the-image/" },
+    ],
 
     cover: "",
     stills: [],
