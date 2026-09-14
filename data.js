@@ -212,6 +212,10 @@ const WORKS = [
       { data: "2025", tipo: "stampa", cosa: "Il Dolomiti racconta la mostra con gli scatti della spedizione", testata: "il Dolomiti", url: "https://www.ildolomiti.it/cultura/2025/immenso-blu-arriva-in-provincia-la-mostra-con-le-foto-scattate-dal-fotografo-e-alpinista-manrico-dellagnola-durante-la-spedizione-antartide-2020-esperienza-grandiosa" },
       { data: "2025-06-10", tipo: "proiezione", cosa: "Mostra e proiezione a Mel per il Camminando Festival", testata: "Bellunopress", url: "https://www.bellunopress.it/2025/06/10/immenso-blu-lantartide-approda-a-mel-con-una-mostra-e-un-docu-film-a-camminando-festival/" },
       { data: "2024-01-02", tipo: "proiezione", cosa: "Serata in Nevegal", testata: "Bellunopress", url: "https://www.bellunopress.it/2024/01/02/serata-dedicata-allavventura-con-manrico-dellagnola-venerdi-in-nevegal/" },
+      { data: "2022-03-22", tipo: "proiezione", cosa: "Cinema Sivori di Genova, con la mostra «Antarctica 2020» al Galata: i musicisti della colonna sonora suonano dal vivo", testata: "Università di Genova", url: "https://unige.it/en/news/15472-antarctica-2020-and-immense-blue" },
+      { data: "2022-03-07", tipo: "stampa", cosa: "GenovaToday presenta la mostra al Galata e la proiezione", testata: "GenovaToday", url: "https://www.genovatoday.it/eventi/antarctica-reportage-spedizione-galata-museo-mare.html" },
+      { data: "2021-11-26", tipo: "proiezione", cosa: "Teatro Sociale Villani di Biella, con il CAI: la colonna sonora dal vivo con Marco Crivellaro, Enrica Bacchia e Federico Motta", testata: "Newsbiella", url: "https://www.newsbiella.it/2021/11/24/leggi-notizia/argomenti/cultura-e-spettacoli/articolo/al-sociale-con-il-cai-il-film-dellantartide-del-biellese-gian-luca-cavalli.html" },
+      { data: "2021-10-17", tipo: "proiezione", cosa: "Teatro Dino Buzzati di Belluno, con Marco Crivellaro al pianoforte ed Enrica Bacchia alla voce", testata: "Fondazione Teatri delle Dolomiti", url: "https://www.fondazioneteatridolomiti.it/event/proiezione-del-film-di-manrico-dellagnola-immenso-blu/" },
       { data: "2021", tipo: "proiezione", cosa: "Serata al Teatro Dina Orsi per il CAI di Conegliano, con Marco Crivellaro ed Enrica Bacchia in sala" },
       { data: "2021", tipo: "premio", cosa: "Vincitore del Mountain Film Festival di Verona", testata: "Lo Scarpone — CAI", url: "https://www.loscarpone.cai.it/dettaglio/mountain-film-festival-verona/" },
       { data: "2021", tipo: "premio", cosa: "Menzione speciale della giuria allo Swiss Mountain International Film Festival", testata: "Radio Più", url: "https://www.radiopiu.net/wordpress/immenso-blu-premiato-al-swiss-mountain-film-festival-lultima-fatica-docu-filmica-di-manrico-dellagnola-riceve-la-menzione-speciale-della-giuria/" },
@@ -331,7 +335,10 @@ const WORKS = [
     ],
 
     vicende: [
+      { data: "2024-09-20", tipo: "proiezione", cosa: "Serata «Settembre in Villa» del CAI di Treviso", testata: "CAI Treviso", url: "https://www.caitreviso.it/2024/08/settembre-in-villa-venerdi-20-settembre-2024/" },
       { data: "2020-04-01", tipo: "stampa", cosa: "Outdoor Magazine: il corto esce online per tutti", testata: "Outdoor Magazine", url: "https://outdoormagazine.it/2020/04/01/donnafugata-ora-disponibile-anche-on-line/" },
+      { data: "2020-04-01", tipo: "stampa", cosa: "Sportdimontagna presenta il film disponibile online", testata: "Sportdimontagna", url: "https://www.sportdimontagna.com/alpinismo/donna-fugata" },
+      { data: "2019-11-27", tipo: "proiezione", cosa: "In programma al Milano Mountain Film Festival, Sala Gregorianum", testata: "Milanoweekend", url: "https://www.milanoweekend.it/eventi/milano-mountain-film-festival-2019-programma/" },
       { data: "2019-04-29", tipo: "stampa", cosa: "Outdoor Magazine sul corto di Karpos al festival", testata: "Outdoor Magazine", url: "https://outdoormagazine.it/2019/04/29/donnafugata-il-corto-di-karpos-al-trento-film-festival/" },
       { data: "2019-04", tipo: "premio", cosa: "Premiere mondiale al 67° Trento Film Festival, sezione Alp&ism", testata: "Trento Film Festival", url: "https://trentofestival.it/en/archives/2019/donna-fugata/" },
       { data: "2019-04", tipo: "stampa", cosa: "PlanetMountain presenta il film al Trento Film Festival", testata: "PlanetMountain", url: "https://www.planetmountain.com/it/notizie/alpinismo/donnafugata-torre-trieste-civetta-film-manrico-dell-agnola-trento-film-festival.html" },
@@ -400,7 +407,10 @@ const WORKS = [
 
     vicende: [
       { data: "2026-08-25", tipo: "disco", cosa: "Esce la colonna sonora, dodici brani" },
+      { data: "2026-08-06", tipo: "stampa", cosa: "Radio Più ospita Manrico Dell'Agnola il giorno della proiezione di Alleghe", testata: "Radio Più", url: "https://www.radiopiu.net/wordpress/stasera-manrico-dellagnola/" },
       { data: "2026-08-06", tipo: "proiezione", cosa: "Proiezione al Centro Congressi di Alleghe per la rassegna «La Montagna nel Cuore»", testata: "Bellunesi nel mondo", url: "https://www.bellunesinelmondo.info/2026/07/31/alleghe-la-savana-del-mozambico-protagonista-al-centro-congressi-in-rassegna-il-docu-film-phandambiri/" },
+      { data: "2026-08-04", tipo: "stampa", cosa: "Bellunopress annuncia Alleghe e ricorda la selezione al Sestriere Film Festival", testata: "Bellunopress", url: "https://www.bellunopress.it/2026/08/04/il-docufilm-di-manrico-dellagnola-giovedi-ad-alleghe/" },
+      { data: "2026-08-03", tipo: "proiezione", cosa: "In concorso al Sestriere Film Festival, Cinema Fraiteve", testata: "La Valsusa", url: "https://www.lavalsusa.it/sestriere-film-festival-il-programma/" },
       { data: "2026-07-31", tipo: "stampa", cosa: "Bellunesi nel mondo annuncia la proiezione di Alleghe", testata: "Bellunesi nel mondo", url: "https://www.bellunesinelmondo.info/2026/07/31/alleghe-la-savana-del-mozambico-protagonista-al-centro-congressi-in-rassegna-il-docu-film-phandambiri/" },
       { data: "2026-06-18", tipo: "proiezione", cosa: "Auditorium Dina Orsi di Conegliano: colonna sonora eseguita dal vivo da Marco Crivellaro ed Enrica Bacchia", testata: "CAI Conegliano", url: "https://www.caiconegliano.it/evento/il-mistero-del-phandambiri/" },
       { data: "2026-06-17", tipo: "stampa", cosa: "L'Azione annuncia la serata di Conegliano e i due musicisti", testata: "L'Azione", url: "https://www.lazione.it/news/dai-nostri-paesi/coneglianese/conegliano-manrico-dellagnola-presenta-la-spedizione-sul-monte-phanda/27699" },
