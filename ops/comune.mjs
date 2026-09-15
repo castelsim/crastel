@@ -1,22 +1,49 @@
-<!doctype html>
-<html lang="it">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Simone Castellan — compositore e sound designer | CRASTEL Studio</title>
-<meta name="description" content="Simone Castellan è compositore e sound designer a Bassano del Grappa: programmazione musicale, progettazione del suono e post produzione per film, serie e documentari. Premiato a Sounds of Silences, Romaeuropa Festival.">
-<link rel="canonical" href="https://crastelstudio.com/simone-castellan/">
-<meta property="og:type" content="profile">
-<meta property="og:title" content="Simone Castellan — compositore e sound designer">
-<meta property="og:description" content="Simone Castellan è compositore e sound designer a Bassano del Grappa: programmazione musicale, progettazione del suono e post produzione per film, serie e documentari. Premiato a Sounds of Silences, Romaeuropa Festival.">
-<meta property="og:url" content="https://crastelstudio.com/simone-castellan/">
-<meta property="og:image" content="https://crastelstudio.com/assets/clean-f-Egf2hQq3Km8-2.jpg">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","@id":"https://crastelstudio.com/simone-castellan/#persona","name":"Simone Castellan","jobTitle":"Compositore, sound designer e produttore","description":"Simone Castellan è compositore e sound designer a Bassano del Grappa: programmazione musicale, progettazione del suono e post produzione per film, serie e documentari. Premiato a Sounds of Silences, Romaeuropa Festival.","url":"https://crastelstudio.com/simone-castellan/","image":"https://crastelstudio.com/assets/ritratto-simone-g.jpg","nationality":{"@type":"Country","name":"Italia"},"workLocation":{"@type":"Place","name":"Bassano del Grappa, Vicenza, Italia"},"memberOf":{"@type":"Organization","@id":"https://crastelstudio.com/#studio","name":"CRASTEL Studio"},"knowsAbout":["Musica per immagini","Colonna sonora","Musica per film","Musica per documentari","Musica per serie TV","Sound design","Composizione musicale","Musica per pubblicità","Sonorizzazione di cinema muto","Musica per video aziendali","Post produzione audio","Musica originale","Score cinematografico"],"award":["«Sounds of Silences» 2020 — fra i tre compositori premiati su 162 candidature da 36 Paesi, al concorso internazionale di composizione per le immagini in movimento del Romaeuropa Festival con Edison Studio e la Cineteca di Bologna, con esecuzione dal vivo all'Ex Mattatoio di Roma"],"sameAs":["https://www.youtube.com/@crastel3827","https://open.spotify.com/artist/5VxcMXYiq5CqGUnfnWoj9B","https://romaeuropa.net/en/archive/festival/year-2020/sounds-of-silences-2020/"]}</script>
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23E8E4DA'/%3E%3Ctext y='74' x='50' text-anchor='middle' font-family='Georgia,serif' font-weight='700' font-size='72' fill='%239F3029'%3EC%3C/text%3E%3C/svg%3E">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-<style>
+/* ============================================================
+   PEZZI COMUNI ALLE PAGINE GENERATE
+   persone.mjs e pagine.mjs scrivono pagine con la stessa testata,
+   lo stesso piede e lo stesso foglio di stile: stanno qui una volta sola.
+   ============================================================ */
+import { readFileSync, writeFileSync, readdirSync } from "node:fs";
+import { dirname, join } from "node:path";
+import { fileURLToPath } from "node:url";
+
+export const radice = join(dirname(fileURLToPath(import.meta.url)), "..");
+export const SITO = "https://crastelstudio.com";
+
+// data.js non è un modulo: lo eseguo in una funzione e mi faccio restituire i dati
+export const leggiDati = () =>
+  new Function(readFileSync(join(radice, "data.js"), "utf8") + "\nreturn { WORKS, STUDIO, COMPETENZE, DOMANDE };")();
+
+export const esc = (s) =>
+  String(s ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+
+const MESI = ["gennaio","febbraio","marzo","aprile","maggio","giugno","luglio","agosto","settembre","ottobre","novembre","dicembre"];
+export const quando = (d) => {
+  if (!d) return "—";
+  const p = String(d).split("-");
+  if (p.length === 3) return `${+p[2]} ${MESI[+p[1] - 1]} ${p[0]}`;
+  if (p.length === 2) return `${MESI[+p[1] - 1]} ${p[0]}`;
+  return p[0];
+};
+// dalla più recente; le voci senza data finiscono in fondo, come nella scheda della home
+export const ordinaVicende = (v) => [...v].sort((a, b) => (b.data || "").localeCompare(a.data || ""));
+
+// i lavori che hanno una pagina sono gli stessi del catalogo in home
+export const inCatalogo = (WORKS) => WORKS.filter((w) => w.featured && w.trailer).sort((a, b) => a.order - b.order);
+
+/* Le pagine che rispondono alle ricerche comuni («musica per documentari»,
+   «compositore per film»…). Stanno nel piede di ogni pagina: così ognuna riceve
+   un link da tutto il sito, che è il modo in cui Google capisce che contano. */
+export const PAGINE_SERVIZIO = [
+  ["Musica per film e cortometraggi", "/musica-per-film/"],
+  ["Musica per documentari", "/musica-per-documentari/"],
+  ["Musica per video aziendali, spot e jingle", "/musica-per-video-aziendali/"],
+  ["Sonorizzazione di film muti", "/sonorizzazione-film-muto/"],
+  ["Quanto costa una colonna sonora", "/quanto-costa-una-colonna-sonora/"],
+  ["Compositori in Veneto", "/compositore-veneto/"],
+];
+
+export const CSS = `
 :root{--paper:#E8E4DA;--ink:#171715;--muted:#66625B;--red:#9F3029;--line:rgba(23,23,21,.22);--card:#EFEBE2;
  --serif:'Fraunces',Georgia,serif;--grot:'Instrument Sans',-apple-system,system-ui,sans-serif;--gut:clamp(16px,3.2vw,40px)}
 *{box-sizing:border-box}
@@ -111,7 +138,31 @@ h2{font-family:var(--serif);font-weight:600;font-size:clamp(21px,2.4vw,28px);mar
  display:flex;gap:14px 28px;flex-wrap:wrap;justify-content:space-between}
 .piede a{text-decoration:none}.piede a:hover{color:var(--red)}
 .piede nav{display:flex;gap:6px 16px;flex-wrap:wrap}
-</style>
+`;
+
+const FAVICON = `<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23E8E4DA'/%3E%3Ctext y='74' x='50' text-anchor='middle' font-family='Georgia,serif' font-weight='700' font-size='72' fill='%239F3029'%3EC%3C/text%3E%3C/svg%3E">`;
+
+export const testa = ({ titolo, descrizione, percorso, tipo = "website", immagine, jsonld }) => `<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>${esc(titolo)}</title>
+<meta name="description" content="${esc(descrizione)}">
+<link rel="canonical" href="${SITO}${percorso}">
+<meta property="og:type" content="${tipo}">
+<meta property="og:site_name" content="CRASTEL Studio">
+<meta property="og:locale" content="it_IT">
+<meta property="og:title" content="${esc(titolo)}">
+<meta property="og:description" content="${esc(descrizione)}">
+<meta property="og:url" content="${SITO}${percorso}">
+${immagine ? `<meta property="og:image" content="${SITO}/${esc(immagine)}">\n<meta name="twitter:card" content="summary_large_image">` : ""}
+<script type="application/ld+json">${JSON.stringify(jsonld)}</script>
+${FAVICON}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>${CSS}</style>
 </head>
 <body>
 
@@ -123,68 +174,58 @@ h2{font-family:var(--serif);font-weight:600;font-size:clamp(21px,2.4vw,28px);mar
     <a href="/#contatti">Contatti</a>
   </nav>
 </div>
+`;
 
-<main>
-  <p class="briciole"><a href="/">CRASTEL Studio</a> — Chi siamo</p>
-  <div class="testata">
-    <figure class="ritratto">
-      <img src="/assets/ritratto-simone-g.jpg" alt="Simone Castellan" width="140" height="140">
-      
-    </figure>
-    <div>
-      <h1>Simone Castellan</h1>
-      <p class="mestiere">Compositore, sound designer e produttore — Bassano del Grappa (VI), Italia</p>
-    </div>
-  </div>
-
-  <div class="corpo">
-    <div>
-      <p>Compositore e sound designer. In studio segue programmazione musicale, sound design e post produzione.</p>
-      <p>Nel 2020 è fra i tre autori premiati a «Sounds of Silences», concorso internazionale di composizione per le immagini del Romaeuropa Festival con Edison Studio e la Cineteca di Bologna, scelto su 162 candidature da 36 Paesi: la sua partitura è stata eseguita dal vivo in sincrono con le immagini all'Ex Mattatoio di Roma.</p>
-      
-      
-    </div>
-    <div>
-      <h2 style="margin-top:0">Premi</h2>
-      <p class="premio">«Sounds of Silences» 2020 — fra i tre compositori premiati su 162 candidature da 36 Paesi, al concorso internazionale di composizione per le immagini in movimento del Romaeuropa Festival con Edison Studio e la Cineteca di Bologna, con esecuzione dal vivo all'Ex Mattatoio di Roma</p>
-      <h2>Dove ascoltarlo</h2>
-      <div class="profili"><a href="https://www.youtube.com/@crastel3827" rel="noopener">Canale YouTube CRASTEL</a><a href="https://open.spotify.com/artist/5VxcMXYiq5CqGUnfnWoj9B" rel="noopener">Spotify CRASTEL</a><a href="https://romaeuropa.net/en/archive/festival/year-2020/sounds-of-silences-2020/" rel="noopener">Sounds of Silences, Romaeuropa Festival</a></div>
-    </div>
-  </div>
-
-  <h2>Lavori firmati da Simone</h2>
-  <div class="lavori">
-    <a class="lavoro" href="/lavori/alex-schwazer/">
-      <img src="/assets/clean-f-Egf2hQq3Km8-2.jpg" alt="Il caso Alex Schwazer" loading="lazy">
-      <h3>Il caso Alex Schwazer</h3>
-      <p>Serie documentaria · 2023<br>Musiche</p>
-    </a>
-    <a class="lavoro" href="/lavori/antarctica-karpos/">
-      <img src="/assets/yt-M0_zYG-DnMY.jpg" alt="Antarctica: Beyond the End of the World" loading="lazy">
-      <h3>Antarctica: Beyond the End of the World</h3>
-      <p>Serie documentaria · 2021<br>Musiche</p>
-    </a>
-    <a class="lavoro" href="/lavori/donnafugata/">
-      <img src="/assets/yt-cq9qnX32Zos.jpg" alt="Donnafugata" loading="lazy">
-      <h3>Donnafugata</h3>
-      <p>Documentario · 2021<br>Post produzione, elettronica</p>
-    </a>
-  </div>
-</main>
-
-
+export const piede = () => `
 <div class="piede">
-  <span>© 2026 CRASTEL Studio — Marco Crivellaro e Simone Castellan. Bassano del Grappa (VI), Italia.</span>
+  <span>© ${new Date().getFullYear()} CRASTEL Studio — Marco Crivellaro e Simone Castellan. Bassano del Grappa (VI), Italia.</span>
   <nav aria-label="Cosa scriviamo">
-    <a href="/musica-per-film/">Musica per film e cortometraggi</a>
-    <a href="/musica-per-documentari/">Musica per documentari</a>
-    <a href="/musica-per-video-aziendali/">Musica per video aziendali, spot e jingle</a>
-    <a href="/sonorizzazione-film-muto/">Sonorizzazione di film muti</a>
-    <a href="/quanto-costa-una-colonna-sonora/">Quanto costa una colonna sonora</a>
-    <a href="/compositore-veneto/">Compositori in Veneto</a>
+    ${PAGINE_SERVIZIO.map(([t, u]) => `<a href="${u}">${esc(t)}</a>`).join("\n    ")}
   </nav>
   <span><a href="/lavori/">Tutti i lavori</a> · <a href="/marco-crivellaro/">Marco Crivellaro</a> · <a href="/simone-castellan/">Simone Castellan</a> · <a href="/#contatti">Scrivici</a></span>
 </div>
 
 </body>
 </html>
+`;
+
+export const invito = (testo = "Scriveteci a che punto è il lavoro e che cosa vi serve: rispondiamo entro due giorni lavorativi.") => `
+  <section class="invito">
+    <div>
+      <h2>Avete un progetto in lavorazione?</h2>
+      <p>${testo}</p>
+    </div>
+    <a class="bottone" href="/#contatti">Scriveteci</a>
+  </section>`;
+
+/* ---- sitemap ----
+   Si costruisce leggendo le cartelle, non da un elenco: così nessuno degli script
+   può cancellare le pagine scritte dall'altro, chiunque giri per ultimo. */
+const trova = (dir, rel = "") => {
+  const out = [];
+  for (const e of readdirSync(dir, { withFileTypes: true })) {
+    if (e.name.startsWith(".") || ["assets", "ops", "node_modules"].includes(e.name)) continue;
+    if (e.isDirectory()) out.push(...trova(join(dir, e.name), rel + e.name + "/"));
+    else if (e.name === "index.html") {
+      const html = readFileSync(join(dir, e.name), "utf8");
+      if (!/name="robots"[^>]*noindex/.test(html)) out.push(rel);
+    }
+  }
+  return out;
+};
+
+export const scriviSitemap = () => {
+  const oggi = new Date().toISOString().slice(0, 10);
+  const servizio = (p) => PAGINE_SERVIZIO.some(([, u]) => u === "/" + p);
+  const peso = (p) => (p === "" ? "1.0" : servizio(p) ? "0.9" : p.startsWith("lavori/") && p !== "lavori/" ? "0.7" : "0.8");
+  const ordine = (p) => (p === "" ? 0 : servizio(p) ? 1 : p.startsWith("lavori/") ? 3 : 2);
+  const percorsi = trova(radice).sort((a, b) => ordine(a) - ordine(b) || a.localeCompare(b));
+  const righe = percorsi.map(
+    (p) => `  <url>\n    <loc>${SITO}/${p}</loc>\n    <lastmod>${oggi}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>${peso(p)}</priority>\n  </url>`
+  );
+  writeFileSync(
+    join(radice, "sitemap.xml"),
+    `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${righe.join("\n")}\n</urlset>\n`
+  );
+  console.log(`sitemap.xml aggiornata: ${percorsi.length} indirizzi`);
+};

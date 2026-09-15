@@ -52,7 +52,7 @@ const scheda = (w) => `
         <span class="segno"><i></i></span>
         <span class="lente"><span><i></i>${esc(w.trailer.label)}</span></span>
       </button>
-      <h3>${esc(w.title)}</h3>
+      <h3><a href="/lavori/${esc(w.slug)}/">${esc(w.title)}</a></h3>
       <p class="riga"><b>${esc(w.type)}</b> · ${esc((w.role || []).join(", "))}${
         w.director ? `<br>Regia ${esc(w.director)}` : w.production ? `<br>${esc(w.production)}` : ""
       }</p>
@@ -63,7 +63,9 @@ const scheda = (w) => `
 const catalogo = inCatalogo.map(scheda).join("\n");
 
 const competenze = contesto.COMPETENZE.voci
-  .map((v) => `      <article><h3>${esc(v.nome)}</h3><p>${esc(v.testo)}</p></article>`)
+  .map((v) => `      <article><h3>${esc(v.nome)}</h3><p>${esc(v.testo)}</p>${
+    v.pagine ? `<p class="vai">${v.pagine.map(([t, u]) => `<a href="${u}">${esc(t)} →</a>`).join("")}</p>` : ""
+  }</article>`)
   .join("\n");
 
 const schede = { "Marco Crivellaro": "/marco-crivellaro/", "Simone Castellan": "/simone-castellan/" };
@@ -111,14 +113,14 @@ const jsonld = {
       })),
       sameAs: Object.values(contesto.STUDIO.links),
       knowsAbout: contesto.COMPETENZE.argomenti,
-      areaServed: [{ "@type": "Country", name: "Italia" }, { "@type": "Place", name: "Europa" }],
+      areaServed: [{ "@type": "AdministrativeArea", name: "Veneto" }, { "@type": "Country", name: "Italia" }, { "@type": "Place", name: "Europa" }],
       slogan: contesto.COMPETENZE.intro,
       hasOfferCatalog: {
         "@type": "OfferCatalog",
         name: "Cosa scriviamo",
         itemListElement: contesto.COMPETENZE.voci.map((v) => ({
           "@type": "Offer",
-          itemOffered: { "@type": "Service", name: v.nome, description: v.testo },
+          itemOffered: { "@type": "Service", name: v.nome, description: v.testo, ...(v.pagine ? { url: "https://crastelstudio.com" + v.pagine[0][1] } : {}) },
         })),
       },
     },
@@ -141,6 +143,7 @@ const jsonld = {
         item: {
           "@type": w.type === "Serie documentaria" ? "TVSeries" : "Movie",
           name: w.title,
+          url: `https://crastelstudio.com/lavori/${w.slug}/`,
           ...(w.year ? { datePublished: w.year } : {}),
           ...(w.director ? { director: { "@type": "Person", name: w.director } } : {}),
           ...(w.production ? { productionCompany: { "@type": "Organization", name: w.production } } : {}),

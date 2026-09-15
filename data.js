@@ -1109,21 +1109,25 @@ const COMPETENZE = {
   voci: [
     {
       nome: "Colonne sonore per film e documentari",
+      pagine: [["Musica per film", "/musica-per-film/"], ["Musica per documentari", "/musica-per-documentari/"]],
       testo:
         "Temi originali per lungometraggi, documentari di spedizione e film di montagna, scritti per pianoforte, archi ed elettronica. Le musiche di «Immenso Blu» hanno accompagnato il film che ha vinto il Mountain Film Festival di Verona.",
     },
     {
       nome: "Musica per serie documentarie",
+      pagine: [["Documentari e serie", "/musica-per-documentari/"]],
       testo:
         "Brani entrati in produzioni distribuite da Netflix: «Il caso Alex Schwazer» (2023) e «Il caso Yara: oltre ogni ragionevole dubbio» (2024).",
     },
     {
       nome: "Sonorizzazione di cinema muto",
+      pagine: [["Sonorizzazione di film muti", "/sonorizzazione-film-muto/"]],
       testo:
         "Partiture eseguite dal vivo in sincrono con le immagini. Simone Castellan è fra i tre autori premiati a «Sounds of Silences» del Romaeuropa Festival su 162 candidature da 36 Paesi; Marco Crivellaro ha vinto «Your sound for silents» al Lago Film Fest 2023.",
     },
     {
       nome: "Musica per aziende e territori",
+      pagine: [["Video aziendali, spot e jingle", "/musica-per-video-aziendali/"]],
       testo:
         "Jingle e colonne sonore per film d'impresa, campagne pubblicitarie e progetti di valorizzazione territoriale, dal jingle Todis ai sentieri della Valbrenta.",
     },

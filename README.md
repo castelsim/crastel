@@ -23,7 +23,8 @@ Sito statico, nessuna dipendenza da installare.
 
 ```bash
 node ops/prerender.mjs   # riscrive catalogo, competenze e domande nell'HTML
-node ops/persone.mjs     # rigenera /marco-crivellaro/ e /simone-castellan/ e la sitemap
+node ops/persone.mjs     # rigenera /marco-crivellaro/ e /simone-castellan/
+node ops/pagine.mjs      # rigenera /lavori/, /lavori/<slug>/, le pagine servizio, llms.txt e la sitemap
 ```
 
 Riscrive le schede dentro `index.html` e rigenera i dati strutturati. Serve ai motori di
@@ -50,6 +51,22 @@ vecchio (GitHub Pages tiene il file in cache).
   description: "", credits: [["Regia","..."]]
 }
 ```
+
+## Le pagine per chi cerca con parole comuni
+
+Chi cerca un compositore non scrive «CRASTEL»: scrive «musica per documentari», «compositore per
+film», «jingle pubblicitario». Per queste ricerche ci sono pagine apposta, generate da `ops/pagine.mjs`:
+
+- `/lavori/<slug>/` — una pagina per ogni lavoro del catalogo: crediti, ascolti e cronologia scritti
+  nell'HTML. In home il riquadro resta, ma il titolo della scheda è un link vero alla pagina.
+- `/musica-per-film/`, `/musica-per-documentari/`, `/musica-per-video-aziendali/`,
+  `/sonorizzazione-film-muto/` — una per intenzione di ricerca, con i lavori come prova.
+- `/quanto-costa-una-colonna-sonora/` e `/compositore-veneto/` — guide con fonti citate in fondo.
+
+I testi delle pagine servizio stanno in `ops/servizi.mjs` (non in `data.js`, che la home scarica a
+ogni visita). Ogni fatto lì dentro deve stare anche in `data.js` o in una fonte citata. Testata, piede
+e foglio di stile comuni stanno in `ops/comune.mjs`, che scrive anche la sitemap **leggendo le
+cartelle**: nessuno script può più cancellare le pagine dell'altro.
 
 ## Il form dei contatti
 

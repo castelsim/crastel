@@ -8,6 +8,7 @@
    Uso:  node ops/persone.mjs     (dopo ogni modifica a data.js)
    ============================================================ */
 import { readFileSync, writeFileSync, mkdirSync } from "node:fs";
+import { CSS, piede, scriviSitemap } from "./comune.mjs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -85,53 +86,6 @@ const PERSONE = [
   },
 ];
 
-const CSS = `
-:root{--paper:#E8E4DA;--ink:#171715;--muted:#66625B;--red:#9F3029;--line:rgba(23,23,21,.22);--card:#EFEBE2;
- --serif:'Fraunces',Georgia,serif;--grot:'Instrument Sans',-apple-system,system-ui,sans-serif;--gut:clamp(16px,3.2vw,40px)}
-*{box-sizing:border-box}
-body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--grot);line-height:1.6}
-a{color:inherit}
-.topnav{position:sticky;top:0;z-index:50;background:var(--paper);border-bottom:2px solid var(--ink);
- display:flex;justify-content:space-between;align-items:center;gap:18px;padding:12px var(--gut)}
-.topnav .logo{font-family:var(--serif);font-weight:700;font-size:20px;text-decoration:none;letter-spacing:-.01em}
-.topnav nav{display:flex;gap:20px}.topnav nav a{font-size:12.5px;font-weight:500;text-decoration:none}
-.topnav nav a:hover{color:var(--red)}
-main{padding:clamp(30px,5vw,64px) var(--gut) clamp(40px,7vw,90px);max-width:1400px}
-.briciole{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:14px}
-.briciole a{text-decoration:none}.briciole a:hover{color:var(--red)}
-h1{font-family:var(--serif);font-weight:700;font-size:clamp(34px,6vw,72px);line-height:.98;margin:0;letter-spacing:-.03em}
-h1 em{font-style:normal;color:var(--red);font-size:.5em;display:block;margin-top:10px;letter-spacing:0;font-weight:600}
-.mestiere{font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin:16px 0 0}
-.testata{display:flex;gap:26px;align-items:center;flex-wrap:wrap}
-.testata>div{min-width:0;flex:1 1 320px}
-.testata .ritratto{margin:0;flex:0 0 auto}
-.testata .ritratto img{width:140px;height:140px;border-radius:50%;object-fit:cover;display:block;background:var(--ink)}
-.testata .ritratto figcaption{font-size:10px;letter-spacing:.11em;text-transform:uppercase;color:var(--muted);
- margin-top:9px;text-align:center;max-width:140px}
-@media(max-width:560px){ .testata .ritratto img{width:104px;height:104px} }
-.corpo{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(26px,5vw,70px);margin-top:clamp(26px,4vw,48px);align-items:start}
-@media(max-width:880px){.corpo{grid-template-columns:1fr}}
-.corpo p{font-size:15.5px;line-height:1.68;margin:0 0 15px;max-width:58ch}
-.corpo>div:first-child p:first-of-type::first-letter{font-family:var(--serif);font-size:3.4em;line-height:.82;float:left;
- padding:6px 10px 0 0;color:var(--red);font-weight:700}
-h2{font-family:var(--serif);font-weight:600;font-size:clamp(21px,2.4vw,28px);margin:34px 0 14px;letter-spacing:-.02em}
-.scheda{border-top:1px solid var(--line);padding-top:14px}
-.scheda li{margin:0 0 12px;font-size:14px;line-height:1.6;color:var(--muted)}
-.scheda ul{margin:0;padding-left:18px}
-.premio{border-left:2px solid var(--red);padding-left:14px;margin:0 0 14px;font-size:14px;line-height:1.6}
-.lavori{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:18px;margin-top:8px}
-.lavoro{border-top:1px solid var(--ink);padding-top:10px;text-decoration:none;display:block}
-.lavoro img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;background:var(--card)}
-.lavoro h3{font-family:var(--serif);font-weight:600;font-size:16px;margin:10px 0 4px;line-height:1.15;letter-spacing:-.01em}
-.lavoro p{margin:0;font-size:11.5px;color:var(--muted);line-height:1.45}
-.lavoro:hover h3{color:var(--red)}
-.profili{display:flex;gap:14px;flex-wrap:wrap;margin-top:10px}
-.profili a{font-size:12.5px;border-bottom:1px solid var(--line);padding-bottom:3px;text-decoration:none}
-.profili a:hover{color:var(--red);border-color:var(--red)}
-.piede{border-top:1px solid var(--line);padding:24px var(--gut);font-size:11.5px;color:var(--muted);
- display:flex;gap:18px;flex-wrap:wrap;justify-content:space-between}
-.piede a{text-decoration:none}
-`;
 
 const pagina = (p) => {
   const lavori = lavoriDi(p.cognome);
@@ -181,7 +135,7 @@ ${lavori[0] ? `<meta property="og:image" content="https://crastelstudio.com/${es
 <div class="topnav">
   <a class="logo" href="/">CRASTEL</a>
   <nav>
-    <a href="/#catalogo">Catalogo</a>
+    <a href="/lavori/">Lavori</a>
     <a href="/#competenze">Cosa scriviamo</a>
     <a href="/#contatti">Contatti</a>
   </nav>
@@ -218,7 +172,7 @@ ${lavori[0] ? `<meta property="og:image" content="https://crastelstudio.com/${es
   <div class="lavori">
     ${lavori
       .map(
-        (w) => `<a class="lavoro" href="/#catalogo">
+        (w) => `<a class="lavoro" href="/lavori/${esc(w.slug)}/">
       <img src="/${esc(w.cover)}" alt="${esc(w.title)}" loading="lazy">
       <h3>${esc(w.title)}</h3>
       <p>${esc(w.type)} · ${esc(w.year)}<br>${esc(ruoloIn(w, p.cognome))}</p>
@@ -228,14 +182,7 @@ ${lavori[0] ? `<meta property="og:image" content="https://crastelstudio.com/${es
   </div>
 </main>
 
-<div class="piede">
-  <span>© ${new Date().getFullYear()} CRASTEL Studio — Bassano del Grappa (VI), Italia</span>
-  <span><a href="/">Torna al catalogo</a> · <a href="/#contatti">Scrivici</a></span>
-</div>
-
-</body>
-</html>
-`;
+` + piede();
 };
 
 for (const p of PERSONE) {
@@ -245,15 +192,5 @@ for (const p of PERSONE) {
   console.log(`${p.slug}/index.html — ${lavoriDi(p.cognome).length} lavori firmati`);
 }
 
-/* sitemap: la home più le due schede */
-const oggi = new Date().toISOString().slice(0, 10);
-const url = (loc, pri) =>
-  `  <url>\n    <loc>${loc}</loc>\n    <lastmod>${oggi}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>${pri}</priority>\n  </url>`;
-writeFileSync(
-  join(radice, "sitemap.xml"),
-  `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${[
-    url("https://crastelstudio.com/", "1.0"),
-    ...PERSONE.map((p) => url(`https://crastelstudio.com/${p.slug}/`, "0.8")),
-  ].join("\n")}\n</urlset>\n`
-);
-console.log("sitemap.xml aggiornata: 3 indirizzi");
+/* sitemap: si costruisce leggendo le cartelle (comune.mjs), così comprende anche le pagine di pagine.mjs */
+scriviSitemap();
