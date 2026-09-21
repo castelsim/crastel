@@ -677,8 +677,16 @@ const WORKS = [
     role: ["Musica originale"],
     awards: [],
 
+    press: [
+      { testata: "VicenzaReport", titolo: "Valbrenta, arriva il terzo volume della guida Trodoi Trails",
+        url: "https://www.vicenzareport.it/provincia/guida-trodoi-trails-valbrenta/" },
+      { testata: "L'Eco Vicentino", titolo: "Valbrenta punta sul turismo lento: presentati altri dieci itinerari da scoprire",
+        url: "https://www.ecovicentino.it/bassano-del-grappa/valbrenta/valbrenta-punta-sul-turismo-lento-e-sostenibile-presentati-altri-dieci-itinerari-da-scoprire/" },
+    ],
+
     vicende: [
       { data: "2026-07-22", tipo: "stampa", cosa: "Presentati il terzo volume della guida e il nuovo video: la colonna sonora originale è di Marco Crivellaro", testata: "L'Eco Vicentino", url: "https://www.ecovicentino.it/bassano-del-grappa/valbrenta/valbrenta-punta-sul-turismo-lento-e-sostenibile-presentati-altri-dieci-itinerari-da-scoprire/" },
+      { data: "2026-07-21", tipo: "stampa", cosa: "Dieci nuovi itinerari e un video girato con soli professionisti della valle: regia di Matteo Mocellin, colonna sonora originale di Marco Crivellaro", testata: "VicenzaReport", url: "https://www.vicenzareport.it/provincia/guida-trodoi-trails-valbrenta/" },
       { data: "", tipo: "stampa", cosa: "Il progetto della Valbrenta per il turismo outdoor", testata: "ilcinque.info", url: "https://www.ilcinque.info/post/valbrenta-trodoi-trails-una-guida-e-un-progetto-per-amplificare-attivit%C3%A0-e-turismo-outdoor" },
     ],
 
