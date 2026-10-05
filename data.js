@@ -407,6 +407,7 @@ const WORKS = [
     ],
 
     vicende: [
+      { data: "2026-10-07", tipo: "proiezione", cosa: "Proiezione alla sede SAT di Rovereto, presentata dall'alpinista Maurizio Giordani", testata: "SAT Rovereto", url: "https://www.satrovereto.it/?p=3926" },
       { data: "2026-08-25", tipo: "disco", cosa: "Esce la colonna sonora, dodici brani" },
       { data: "2026-08-06", tipo: "stampa", cosa: "Radio Più ospita Manrico Dell'Agnola il giorno della proiezione di Alleghe", testata: "Radio Più", url: "https://www.radiopiu.net/wordpress/stasera-manrico-dellagnola/" },
       { data: "2026-08-06", tipo: "proiezione", cosa: "Proiezione al Centro Congressi di Alleghe per la rassegna «La Montagna nel Cuore»", testata: "Bellunesi nel mondo", url: "https://www.bellunesinelmondo.info/2026/07/31/alleghe-la-savana-del-mozambico-protagonista-al-centro-congressi-in-rassegna-il-docu-film-phandambiri/" },
