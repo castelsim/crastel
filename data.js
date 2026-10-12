@@ -336,6 +336,7 @@ const WORKS = [
     ],
 
     vicende: [
+      { data: "2021-11-14", tipo: "stampa", cosa: "Sleepy Songs presenta «Drone», il brano per pianoforte di Marco Crivellaro nel disco della colonna sonora", testata: "Sleepy Songs", url: "https://sleepysongs.se/spotted/spotted-marco-crivellaro-drone/" },
       { data: "2024-09-20", tipo: "proiezione", cosa: "Serata «Settembre in Villa» del CAI di Treviso", testata: "CAI Treviso", url: "https://www.caitreviso.it/2024/08/settembre-in-villa-venerdi-20-settembre-2024/" },
       { data: "2020-04-01", tipo: "stampa", cosa: "Outdoor Magazine: il corto esce online per tutti", testata: "Outdoor Magazine", url: "https://outdoormagazine.it/2020/04/01/donnafugata-ora-disponibile-anche-on-line/" },
       { data: "2020-04-01", tipo: "stampa", cosa: "Sportdimontagna presenta il film disponibile online", testata: "Sportdimontagna", url: "https://www.sportdimontagna.com/alpinismo/donna-fugata" },
@@ -511,6 +512,7 @@ const WORKS = [
     awards: [],
 
     vicende: [
+      { data: "2023-01", tipo: "premio", cosa: "Menzione d'onore ai Robinson Film Awards, con il titolo internazionale «Little Love Story»", testata: "Robinson Film Awards", url: "https://robinsonfilmawards.altervista.org/little-love-story/" },
       { data: "2022-04-09", tipo: "uscita", cosa: "Uscita del cortometraggio" },
     ],
 
