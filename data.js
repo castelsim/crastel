@@ -1108,6 +1108,63 @@ const REWORKS = REWORK_BASE.map((r, i) => ({
 
 WORKS.push(...REWORKS);
 
+/* ---------- release: brani CRASTEL pubblicati da Audio Library ----------
+   Richiesta di Marco (13/10/2026): una sezione «Release» dopo i Rework, con YouTube e Spotify.
+   [CERTO] verificati il 13/10: video sul canale «Audio Library Plus — Official Releases»
+   (yt-dlp), brano su Spotify (oEmbed + music:release_date) e su Apple Music (iTunes Search API). */
+const RELEASE_BASE = [
+  { slug: "wanderlust", titolo: "Wanderlust", data: "2019-11-04", quando: "4 novembre 2019", durata: "3:53",
+    yt: "79mSePaZkOU", spotify: "3f2cPZ3or5meOtbjpsDBIy",
+    apple: "https://music.apple.com/it/album/wanderlust/1485817712" },
+  { slug: "adventures", titolo: "Adventures", data: "2021-03-09", quando: "9 marzo 2021", durata: "3:14",
+    yt: "qYluqO47lEI", spotify: "07GzUX2PNlAsDG62JBiUUT",
+    apple: "https://music.apple.com/it/album/adventures/1555830333" },
+];
+
+const RELEASES = RELEASE_BASE.map((r, i) => ({
+  slug: "release-" + r.slug,
+  release: true,
+  gruppo: "Release",
+  type: "Singolo",
+  title: r.titolo,
+  year: r.data.slice(0, 4),
+  typeLine: "CRASTEL — Audio Library Release",
+  featured: false,
+  order: 200 + i,
+  director: "",
+  production: "Audio Library",
+  distributor: "",
+  firma: "CRASTEL",
+  role: ["Brano originale"],
+  awards: [],
+  cover: "assets/yt-" + r.yt + ".jpg",
+  stills: [],
+  trailer: {
+    platform: "youtube",
+    id: r.yt,
+    channel: "Audio Library Plus — Official Releases",
+    url: "https://www.youtube.com/watch?v=" + r.yt,
+    embedUrl: "https://www.youtube-nocookie.com/embed/" + r.yt,
+    label: "Ascolta su YouTube",
+  },
+  soundtrack: {
+    spotify: "https://open.spotify.com/track/" + r.spotify,
+    appleMusic: r.apple,
+    tracks: 1,
+    released: r.data.slice(0, 4),
+    label: "Ascolta «" + r.titolo + "»",
+  },
+  description:
+    "Brano di CRASTEL pubblicato da Audio Library, il catalogo di musica per chi crea video su YouTube.",
+  credits: [
+    ["Uscita", r.quando],
+    ["Durata", r.durata],
+    ["Pubblicato da", "Audio Library"],
+  ],
+}));
+
+WORKS.push(...RELEASES);
+
 /* ============================================================
    COSA FACCIAMO — testo pensato per essere letto e citato
    Le AI che rispondono a domande («chi scrive musica per documentari?»)
