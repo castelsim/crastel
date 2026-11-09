@@ -86,6 +86,7 @@ const WORKS = [
     awards: [],
 
     vicende: [
+      { data: "2023-04-07", tipo: "stampa", cosa: "La recensione di Cinefilos", testata: "Cinefilos", url: "https://www.cinefilos.it/serie-tv/recensione/il-caso-alex-schwazer-568219" },
       { data: "2023-04-13", tipo: "uscita", cosa: "Esce su Netflix in quattro episodi" },
       { data: "2023-04-12", tipo: "stampa", cosa: "L'ANSA annuncia l'arrivo della docuserie", testata: "ANSA", url: "https://www.ansa.it/sito/notizie/cultura/tv/2023/04/12/il-caso-alex-schwazer-arriva-su-netflix-la-docuserie_102c22e9-9e9f-401d-9d32-dfc981ca138b.html" },
       { data: "2023-04-24", tipo: "stampa", cosa: "Rivista Undici: «Il caso Alex Schwazer e la violenza della gogna»", testata: "Rivista Undici", url: "https://www.rivistaundici.com/2023/04/24/alex-schwazer-serie-netflix/" },
@@ -144,6 +145,7 @@ const WORKS = [
     awards: [],
 
     vicende: [
+      { data: "2024-07-15", tipo: "stampa", cosa: "La recensione di Cinefilos", testata: "Cinefilos", url: "https://www.cinefilos.it/serie-tv/recensione/il-caso-yara-631962" },
       { data: "2024-07-16", tipo: "uscita", cosa: "Esce su Netflix in cinque episodi" },
       { data: "2024-07-27", tipo: "stampa", cosa: "Prima Bergamo: «fa discutere mezza Italia, ma è bello oltre ogni dubbio»", testata: "Prima Bergamo", url: "https://primabergamo.it/attualita/il-caso-yara-su-netflix-fa-discutere-mezza-italia-ma-e-bello-oltre-ogni-dubbio/" },
       { data: "2024-07", tipo: "stampa", cosa: "Il Messaggero segue l'uscita e le polemiche", testata: "il Messaggero", url: "https://www.ilmessaggero.it/spettacoli/serietv/yara_gambirasio_serie_netflix_dove_vederla_polemiche_perche-8244907.html" },
