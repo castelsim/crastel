@@ -495,6 +495,45 @@ const WORKS = [
   },
 
   {
+    slug: "un-altra-vita",
+    gruppo: "Docufilm",
+    type: "Docufilm",
+    title: "Un'altra vita",
+    titleEn: null,
+    year: "2026",
+    typeLine: "Docufilm — regia di Walter Molfese",
+    featured: true,
+    order: 8.5,
+
+    director: "Walter Molfese", // [CERTO] Vimeo ufficiale + mail di Marco
+    production: "",
+    distributor: "",
+    firma: "",
+    contributi: [["Musiche originali", "Marco Crivellaro"], ["Produzione musicale e post-produzione audio", "Simone Castellan"]],
+    role: ["Musica originale"],
+    awards: [],
+
+    cover: "assets/vimeo-1238115147.jpg",
+    stills: [],
+
+    trailer: {
+      platform: "vimeo",
+      id: "1238115147",
+      channel: "Walter Molfese",
+      url: "https://vimeo.com/1238115147",
+      embedUrl: "https://player.vimeo.com/video/1238115147",
+      label: "Guarda il trailer",
+    },
+    soundtrack: {},
+
+    description:
+      "«Un'altra vita» è la storia di Donato Telesca nei nove mesi che precedono le Paralimpiadi di Parigi: la sua occasione di riscrivere la storia. Allenamenti duri, gare tesissime, ma anche la vita di un ragazzo che, fuori dalla palestra, affronta le stesse sfide di tutti, con un peso in più da portare e la forza di chi è «dominato dal demone dell'insoddisfazione». Pietragalla, Ariano Irpino, Dubai, Roma, Tbilisi, Parigi. Il viaggio di Donato, della famiglia, del coach e dei suoi amici verso il raggiungimento di un sogno.",
+    credits: [
+      ["Regia", "Walter Molfese"],
+    ],
+  },
+
+  {
     slug: "piccola-storia-damore",
     title: "Piccola Storia d'Amore",
     titleEn: null,
