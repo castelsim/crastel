@@ -71,6 +71,7 @@ Si scrive dal modulo del sito indicando a che punto è il progetto e cosa serve.
 
 ### Lavori
 - [Tutti i lavori](https://crastelstudio.com/lavori/)
+- [Parlano di noi: stampa e festival](https://crastelstudio.com/parlano-di-noi/)
 - [Il caso Alex Schwazer (2023)](https://crastelstudio.com/lavori/alex-schwazer/)
 - [Il caso Yara: oltre ogni ragionevole dubbio (2024)](https://crastelstudio.com/lavori/il-caso-yara/)
 - [Immenso Blu (2021)](https://crastelstudio.com/lavori/immenso-blu/)

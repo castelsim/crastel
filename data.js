@@ -526,6 +526,11 @@ const WORKS = [
     },
     soundtrack: {},
 
+    // [CERTO] Rai News · TGR Basilicata, 11/11/2026: servizio di 1'44" sull'anteprima al Matera Film Festival (la pagina non nomina la musica)
+    vicende: [
+      { data: "2026-11-11", tipo: "stampa", cosa: "Il servizio del TGR Basilicata sull'anteprima del documentario al Matera Film Festival: «a Matera l'anteprima del documentario sul pesista Donato Telesca»", testata: "Rai News · TGR Basilicata", url: "https://www.rainews.it/tgr/basilicata/video/2026/11/un-altra-vita-matera-film-festival-matera-donato-telesca-documentario--bd0b3da2-7018-45aa-8c65-372c0f2e89a8.html" },
+    ],
+
     description:
       "«Un'altra vita» è la storia di Donato Telesca nei nove mesi che precedono le Paralimpiadi di Parigi: la sua occasione di riscrivere la storia. Allenamenti duri, gare tesissime, ma anche la vita di un ragazzo che, fuori dalla palestra, affronta le stesse sfide di tutti, con un peso in più da portare e la forza di chi è «dominato dal demone dell'insoddisfazione». Pietragalla, Ariano Irpino, Dubai, Roma, Tbilisi, Parigi. Il viaggio di Donato, della famiglia, del coach e dei suoi amici verso il raggiungimento di un sogno.",
     credits: [

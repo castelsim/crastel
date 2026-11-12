@@ -41,6 +41,7 @@ export const PAGINE_SERVIZIO = [
   ["Sonorizzazione di film muti", "/sonorizzazione-film-muto/"],
   ["Quanto costa una colonna sonora", "/quanto-costa-una-colonna-sonora/"],
   ["Compositori in Veneto", "/compositore-veneto/"],
+  ["Parlano di noi", "/parlano-di-noi/"],
 ];
 
 export const CSS = `

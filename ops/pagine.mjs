@@ -16,6 +16,7 @@ import {
   PAGINE_SERVIZIO, testa, piede, invito, scriviSitemap,
 } from "./comune.mjs";
 import { SERVIZI } from "./servizi.mjs";
+import { PARLANO, IN_EVIDENZA } from "./parlano.mjs";
 
 const dati = leggiDati();
 const LAVORI = inCatalogo(dati.WORKS);
@@ -359,6 +360,55 @@ const paginaServizio = (s) => {
   );
 };
 
+
+/* ============================================================
+   PARLANO DI NOI
+   ============================================================ */
+const paginaParlano = () => {
+  const percorso = "/parlano-di-noi/";
+  const titolo = "Parlano di noi — stampa e festival | CRASTEL Studio";
+  const descrizione = "Giornali, festival e riviste che citano le musiche di CRASTEL Studio: Un'altra vita a Matera, Il mistero del Phandambiri, Trodoi Trails, Premio Mercurio d'Argento, Immenso Blu, Donnafugata.";
+  for (const v of [IN_EVIDENZA, ...PARLANO]) if (!perSlug.has(v.slug) && !v.lavoro) throw new Error(`parlano.mjs: «${v.slug}» non è nel catalogo`);
+  const riga = (v) => {
+    const w = perSlug.get(v.slug);
+    const scheda = w ? `<a href="/lavori/${esc(w.slug)}/">${esc(w.title)}</a>` : esc(v.lavoro);
+    return `<div class="vicenda stampa"><span class="quando">${esc(quando(v.data))}</span><span class="cosa"><a href="${esc(v.url)}" rel="noopener">${esc(v.titolo || v.cosa)}</a><span class="fonte">${esc(v.testata)} · ${scheda}</span></span></div>`;
+  };
+  const jsonld = {
+    "@context": "https://schema.org",
+    "@graph": [
+      { "@type": "CollectionPage", "@id": SITO + percorso, name: "Parlano di noi", url: SITO + percorso, isPartOf: { "@id": STUDIO_ID } },
+      { "@type": "BreadcrumbList", itemListElement: [
+        { "@type": "ListItem", position: 1, name: "CRASTEL Studio", item: `${SITO}/` },
+        { "@type": "ListItem", position: 2, name: "Parlano di noi", item: SITO + percorso },
+      ] },
+    ],
+  };
+  const doc = perSlug.get(IN_EVIDENZA.slug);
+  return (
+    testa({ titolo, descrizione, percorso, immagine: doc.cover, jsonld }) +
+    `
+<main>
+  <p class="briciole"><a href="/">CRASTEL Studio</a> — Parlano di noi</p>
+  <h1>Parlano di noi<em>stampa, festival e programmi di sala</em></h1>
+  <div class="corpo" style="grid-template-columns:1fr">
+    <div>
+      <p>Le uscite che citano la musica di CRASTEL, in ordine di data, con il link alla fonte. Ogni voce rimanda alla scheda del lavoro.</p>
+      <h2>Ultima uscita</h2>
+      <div class="vicende">${riga(IN_EVIDENZA)}</div>
+      <p style="margin-top:14px"><a href="/lavori/${esc(doc.slug)}/">${esc(doc.title)}</a> è il nostro documentario più recente: regia di Walter Molfese, musiche originali di Marco Crivellaro, produzione musicale e post-produzione audio di Simone Castellan.</p>
+      <h2>Articoli e programmi che citano la nostra musica</h2>
+      <div class="vicende">
+        ${PARLANO.map(riga).join("\n        ")}
+      </div>
+    </div>
+  </div>
+  ${invito()}
+</main>
+` + piede()
+  );
+};
+
 /* ============================================================
    SCRITTURA
    ============================================================ */
@@ -367,6 +417,7 @@ LAVORI.forEach((w, i) => scrivi(`lavori/${w.slug}`, paginaLavoro(w, i)));
 console.log(`lavori/: elenco + ${LAVORI.length} pagine`);
 
 for (const s of SERVIZI) scrivi(s.slug, paginaServizio(s));
+scrivi("parlano-di-noi", paginaParlano());
 console.log(`servizi e guide: ${SERVIZI.map((s) => s.slug).join(", ")}`);
 
 /* llms.txt: gli assistenti leggono questo file per sapere dove sta cosa */
@@ -380,6 +431,7 @@ ${SERVIZI.map((s) => `- [${s.h1}](${SITO}/${s.slug}/): ${s.descrizione}`).join("
 
 ### Lavori
 - [Tutti i lavori](${SITO}/lavori/)
+- [Parlano di noi: stampa e festival](${SITO}/parlano-di-noi/)
 ${LAVORI.map((w) => `- [${w.title} (${w.year})](${SITO}/lavori/${w.slug}/)`).join("\n")}
 ${FINE}`;
   let testo = readFileSync(llms, "utf8");
